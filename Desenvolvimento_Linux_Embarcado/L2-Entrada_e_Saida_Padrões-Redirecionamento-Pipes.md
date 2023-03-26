@@ -4,8 +4,12 @@ Além da saída padrão, tem-se também a saída de erro (stderr - standard erro
 Por fim, os programas possuem também uma entrada padrão, em que eles esperam entrada de valores para serem manipulados. Em geral, essa entrada é o teclado. Nem todos os programas esperam alguma entrada, mas os que precisam, fazem-no através da entrada padrão.
 A figura a seguir mostra uma visão geral dessas entradas e saídas:
 
+![stdout](https://user-images.githubusercontent.com/33138839/227758062-c1bf05d0-7283-468a-a27a-c46e571009c9.svg)
+
+
 O Linux permite redirecionar as saídas para arquivos (veremos na próxima seção) ou até mesmo para a entrada de outros programas (veremos mais adiante).
-### 1. Redirecionando a Saída para ArquivosPara redirecionar a saída padrão para um arquivo, usamos o caractere > (maior que):
+### 1. Redirecionando a Saída para Arquivos
+Para redirecionar a saída padrão para um arquivo, usamos o caractere > (maior que):
 ```
 ls -lh /usr/bin > ArquivosDoBin.txt
 ```
@@ -18,7 +22,7 @@ lrwxrwxrwx 1 root root        4 mai 25  2022 zstdcat -> zstd
 -rwxr-xr-x 1 root root       30 mar 24  2022 zstdless
 lrwxrwxrwx 1 root root        4 mai 25  2022 zstdmt -> zstd
 ```
-<strong>Comando echo<strong>
+### Comando echo
 Podemos usar o comando echo para escrever uma mensagem na saída padrão:
 ```
 echo -e "(\(\\ \n(-.-)\no_(\")(\")"
@@ -90,6 +94,8 @@ O comando anterior ficará esperando por linhas na entrada padrão (teclado) e i
 ### Usando o pipe para Redirecionar a Saída
 Assim como nós redirecionamos a saída dos programas para um arquivo na seção anterior, nós podemos redirecionar a saída de um programa para ser a entrada para outro programa. Isso é feito através do caractere |, conhecido no mundo Unix como pipe (do inglês, cano, tubo). A figura a seguir ilustra o uso do pipe, ignorando a saída de erro para simplificar:
 
+![pipe](https://user-images.githubusercontent.com/33138839/227758070-abbec8be-a889-426a-ae69-56ee45751a09.svg)
+
 Note como a saída de um programa (stdout) vira a entrada para outro programa (stdin).
 No comando a seguir, usaremos o cat para enviar o conteúdo do arquivo /proc/cpuinfo para a saída padrão. Em seguida, estamos usando o pipe para redirecionar a saída do cat para a entrada do comando grep, usado para filtrar apenas as linhas que possuem o conteúdo "model name":
 ```
@@ -129,5 +135,5 @@ mas também nos outros campos (diretório home, shell, etc). Você consegue faze
 usuários que possuem "h" no login (primeiro campo). Use o comando cut para mostrar só o primeiro campo. Dê um cat no arquivo passwd 
 para você ver o seu formato. Os campos são separados por ":" (dois pontos). 
 ```
-update
+cat /etc/passwd | grep "h" | cut -d: -f1 | wc -c
 ```
