@@ -55,7 +55,9 @@ Para facilitar o uso do Linux, o mesmo é utilizado através de "distribuições
 * Debian
 * Ubuntu
 * Fedora
-* Mint
+* Mint 
+
+![distros](https://user-images.githubusercontent.com/33138839/227759568-cf8c88e2-c458-43c8-96f2-8900b0eb3348.svg)
 
 Neste curso, utilizaremos o Linux Mint (edição Cinnamon) versão 20.3. Você pode utilizar outras distribuições, mas recomendamos que seja uma baseada no Debian, como o Ubuntu ou alguma outra edição do Mint.
 O Linux, propriamente dito, é apenas o kernel (núcleo) do sistema. A interface gráfica que vemos é implementada por um gerenciador de janelas conhecido como X.Org. Já o desktop é conhecido como desktop environment. O Linux possui vários desktop environments. Os principais são:
@@ -63,6 +65,9 @@ O Linux, propriamente dito, é apenas o kernel (núcleo) do sistema. A interface
 * KDE
 * Cinnamon
 * Xfce
+
+![desktops](https://user-images.githubusercontent.com/33138839/227759584-a3038324-f914-4e60-97ab-1ec369805f9e.svg)
+
 ### 2. Instalação do Linux
 Não entraremos nos detalhes da instalação de uma distribuição, pois isso varia de uma para outra. Entretanto, os passos principais e comuns entre eles são:
 1.Entrar no site da distribuição
@@ -127,15 +132,9 @@ ls -l /etc/host*
 -rw-r--r-- 1 root root 711 abr 19  2022 /etc/hosts.deny
 ```
 A figura a seguir identifica os detalhes de um dos arquivos acima:
--		rw-r--r--	 	1	 	root	 	root	 	42	 	Oct 21 2015	 	/etc/hosts
-Tipo		
-Permissões		
-Links		
-Dono		
-Grupo		
-Tamanho		
-Data de Modificação		
-Nome do Arquivo	
+
+![permisao](https://user-images.githubusercontent.com/33138839/227759596-4d11ed1b-afb7-42af-8951-1f835b1af37c.png)
+
 Já a opção -h do ls faz com que os tamanhos dos arquivos sejam legíveis a humanos (com K, M ou G), ao invés de serem em bytes. Note também no exemplo abaixo, que podemos combinar opções usando só um traço:
 ```
 ls -lh /bin/ls
@@ -272,10 +271,14 @@ Atom
 Sublime
 Visual Studio Code
 
+![editores](https://user-images.githubusercontent.com/33138839/227759611-88a946b4-7c1d-4c74-b1de-4cd7c8987078.svg)
+
+
 Por fim, o Linux possui ainda IDEs (Integrated Development Environments) completos como:
 Eclipse
 KDevelop
 IntelliJ
+![ides](https://user-images.githubusercontent.com/33138839/227759634-4641855e-390b-4a40-bed3-d734d6949ac9.svg)
 
 Neste curso, usaremos o editor code, mas você pode utilizar qualquer outro de sua preferência:
 code ArquivoTeste.txt
