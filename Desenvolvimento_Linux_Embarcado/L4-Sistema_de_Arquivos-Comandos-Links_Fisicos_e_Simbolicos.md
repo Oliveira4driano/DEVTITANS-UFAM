@@ -100,6 +100,8 @@ Você pode executar o comando anterior no diretório raiz para ver os diretório
 ### 4. Links Físicos e Simbólicos
 Alguns arquivos são, na verdade, links (referências, ligações) para outros arquivos. Existem dois tipos de links: simbólicos (mais comuns) e físicos (do inglês, hard links). O link simbólico é apenas um redirecionamento para o nome original do arquivo. Já o link físico é um pouco mais "baixo nível". Ele aponta diretamente para os dados originais no disco. É como se tivéssemos dois arquivos apontando fisicamente para o mesmo conteúdo no disco. A figura a seguir ilustra esses dois tipos de links:
 
+![links](https://user-images.githubusercontent.com/33138839/227754803-0f2efd19-813a-4b6b-bcd6-b645c21b8a8c.svg)
+
 Estes links são criados através do comando ln. Para entender melhor, vamos ver um exemplo prático:
 ```
 cd                                 # Volta para o diretório Home (~)
@@ -170,6 +172,8 @@ Mensagem concatenada no link físico
 Note como a quantidade de links físicos no comando ls reduziu para 1 (um). Note também que o acesso aos dados através do segundo arquivo ArquivoLinkFisico.txt continua válido. Ou seja, um arquivo no Linux só é removido de verdade quando todos os links físicos para ele são removidos.
 ### 5. Os Diretórios "." e ".." são Links Físicos
 Vamos aproveitar a oportunidade para voltar aos diretórios "." e "..". Conforme mencionamos, eles apontam para o diretório atual e para o anterior, respectivamente. Podemos agora falar que eles são links físicos para os diretórios. A imagem a seguir ilustra os links físicos criados por estes dois diretórios especiais:
+
+![folders-dot](https://user-images.githubusercontent.com/33138839/227754810-2081b73f-b71b-4d6c-8200-45d07563aa04.svg)
 
 Para ver isso na prática, execute o comando ls abaixo e observe os links físicos dos diretórios:
 ```
