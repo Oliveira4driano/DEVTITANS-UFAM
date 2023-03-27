@@ -39,11 +39,42 @@ cd android_aosp_source_code
 ```
 
 * Faça o repo init. O repo init consiste em baixar o manifest.xml em um diretório oculto .repo, além de preparar o terreno para baixar os repositórios (algo a ser feito no próximo passo).
+```
 repo init -u https://android.googlesource.com/platform/manifest
+```
+### Problem scenario:
+```
+/usr/bin/env: ‘python’: No such file or directory
+```
+Possible Solution #1
+
+If Python 3 is not installed, install it: 
+```
+apt-get install python3
+```
+Possible Solution #2
+
+If Python 3 has been installed, run these commands: 
+```
+whereis python3
+```
+Then we create a symlink to it: sudo ln -s /usr/bin/python3 /usr/bin/python
 * Uma vez feito o repo init, tudo está preparado para baixar de fato os repositórios (listados no manifest). Para isso execute o comando repo sync e aguarde. O download demora bastante, uma vez que pode vir, facilmente, mais de 30 GB de conteúdo.
-´´´
+```
 repo sync -j4
-´´´
+```
+### Baixando o AOSP versão especifica
+ Por padrão, o <strong>repo</strong> irá baixar a branch de desenvolvimento (master) do AOSP
+ podemos baixar uma versão especifica do Android indicando o branch com <string>-b</strong>
+ ```
+ repo init -u https://android.googlesource.com/platform/manifest\-b android-12.1.0_r26
+ ```
+ A lista de branches existentes está disponivél no site
+ ```
+ https://source.android.com/docs/setup/about/build-numbers
+ https://developer.android.com/ndk/downloads/revision_history
+ ```
+ 
 # Compilação do AOSP
 Assim que a execução do repo sync for terminada, todo o código-fonte do AOSP já estará à sua disposição. O próximo passo é, portanto, fazer a compilação do AOSP. A compilação do Android é formada por duas etapas distintas: preparação do ambiente de compilação (onde as variáveis de ambiente necessárias são configuradas) e a compilação propriamente dita.
 
