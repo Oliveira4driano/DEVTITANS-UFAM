@@ -74,11 +74,20 @@ repo sync -j4
  https://source.android.com/docs/setup/about/build-numbers
  https://developer.android.com/ndk/downloads/revision_history
  ```
+ ### Repositorios alternativos
+ A linaro fornece uma árvore alternativa com suporte a um conjunto maior de dispositivos de hardware com foco em ARM:
+ ```
+ repo init -u git://android.git.linaro.org/platform/manifest.git #https://git.linaro.org/
+ ```
+ O lineageOS possui verões customizadas focadas em dispositivos de consumo (smartphones e tablets):
+ ```
+ repo init -u https://github.com/LineageOS/android.git
+ ```
  
 # Compilação do AOSP
 Assim que a execução do repo sync for terminada, todo o código-fonte do AOSP já estará à sua disposição. O próximo passo é, portanto, fazer a compilação do AOSP. A compilação do Android é formada por duas etapas distintas: preparação do ambiente de compilação (onde as variáveis de ambiente necessárias são configuradas) e a compilação propriamente dita.
 
-* Preparação do ambiente de compilação: para isso, é utilizado um script para preparação das variáveis de ambiente e uma ferramenta (já contida no AOSP) chamada lunch. Essa ferramenta tem como utilidade permitir se escolher para qual dispositivo o AOSP será compilado e o tipo de Android a ser compilado (como, por exemplo, o tipo eng: um Android com privilégios de engenharia/root). Portanto, para preparar o ambiente de compilação, esteja na pasta em que o código-fonte do AOSP foi baixado (este artigo faz a suposição que esteja na pasta ~/android_aosp_source_code) e execute o comando abaixo:
+* Preparação do ambiente de compilação: para isso, é utilizado um script para preparação das variáveis de ambiente e uma ferramenta (já contida no AOSP) chamada <strong>lunch</strong>. Essa ferramenta tem como utilidade permitir se escolher para qual dispositivo o AOSP será compilado e o tipo de Android a ser compilado (como, por exemplo, o tipo <strong>eng</strong>: um Android com privilégios de <strong>engenharia/root</strong>). Portanto, para preparar o ambiente de compilação, esteja na pasta em que o código-fonte do AOSP foi baixado (este artigo faz a suposição que esteja na pasta ~/android_aosp_source_code) e execute o comando abaixo:
 ```
 source build/envsetup.sh
 ```
@@ -98,6 +107,14 @@ Ao final do processo de compilação, a build Android gerada estará disponível
  ```
 ~/android_aosp_source_code/out/target/product/generic/
  ```
+ ### ENVSETUP.SH
+ * lunch: seleciona o produtoe a variante de build para compilação.
+ * croot: volta para o diretório raiz do AOSP
+ * godir: vai para o diretório contendo o arquivo especifico
+ * cgrep: execute um grep em arquivos <strong>.c, .cpp e .h</strong>
+ * resgrep: executa um grep em arquivos de recurso <strong>*.xml</strong>
+ * mangrep: executa um grep em arquivos <strong>AndroidManifest.xml</strong>.
+ * hmm: exibe a lista completa de comandos disponíveis.
  # Emulação do AOSP
 O AOSP já vem com um emulador, o que facilita muito o aprendizado, testes e desenvolvimento com Android Embarcado.
 
