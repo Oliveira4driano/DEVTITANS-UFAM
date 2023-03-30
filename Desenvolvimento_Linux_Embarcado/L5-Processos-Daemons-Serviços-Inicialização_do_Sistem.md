@@ -137,30 +137,111 @@ root        1041       1  0 18:10 ?        00:00:00 /usr/sbin/cupsd -l
 root        1207    1201  1 18:10 tty1     00:00:51 /usr/lib/xorg/Xorg -nolisten tcp -auth /var/run/ ... 
 ```
 Talvez você não tenha alguns desses daemons, dependendo da sua instalação. A tabela a seguir descreve rapidamente cada um deles:
-Daemon	Descrição
-systemd-udevd	Como veremos futuramente, o systemd é a implementação mais usada do init hoje. Na verdade, o init é uma parte do systemd. Outra parte dele é o daemon systemd-udevd, que monitora e recebe mensagens de eventos de hardware do kernel e permite configurar os arquivos do /dev, /proc e /sys.
-systemd-resolved	Mais uma parte do systemd, responsável por "resolver" (descobrir o IP) de um nome DNS (Domain Name System).
-systemd-timesyncd	Mais uma parte do systemd, responsável por manter o relógio do computador sincronizado com um servidor da Internet usando o protocolo NTP (Network Time Protocol).
-systemd-logind	Gerencia o login e as sessões de usuários no sistema.
-cron	É um serviço que permite o agendamento de comandos a serem executados rotineiramente (diariamente, a cada hora, etc).
-atd	Outro serviço que permite o agendamento de comandos, mas estes são executados apenas uma vez em um determinado dia/horário.
-rsyslogd	É um utilitário do sistema que provê suporte às mensagens de log (do diretório /var/log).
-thermald	Usado para prevenir o aquecimento descontrolado do sistema. Este daemon monitora a temperatura da CPU e é capaz de tomar medidas para reduzir essa temperatura, caso necessário, antes que o próprio hardware tome medidas mais drásticas.
-acpid	Advanced Configuration and Power Interface, monitora eventos de hardware e notifica programas de usuários. Exemplos de eventos: tela do laptop abaixada, bateria desconectada, volume do som, eventos wifi, etc.
-cupsd	Common UNIX Printing System, é o servidor de impressão do Linux. Controla o acesso à impressora e permite o seu compartilhamento.
-Xorg	Servidor X. Oferece os serviços básicos de interface gráfica, incluindo a configuração e controle da tela, do mouse e do teclado.
+<table border=1>
+  <tr>
+    <td>Daemon</td>
+    <td>Descrição</td>
+  </tr>
+   <tr>
+    <td>systemd-udevd</td>
+    <td>Como veremos futuramente, o systemd é a implementação mais usada do init hoje. Na verdade, o init é uma parte do systemd. Outra parte dele é o daemon systemd-udevd, que monitora e recebe mensagens de eventos de hardware do kernel e permite configurar os arquivos do /dev, /proc e /sys.</td>
+  </tr>
+  <tr>
+    <td>systemd-resolved</td>
+    <td>Mais uma parte do systemd, responsável por "resolver" (descobrir o IP) de um nome DNS (Domain Name System).</td>
+  </tr>
+  <tr>
+    <td>systemd-timesyncd</td>
+    <td>Mais uma parte do systemd, responsável por manter o relógio do computador sincronizado com um servidor da Internet usando o protocolo NTP (Network Time Protocol).</td>
+  </tr>
+  <tr>
+    <td>systemd-logind</td>
+    <td>Gerencia o login e as sessões de usuários no sistema.</td>
+  </tr>
+   <tr>
+    <td>cron</td>
+    <td>É um serviço que permite o agendamento de comandos a serem executados rotineiramente (diariamente, a cada hora, etc).</td>
+  </tr>
+  <tr>
+    <td>atd</td>
+    <td>Outro serviço que permite o agendamento de comandos, mas estes são executados apenas uma vez em um determinado dia/horário.</td>
+  </tr>
+  <tr>
+    <td>rsyslogd</td>
+    <td>É um utilitário do sistema que provê suporte às mensagens de log (do diretório /var/log).</td>
+  </tr>
+  <tr>
+    <td>thermald</td>
+    <td>Usado para prevenir o aquecimento descontrolado do sistema. Este daemon monitora a temperatura da CPU e é capaz de tomar medidas para reduzir essa temperatura, caso necessário, antes que o próprio hardware tome medidas mais drásticas.</td>
+  </tr>
+  <tr>
+    <td>acpid</td>
+    <td>Advanced Configuration and Power Interface, monitora eventos de hardware e notifica programas de usuários. Exemplos de eventos: tela do laptop abaixada, bateria desconectada, volume do som, eventos wifi, etc.</td>
+  </tr>
+  <tr>
+    <td>cupsd</td>
+    <td>Common UNIX Printing System, é o servidor de impressão do Linux. Controla o acesso à impressora e permite o seu compartilhamento.</td>
+  </tr>
+  <tr>
+    <td>Xorg</td>
+    <td>Servidor X. Oferece os serviços básicos de interface gráfica, incluindo a configuração e controle da tela, do mouse e do teclado.</td>
+  </tr>
+</table>
+
+	
+	
+	
+	
+	
 ### Inicialização do Linux
 Vários passos compõem a inicialização de um computador desde o botão power até a inicialização do ambiente gráfico. Nesta parte do laboratório, iremos mostrar, detalhar e tentar explorar um pouco cada um desses passos. A figura a seguir mostra uma visão geral de todo o processo de inicialização de um sistema Linux:
 
 Segue uma descrição rápida de cada uma das partes mencionadas na figura:
-Etapa	Descrição
-BIOS	A BIOS (Basic Input/Output System) é um firmware responsável por inicializar o hardware, incluindo a memória principal. Ele provê também diversos serviços ao sistema operacional. Após a sua inicialização, a BIOS executa o bootloader chamando um pequeno programa na parte inicial do disco, conhecida como MBR (Master Boot Record).
-Bootloader	O bootloader do Linux é o GRUB. Ele é dividido em dois estágios. No primeiro estágio, um pequeno programa localizado no início do disco (MBR) é chamado. Como seu tamanho é limitado (menos de 500 bytes), ele basicamente chama outro estágio, localizado dentro de alguma partição. Ao ser iniciado, um menu pode ser mostrado ao usuário para permitir escolher qual sistema operacional será iniciado. Para iniciar o Linux, o bootloader carrega o kernel para a memória e o executa.
-Kernel	O Kernel inicializa e carrega os drivers do hardware. Ele provê também uma série de serviços para os programas de usuários tais como gerenciamento de memória, escalonamento do processador e facilita o acesso aos dispositivos de hardware. Após inicializado, o kernel chama o primeiro processo do sistema: o init.
-Init/Systemd	O init é responsável por configurar o sistema e iniciar os outros programas/daemons necessários. Atualmente, no Linux, o init é implementado pelo systemd, que fornece também uma série de outras funcionalidades, como o gerenciamento dos serviços iniciados. Uma das principais características do Systemd é permitir a inicialização de diversos serviços em paralelo, tirando proveito máximo do processador. Um desses serviços é o Display Manager.
-Display Manager	O display manager é responsável por gerenciar as sessões dos usuários. Tais sessões são iniciadas, normalmente, via login gráfico. Portanto, uma das primeiras coisas que o display manager faz é iniciar o X Server. Após feito o login, ele inicia o desktop environment padrão ou o selecionado pelo usuário (é possível ter vários no mesmo sistema).
-X Server	O X Server, mais conhecido como X Window System display server, é responsável por gerenciar o ambiente gráfico e os dispositivos de entrada e saída como mouse, teclado, touchscreen, etc. O mais usado atualmente é o XOrg.
-Desktop Environment	O desktop environment é a interface gráfica que o usuário normal usa. Ele pinta as janelas, possui uma série de utilitários, configurações, etc. Conforme mencionado, existem vários desktop environments para Linux, sendo os mais conhecidos: GNOME, KDE, Cinnamon, Xfce, Mate, LXQt, Deepin, dentre vários outros.
+<table border=1>
+  <tr>
+    <td>Etapa</td>
+    <td>Descrição</td>
+  </tr>
+  <tr>
+    <td>BIOS</td>
+    <td>A BIOS (Basic Input/Output System) é um firmware responsável por inicializar o hardware, incluindo a memória principal. 
+      Ele provê também diversos serviços ao sistema operacional. Após a sua inicialização, a BIOS executa o bootloader chamando um 
+      pequeno programa na parte inicial do disco, conhecida como MBR (Master Boot Record).</td>
+  </tr>
+  <tr>
+    <td>Bootloader</td>
+    <td>O bootloader do Linux é o GRUB. Ele é dividido em dois estágios. No primeiro estágio, um pequeno programa localizado no início do disco (MBR) é chamado. Como seu tamanho é limitado (menos de 500 bytes), ele basicamente chama outro estágio, localizado dentro de alguma partição. Ao ser iniciado, 
+      um menu pode ser mostrado ao usuário para permitir escolher qual sistema operacional será iniciado. Para iniciar o Linux, o bootloader carrega o kernel para a memória e o executa.</td>
+  </tr>
+  <tr>
+    <td>Kernel</td>
+    <td>O Kernel inicializa e carrega os drivers do hardware. Ele provê também uma série de serviços para os programas de usuários tais como gerenciamento de memória, escalonamento do processador e facilita o acesso aos dispositivos de hardware. Após inicializado, o kernel chama o primeiro processo do sistema: o init.</td>
+  </tr>
+  <tr>
+    <td>Init/Systemd</td>
+    <td>O init é responsável por configurar o sistema e iniciar os outros programas/daemons necessários. Atualmente, no Linux, o init é implementado pelo systemd, que fornece também uma série de outras funcionalidades, como o gerenciamento dos serviços iniciados. Uma das principais características do Systemd é permitir a inicialização de diversos serviços em paralelo, tirando proveito máximo do processador. Um desses serviços é o Display Manager.</td>
+  </tr>
+  <tr>
+    <td>Display Manager</td>
+    <td>O display manager é responsável por gerenciar as sessões dos usuários. Tais sessões são iniciadas, normalmente, via login gráfico. Portanto, uma das primeiras coisas que o display manager faz é iniciar o X Server. Após feito o login, ele inicia o desktop environment padrão ou o selecionado pelo usuário (é possível ter vários no mesmo sistema).</td>
+  </tr>
+  <tr>
+    <td>X Server</td>
+    <td>O X Server, mais conhecido como X Window System display server, é responsável por gerenciar o ambiente gráfico e os dispositivos de entrada e saída como mouse, teclado, touchscreen, etc. O mais usado atualmente é o XOrg.</td>
+  </tr>
+  <tr>
+    <td>Desktop Environment</td>
+    <td>O desktop environment é a interface gráfica que o usuário normal usa. Ele pinta as janelas, possui uma série de utilitários, configurações, etc. Conforme mencionado, existem vários desktop environments para Linux, sendo os mais conhecidos: GNOME, KDE, Cinnamon, Xfce, Mate, LXQt, Deepin, dentre vários outros.</td>
+  </tr>
+</table>
+	
+	
+	
+	
+	
+	
+	
+	
 Um sistema Linux pode ser configurado para não usar interface gráfica, como acontece com muitos servidores. Neste caso, o init não inicia o X Server e os passos seguintes são ignorados. Ao invés disso, apenas um sistema de login em modo texto estará disponível.
 Na seção anterior, dissemos que um dos componentes do systemd era o init, um dos principais componentes da arquitetura de inicialização de um sistema Linux. Podemos provar isso, olhando mais cuidadosamente para o
 ### 5. Inicialização do Init pelo Kernel
