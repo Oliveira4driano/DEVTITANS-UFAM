@@ -196,6 +196,8 @@ Talvez você não tenha alguns desses daemons, dependendo da sua instalação. A
 ### Inicialização do Linux
 Vários passos compõem a inicialização de um computador desde o botão power até a inicialização do ambiente gráfico. Nesta parte do laboratório, iremos mostrar, detalhar e tentar explorar um pouco cada um desses passos. A figura a seguir mostra uma visão geral de todo o processo de inicialização de um sistema Linux:
 
+![initialization-linux](https://user-images.githubusercontent.com/33138839/229956070-922afa37-24b6-4e65-a434-b437fe02a108.svg)
+
 Segue uma descrição rápida de cada uma das partes mencionadas na figura:
 <table border=1>
   <tr>
@@ -258,9 +260,10 @@ if (!try_to_run_init_process("/sbin/init") || !try_to_run_init_process("/etc/ini
 ```
 Por fim, caso o init não tenha sido encontrado, o kernel tenta iniciar um shell (/bin/sh) para permitir ao administrador resolver o problema.
 Caso nem o shell tenha sido encontrado, qual a mensagem impressa pelo kernel?
-
+```
 panic(No working init found. Try passing init= option to kernel. 
 See Linux Documentation/admin-guide/init.rst for guidance.);
+```
 Em qual das formas acima o Kernel do Linux encontra o init no seu sistema? Vamos investigar! O primeiro passo é verificar as opções passadas para o kernel:
 ```
 $ cat /proc/cmdline
@@ -271,8 +274,9 @@ Como você pode ver (provavelmente), a opção init= não foi passada. Vamos ago
 $ ls -fd /sbin/init /etc/init /bin/init      # f: não ordena, d: mostra nome de diretório (não o seu conteúdo)
 ls: cannot access '/bin/init': No such file or directory
 /sbin/init  /etc/init
-
+```
 Muito provavelmente, o /bin/init não existe no seu sistema. O /etc/init é um diretório, e não um executável. Portanto, o init realmente chamado pelo kernel é o /sbin/init.
+
 ### 6. O Init e o Systemd
 Anteriormente, mencionamos que o init é uma de várias partes do systemd. Podemos confirmar isso olhando mais detalhadamente para o /sbin/init:
 ```
