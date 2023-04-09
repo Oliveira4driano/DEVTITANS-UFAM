@@ -580,7 +580,15 @@ Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "RaizQuadrada.java"
 Nota da questão 0.0 / 0.1
 ```
-a
+public class RaizQuadrada {
+    public static void main(String[] args) {
+       
+        System.out.println("Digite a raiz");
+        Scanner scan = new Scanner(System.in);
+        double raiz = Math.sqrt(scan.nextInt());
+        System.out.printf("%.4f\n", raiz);
+    }
+}
 ```
 ### Q8 Pintura do Muro
 Mário precisa pintar um muro, que tem 12m de comprimento e 3m de altura. O material de pintura (galão de tinta, lixa, rolo, etc.) custa R$100. Cada pintor cobra um preço diferente por m² pelo serviço de pintura. Escreva uma classe chamada PinturaMuro em Java que, dado o valor cobrado por um pintor (R$/m²), informe o custo total da pintura (com uma casa decimal).
