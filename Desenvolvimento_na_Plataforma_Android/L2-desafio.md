@@ -122,7 +122,77 @@ Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "AsciiArt.java"
 Nota da questão 0.0 / 0.1
 ```
-a
+public class AsciiArt {
+    //Função que imprime o preechimento
+    public static void preenche(int n) {
+        int i;
+        for (i=1; i <= n; i++){
+            System.out.print("*");
+        }
+        //System.out.print("\n");
+    }
+    
+    //Função que imprime o espaçamento
+    public static void espaco(int n){
+            int i;
+            for (i=1; i <= n; i++){  
+                System.out.print(" ");
+            }
+    }
+    
+    public static void main(String[] args) {
+	int tam, i;
+         tam =5;
+
+	for (i=tam; i>0; i--){		//Superior
+		preenche(i);		//Preenchimento esquerdo
+		espaco(2*(tam-i));	//Espaçamento central
+		preenche(i);		//Preenchimento direito
+		 System.out.printf("\n");	//Quebra de linha
+	}
+
+        
+    }
+    
+    
+}
+```
+```
+public class AsciiArt {
+    //Função que imprime o preechimento
+    public static void preenche(int n) {
+        int i;
+        for (i=1; i <= n; i++){
+            System.out.print("*");
+        }
+        //System.out.print("\n");
+    }
+    
+    //Função que imprime o espaçamento
+    public static void espaco(int n){
+            int i;
+            for (i=1; i <= n; i++){  
+                System.out.print(" ");
+            }
+    }
+    
+    public static void main(String[] args) {
+	int  i;
+          Scanner scan = new Scanner(System.in);
+         int tam = scan.nextInt();
+
+	for (i=tam; i>0; i--){		//Superior
+		preenche(i);		//Preenchimento esquerdo
+		espaco(2*(tam-i));	//Espaçamento central
+		preenche(i);		//Preenchimento direito
+		 System.out.printf("\n");	//Quebra de linha
+	}
+
+        
+    }
+    
+    
+}
 ```
 ### Q6-2 ASCII Art
 Escreva um programa (classe AsciiArt) que imprima uma figura semelhante à representada abaixo, a partir da leitura do número de asteriscos presentes na base. Por exemplo, para uma entrada igual a 5, o resultado produzido será igual ao da figura abaixo.
