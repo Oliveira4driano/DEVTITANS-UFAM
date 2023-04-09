@@ -18,7 +18,7 @@ Crie uma classe em Java chamada HelloGroot que imprima a mensagem "I am Groot".
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "HelloGroot.java" Solução correta!
 Nota da questão 1.0 / 1.0
-´´´
+```
 public class HelloGroot {
 
 	public static void main(String[] args) {
@@ -27,7 +27,7 @@ public class HelloGroot {
 	}
 
 }
-´´´
+```
 
 ### Q2 Média
 Crie uma classe em Java chamada Media que calcule e imprima, com duas casas decimais, a média aritmética de três números reais lidos do teclado.
@@ -44,7 +44,7 @@ Para imprimir algo formatado em Java, use o método System.out.printf(String for
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "Media.java" Solução correta!
 Nota da questão 0.0 / 1.5
-Temperatura Fahrenheit
+### Q3 Temperatura Fahrenheit
 Escreva uma classe chamada Fahrenheit que converta uma temperatura digitada de  em . Use apenas uma casa decimal na saída. A fórmula para essa conversão é:
 
 Exemplo de entrada e saída esperada:
@@ -53,7 +53,26 @@ Saída: 107.6
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "Fahrenheit.java"
 Nota da questão 0.0 / 2.0
-Média de uma Coleção
+```
+import java.util.Scanner;
+
+public class Fahrenheit {
+
+	public static void main(String[] args) {
+		float C,F;
+		
+		Scanner scan = new Scanner(System.in);
+	    //System.out.print("Digite a temperatura: ");
+	    C = scan.nextFloat();
+
+		F=((C*9)/5)+32;
+		System.out.print(F);
+		scan.close();
+	}
+
+}
+```
+### Q4 Média de uma Coleção
 Escreva um programa (classe MediaColecao) que calcula a média de uma coleção de valores digitados pelo usuário, com precisão de duas casas decimais. O usuário irá inserir -1 para indicar que não há mais valores serem fornecidos.
 Exemplo de entrada e saída esperada:
 Entrada: 5 3 9 3 1 -1
@@ -61,7 +80,11 @@ Saída: 4.20
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "MediaColecao.java"
 Nota da questão 0.0 / 2.5
-Operações em Números Inteiros
+```
+
+```
+
+### Q5 Operações em Números Inteiros
 Escreva programa em Java (classe OperacoesInteiros) que leia do teclado um vetor de inteiros. Em seguida, o programa deve imprimir na ordem:
 Quantidade de elementos
 Quantos são pares
@@ -71,7 +94,7 @@ Média (duas casas decimais)
 Maior
 Menor
 O final de um vetor é determinado pelo número -1. Seu programa deve repetir esse procedimento indefinidamente para diversos vetores, de tamanhos variados, até que um vetor sem elementos seja inserido, terminando a execução do programa.
-Exemplo de entrada e saída esperada:
+### Exemplo de entrada e saída esperada:
 Entrada: 1 5 2 8 4 -1 10 54 23 78 -1 -1
 Saída: 5
 3
@@ -92,7 +115,10 @@ A classe Integer possui as constantes MAX_VALUE e MIN_VALUE para o maior e menor
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "OperacoesInteiros.java"
 Nota da questão 0.0 / 2.5
-Área do Polígono
+```
+a
+```
+### Q6 Área do Polígono
 Se  pontos estão ligados formando um polígono fechado, como mostrado abaixo,
 
 a área  do polígono pode ser determinada por:
@@ -112,6 +138,9 @@ Entrada: 4 4 7 7 9 7 4 -1 0 7.5 7.5 3 0 0 0 -1
 Saída: 25.5000
 Entrada: 4 9 11 2 4 -1 10 7 2 2 10 -1
 Saída: 45.5000
+```
+a
+```
 Fonte:
 Hanly & Koffman. “Problem Solving and Program Design in C”, 5th edition. Pearson, 2007. (p. 423)
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
