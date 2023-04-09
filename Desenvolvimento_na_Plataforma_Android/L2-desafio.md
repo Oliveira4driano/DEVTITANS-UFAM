@@ -122,6 +122,46 @@ Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "AsciiArt.java"
 Nota da questão 0.0 / 0.1
 ```
+import java.util.Scanner;
+
+/**
+ *
+ * @author oliveira
+ */
+public class AsciiArt {
+
+    
+    public static void main(String[] args) {
+	System.out.print("Digite numero: " ); 
+        Scanner scan = new Scanner(System.in);
+         int tam = scan.nextInt();
+        //int tam =5;
+        int k,l;
+        
+        for (int i = tam; i > 0; i--) {
+            for (int j = 0; j < i; j++) {
+                System.out.print("*");
+                
+            }
+            l =(2*(tam-i));
+            for (k=1; k <= l; k++){  
+                System.out.print(" ");
+            }
+            for (int j = 0; j < i; j++) {
+                System.out.print("*");
+                
+            }
+            
+           System.out.println("");
+           
+        }
+      
+    }
+ 
+    
+}
+```
+```
 public class AsciiArt {
     //Função que imprime o preechimento
     public static void preenche(int n) {
