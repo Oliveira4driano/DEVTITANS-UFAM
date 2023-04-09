@@ -590,7 +590,7 @@ public class RaizQuadrada {
     }
 }
 ```
-### Q8 Pintura do Muro
+### Q9 Pintura do Muro
 Mário precisa pintar um muro, que tem 12m de comprimento e 3m de altura. O material de pintura (galão de tinta, lixa, rolo, etc.) custa R$100. Cada pintor cobra um preço diferente por m² pelo serviço de pintura. Escreva uma classe chamada PinturaMuro em Java que, dado o valor cobrado por um pintor (R$/m²), informe o custo total da pintura (com uma casa decimal).
 Exemplo de entrada e saída esperada:
 Entrada: 3.2
@@ -606,7 +606,19 @@ Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "PinturaMuro.java"
 Nota da questão 0.0 / 0.1
 ```
-a
+public class PinturaMuro {
+    public static void main(String[] args) {
+        System.out.println("Digite o valor do M2: ");
+        Scanner scan = new Scanner(System.in);
+        double valor = scan.nextDouble();
+        int comprimento = 12;
+        int largura =3;
+        double material = 100;
+        double area = (comprimento * largura);
+        double custoTotal = (valor*area)+material;
+        System.out.printf("%.1f\n", custoTotal);
+    }
+}
 ```
 ### Q10 Xadrez
 Crie uma classe em Java chamada Xadrez que leia a quantidade de linhas do usuário e imprima o padrão abaixo (para entrada 6).
