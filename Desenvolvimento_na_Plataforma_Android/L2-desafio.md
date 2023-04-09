@@ -165,6 +165,43 @@ public class AsciiArt2 {
     
 }
 ```
+```
+\\Com metodo
+public class AsciiArt {
+    //Função que imprime o preechimento
+    public static void preenche(int n) {
+        int i;
+        for (i=1; i <= n; i++){
+            System.out.print("*");
+        }
+        System.out.print("\n");
+    }
+    
+    //Função que imprime o espaçamento
+    public static void espaco(int n){
+            int i;
+            for (i=1; i <= n; i++){  
+                System.out.print(" ");
+            }
+    }
+    
+    public static void main(String[] args) {
+	int tam, i, j;
+         tam =5;
+
+	for (i=tam; i>0; i--){	//Triângulo regular
+            
+            preenche(i);
+	}
+	for (i=1; i<=tam; i++){	//Triângulo invertido
+		preenche(i);
+	}
+        
+    }
+    
+    
+}
+```
 ### Q6-3 ASCII ArtJava
 Escreva um programa (classe AsciiArt) que imprima uma figura semelhante à representada abaixo, a partir da leitura do número de asteriscos presentes na base. Por exemplo, para uma entrada igual a 5, o resultado produzido será igual ao da figura abaixo.
 ```
