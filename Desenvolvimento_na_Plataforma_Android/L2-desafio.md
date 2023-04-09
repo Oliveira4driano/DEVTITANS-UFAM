@@ -287,7 +287,7 @@ public class AsciiArtJava {
 }
 ```
 ### Q6-4 ASCII Art Ampulheta
-Escreva um programa (classe AsciiArt) que imprima uma figura semelhante à representada abaixo, a partir da leitura do número de asteriscos presentes na base. Por exemplo, para uma entrada igual a 5, o resultado produzido será igual ao da figura abaixo.
+Escreva um programa (classe AsciiArt) que imprima uma figura semelhante à representada abaixo, a partir da leitura do número de asteriscos presentes na base. Por exemplo, para uma entrada igual a 10, o resultado produzido será igual ao da figura abaixo.
 ```
 \            *            /
  \          ***          /
@@ -373,6 +373,63 @@ public class AsciiArt {
 		System.out.printf("\\");
 		System.out.printf("\n");
 	}
+       
+        
+    }
+    
+    
+}
+```
+### Q6-5 ASCII Art Losango
+Escreva um programa (classe AsciiArt) que imprima uma figura semelhante à representada abaixo, a partir da leitura do número de asteriscos presentes na base. Por exemplo, para uma entrada igual a 5, o resultado produzido será igual ao da figura abaixo.
+```
+**********
+****  ****
+***    ***
+**      **
+*        *
+*        *
+**      **
+***    ***
+****  ****
+**********
+```
+```
+public class AsciiArt {
+    //Função que imprime o preechimento
+    public static void preenche(int n) {
+        int i;
+        for (i=1; i <= n; i++){
+            System.out.print("*");
+        }
+        //System.out.print("\n");
+    }
+    
+    //Função que imprime o espaçamento
+    public static void espaco(int n){
+            int i;
+            for (i=1; i <= n; i++){  
+                System.out.print(" ");
+            }
+    }
+    
+    public static void main(String[] args) {
+	int tam, i;
+         tam =5;
+
+	for (i=tam; i>0; i--){		//Superior
+		preenche(i);		//Preenchimento esquerdo
+		espaco(2*(tam-i));	//Espaçamento central
+		preenche(i);		//Preenchimento direito
+		 System.out.printf("\n");	//Quebra de linha
+	}
+	for (i=1; i<=tam; i++){		//Inferior
+		preenche(i);		//Preenchimento esquerdo
+		espaco(2*(tam-i));	//Espaçamento central
+		preenche(i);		//Preenchimento direito
+		System.out.printf("\n");	//Quebra de linha
+	}
+      
        
         
     }
