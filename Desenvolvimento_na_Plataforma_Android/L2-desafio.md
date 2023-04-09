@@ -637,7 +637,30 @@ Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "Xadrez.java"
 Nota da questão 0.0 / 0.2
 ```
-a
+public class Xadrez {
+    public static void main(String[] args) {
+        //System.out.println("Digite o numero: ");
+        Scanner scan = new Scanner(System.in);
+        int valor = scan.nextInt();
+        //int valor =6;
+        boolean verdadeiro = true;
+        for (int i = 0; i < valor; i++) {
+            for (int j = 0; j < valor; j++) {
+                System.out.print('*');
+                System.out.print(' ');
+        }
+            
+            System.out.print('\n');
+            if(verdadeiro){
+            System.out.print(' ');
+            verdadeiro = false;
+            }else{
+                verdadeiro = true;
+            }
+        }
+       
+    }
+}
 ```
 ### Q11 Caixa Eletrônico
 Um cliente de um banco deseja sacar uma quantia em um caixa eletrônico que possui apenas notas de R$50, R$10 e R$2 disponíveis. Escreva uma classe chamada CaixaEletronico que exiba quantas notas de cada tipo devem ser entregues ao cliente. Considere que o cliente pode inserir – intencionalmente ou não – um valor inválido, tal como um número negativo ou um número ímpar. Seu programa deve exibir a mensagem "Valor Invalido" nessas situações. A saída do seu programa deve ser de acordo com o exemplo abaixo.
