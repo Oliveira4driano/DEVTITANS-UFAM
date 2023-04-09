@@ -60,6 +60,13 @@ Crie uma classe em Java chamada Coelho que imprima no console a seguinte figura:
 (='.')
 ((^)(^)
 ```
+Dicas:
+Assim como em outras linguagens, no Java o "\" é usado para imprimir caracteres especiais (e.g., "\n", "\t"). Para imprimir uma barra, use "\\".
+O rosto tem três linhas. Logo, será necessário executar o método println três vezes.
+O Java já imprime uma linha nova ao final do método println.
+Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
+Enviar "Coelho.java"
+Nota da questão 0.0 / 0.1
 ```
 public class Coelho {
     public static void main(String[] args) {
@@ -70,13 +77,6 @@ public class Coelho {
 }
 
 ```
-Dicas:
-Assim como em outras linguagens, no Java o "\" é usado para imprimir caracteres especiais (e.g., "\n", "\t"). Para imprimir uma barra, use "\\".
-O rosto tem três linhas. Logo, será necessário executar o método println três vezes.
-O Java já imprime uma linha nova ao final do método println.
-Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
-Enviar "Coelho.java"
-Nota da questão 0.0 / 0.1
 ### Q5 Macaco
 Crie uma classe em Java chamada Macaco que imprima no console a seguinte figura:
 ```
@@ -105,6 +105,7 @@ public class Macaco {
     }
 }
 ```
+
 ### Q6 ASCII Art
 Escreva um programa (classe AsciiArt) que imprima uma figura semelhante à representada abaixo, a partir da leitura do número de asteriscos presentes na base. Por exemplo, para uma entrada igual a 5, o resultado produzido será igual ao da figura abaixo.
 ```
@@ -122,6 +123,47 @@ Enviar "AsciiArt.java"
 Nota da questão 0.0 / 0.1
 ```
 a
+```
+### Q6-2 ASCII Art
+Escreva um programa (classe AsciiArt) que imprima uma figura semelhante à representada abaixo, a partir da leitura do número de asteriscos presentes na base. Por exemplo, para uma entrada igual a 5, o resultado produzido será igual ao da figura abaixo.
+```
+*****
+****
+***
+**
+*
+*
+**
+***
+****
+*****
+```
+```
+public class AsciiArt2 {
+    public static void main(String[] args) {
+       
+       // Scanner scan = new Scanner(System.in);
+        // int tam = scan.nextInt();
+        int tam =5;
+        // System.out.print("Digite numero: " );
+        for (int i = tam; i > 0; i--) {
+            for (int j = 0; j < i; j++) {
+                System.out.print("*");
+                
+            }
+            System.out.println("");
+        }
+        for (int i = 1; i <= tam; i++) {
+            for (int j = 0; j < i; j++) {
+                System.out.print("*");
+                
+            }
+            System.out.println("");
+        }
+        
+    }
+    
+}
 ```
 ### Q7 Idade UFAM
 Crie uma classe em Java chamada IdadeUfam que leia o ano atual do teclado e imprima "A UFAM tem X anos de fundacao", trocando o X pela idade da UFAM.
