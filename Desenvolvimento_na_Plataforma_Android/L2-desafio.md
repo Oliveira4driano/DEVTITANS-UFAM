@@ -20,24 +20,55 @@ Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "HelloUfam.java"
 Nota da questão 0.0 / 0.1
 ```
-a
+public class HelloUfam {
+    
+    public static void main(String[] args) {
+        System.out.println("Universidade Federal do Amazonas");
+    }
+    
+}
 ```
 ### Q2 Hello Groot
 Crie uma classe em Java chamada HelloGroot que imprima a mensagem "I am Groot".
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "HelloGroot.java"
 Nota da questão 0.0 / 0.1
+```
+public class HelloGroot {
+    public static void main(String[] args) {
+        System.out.println("I am Groot");
+    }
+}
+```
+
 ### Q3 May the Force be With You
 Crie uma classe em Java chamada TheForce que imprima a mensagem "May the Force be with you".
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "TheForce.java"
 Nota da questão 0.0 / 0.1
+```
+public class TheForce {
+    public static void main(String[] args) {
+        System.out.println("May the Force be with you");
+    }
+}
+```
 ### Q4 Coelho
 Crie uma classe em Java chamada Coelho que imprima no console a seguinte figura:
 ```
 (\ (\
 (='.')
 ((^)(^)
+```
+```
+public class Coelho {
+    public static void main(String[] args) {
+        System.out.println("(\\ (\\");
+        System.out.println("(='.')");
+        System.out.println("((^)(^)");
+    }
+}
+
 ```
 Dicas:
 Assim como em outras linguagens, no Java o "\" é usado para imprimir caracteres especiais (e.g., "\n", "\t"). Para imprimir uma barra, use "\\".
@@ -55,6 +86,7 @@ Crie uma classe em Java chamada Macaco que imprima no console a seguinte figura:
  * --- *
   *****
 ```
+
 Dicas:
 O rosto tem cinco linhas. Logo, será necessário executar o método println cinco vezes.
 Os olhos são representados com a letra "o" minúscula. Não use o símbolo do zero, nem a letra "O" maiúscula.
@@ -62,19 +94,35 @@ O Java já imprime uma linha nova ao final do método println.
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "Macaco.java"
 Nota da questão 0.0 / 0.1
+```
+public class Macaco {
+    public static void main(String[] args) {
+        System.out.println("  ***** ");
+        System.out.println("(* o o *)");
+        System.out.println(" *  ^  *");
+        System.out.println(" * --- *");
+        System.out.println("  ***** ");
+    }
+}
+```
 ### Q6 ASCII Art
 Escreva um programa (classe AsciiArt) que imprima uma figura semelhante à representada abaixo, a partir da leitura do número de asteriscos presentes na base. Por exemplo, para uma entrada igual a 5, o resultado produzido será igual ao da figura abaixo.
+```
 **********
 ****  ****
 ***    ***
 **      **
 *        *
+```
 Dicas:
 Para imprimir algo em Java sem a nova linha no final, use o método System.out.print(). Exemplo: System.out.print('*');
 Para imprimir apenas uma nova linha use System.out.println();
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "AsciiArt.java"
 Nota da questão 0.0 / 0.1
+```
+a
+```
 ### Q7 Idade UFAM
 Crie uma classe em Java chamada IdadeUfam que leia o ano atual do teclado e imprima "A UFAM tem X anos de fundacao", trocando o X pela idade da UFAM.
 Dicas:
@@ -82,6 +130,9 @@ Consulte o site da UFAM, se você não souber o ano de fundação.
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "IdadeUfam.java"
 Nota da questão 0.0 / 0.1
+```
+a
+```
 ### Q8 Raiz Quadrada
 Crie uma classe em Java chamada RaizQuadrada que calcule e imprima a raiz quadrada de um número inteiro lido do teclado. Sua saída deverá ter 4 casas decimais.
 Dicas:
@@ -94,6 +145,9 @@ Para imprimir algo formatado em Java, use o método System.out.printf(String for
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "RaizQuadrada.java"
 Nota da questão 0.0 / 0.1
+```
+a
+```
 ### Q8 Pintura do Muro
 Mário precisa pintar um muro, que tem 12m de comprimento e 3m de altura. O material de pintura (galão de tinta, lixa, rolo, etc.) custa R$100. Cada pintor cobra um preço diferente por m² pelo serviço de pintura. Escreva uma classe chamada PinturaMuro em Java que, dado o valor cobrado por um pintor (R$/m²), informe o custo total da pintura (com uma casa decimal).
 Exemplo de entrada e saída esperada:
@@ -109,20 +163,28 @@ Para imprimir algo formatado em Java, use o método System.out.printf(String for
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "PinturaMuro.java"
 Nota da questão 0.0 / 0.1
+```
+a
+```
 ### Q10 Xadrez
 Crie uma classe em Java chamada Xadrez que leia a quantidade de linhas do usuário e imprima o padrão abaixo (para entrada 6).
+```
 * * * * * *
  * * * * * *
 * * * * * *
  * * * * * *
 * * * * * *
  * * * * * *
+```
 Dicas:
 Note que tanto a quantidade de linhas quanto a quantidade de "*" é 6 (número digitado pelo usuário).
 Para imprimir algo em Java sem a nova linha no final, use o método System.out.print(). Exemplo: System.out.print('*');
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "Xadrez.java"
 Nota da questão 0.0 / 0.2
+```
+a
+```
 ### Q11 Caixa Eletrônico
 Um cliente de um banco deseja sacar uma quantia em um caixa eletrônico que possui apenas notas de R$50, R$10 e R$2 disponíveis. Escreva uma classe chamada CaixaEletronico que exiba quantas notas de cada tipo devem ser entregues ao cliente. Considere que o cliente pode inserir – intencionalmente ou não – um valor inválido, tal como um número negativo ou um número ímpar. Seu programa deve exibir a mensagem "Valor Invalido" nessas situações. A saída do seu programa deve ser de acordo com o exemplo abaixo.
 Exemplo de entrada e saída esperada:
@@ -134,6 +196,9 @@ Use o operador de resto da divisão (%) para determinar a quantidade de notas de
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "CaixaEletronico.java"
 Nota da questão 0.0 / 0.2
+```
+a
+```
 ### Q12 Área do Triângulo
 Considere um triângulo cujos lados sejam designados por ,  e . Considere ainda que . A área do triângulo pode ser calculada usando a seguinte fórmula:
 
@@ -152,6 +217,9 @@ Entretanto, quando há perda de precisão, isso não é possível e o uso do cas
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "AreaTriangulo.java"
 Nota da questão 0.0 / 0.2
+```
+a
+```
 ### Q13 Soma dos Dígitos
 Desenvolva um programa (classe SomaDigitos) que leia um número inteiro a partir do teclado e exiba a soma dos dígitos do número.
 Exemplo de entrada e saída esperada:
@@ -162,6 +230,9 @@ Use o operador de resto da divisão (%).
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "SomaDigitos.java"
 Nota da questão 0.0 / 0.2
+```
+a
+```
 ### Q14 Área do Círculo, Volume da Esfera
 Escreva um programa (classe AreaVolume) que leia o valor de um raio , inserido a partir do teclado. O programa deverá mostrar a área de um círculo com o raio  e o volume de uma esfera com raio , de acordo com o exemplo abaixo. Para esta questão, use apenas variáveis do tipo double.
 Exemplo de entrada e saída esperada:
@@ -179,6 +250,9 @@ Para calcular uma exponenciação em Java, usa-se o método pow(double a, double
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "AreaVolume.java"
 Nota da questão 0.0 / 0.2
+```
+a
+```
 ### Q15 Rota Ortodrômica
 Como o GoogleMaps calcula a distância entre dois pontos na superfície da Terra? A superfície da Terra é curva, e a distância entre os graus de longitude varia com a latitude. Como resultado, encontrar a distância entre dois pontos na superfície da Terra é mais complicado do que simplesmente usando o Teorema de Pitágoras. Para isso, usamos Rotas Ortodrômicas: sejam  e  a latitude e longitude de dois pontos  e  na superfície da Terra. A distância  entre esses pontos, na superfície da Terra, em km é dada por:
 
@@ -196,6 +270,9 @@ Note que, na saída, as coordenadas possuem 6 casas decimais, enquanto que a dis
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "RotaOrtodromica.java"
 Nota da questão 0.0 / 0.2
+```
+a
+```
 ### Q16 Ponto e Reta
 Faça um programa (classe PontoReta) para indicar se um ponto  do plano cartesiano pertence à reta . Sua saída deverá ser de acordo com os exemplos abaixo.
 Exemplos de entrada e saída esperada:
@@ -206,6 +283,9 @@ Saída: Ponto (6.0, 3.8) nao pertence a reta 2x + y = 3.
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "PontoReta.java"
 Nota da questão 0.0 / 0.2
+```
+a
+```
 ### Q17 Desconto
 Para atrair mais clientes, uma loja de roupas oferece um desconto de 5% em compras de R$200,00 ou mais. Escreva um programa (classe Desconto) que lê o preço sem desconto de uma compra e imprime o valor a ser pago pelo cliente (com duas casas decimais).
 Exemplo de entrada e saída esperada:
@@ -221,6 +301,9 @@ Para imprimir algo formatado em Java, use o método System.out.printf(String for
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "Desconto.java"
 Nota da questão 0.0 / 0.2
+```
+a
+```
 ### Q18 Tanque de Combustível
 Um tanque de combustível tem o formato esférico. Escreva um programa (classe TanqueCombustivel) que leia o valor do raio () do tanque, o valor da altura do ar () e a opção para saber se deseja calcular o volume de ar (opção 1) ou o volume de combustível no tanque (opção 2).
 
@@ -239,6 +322,9 @@ O volume de ar corresponde à formula da calota esférica. Já o volume do combu
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "TanqueCombustivel.java"
 Nota da questão 0.0 / 0.2
+```
+a
+```
 ### Q19 Tipo do Triangulo
 Escreva um programa (classe TipoTriangulo) que leia as medidas dos três lados de um triângulo, fornecidas pelo usuário, em qualquer ordem, e imprima o nome do tipo de triângulo: "equilatero" (todos os três lados iguais), "isosceles" (apenas dois lados iguais), ou "escaleno" (nenhum par de lados iguais).
 Se pelo menos um dos lados for negativo ou os três lados não formarem um triângulo, o programa deverá imprimir a mensagem "invalido" na tela.
@@ -288,6 +374,9 @@ A saída é com acentos e com a primeira letra em maiúsculo.
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "AnimaisCedulas.java"
 Nota da questão 0.0 / 0.3
+```
+a
+```
 ### Q21 Conta de Energia
 Escreva um programa (classe ContaEnergia) que determine o preço a pagar pelo fornecimento de energia elétrica. Como entrada, ele deve receber o consumo de energia (em kWh) e o tipo de instalação (R para residências, I para indústrias, e C para comércios). Use a tabela a seguir para calcular o preço devido:
 Preço por tipo e faixa de consumo
@@ -307,6 +396,9 @@ A classe Scanner não possui o método nextChar(). Para ler um caractere do tecl
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "ContaEnergia.java"
 Nota da questão 0.0 / 0.3
+```
+a
+```
 ### Q22 Volume de Combustível
 Considere um tanque de combustível com o formato descrito na figura abaixo.
 
@@ -337,6 +429,9 @@ Saída: 10
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "SomaColecao.java"
 Nota da questão 0.0 / 0.3
+```
+a
+```
 ### Q24 Soma de Várias Coleções
 Escreva um programa (classe SomaColecoes) que calcula a soma de várias coleções de valores digitados pelo usuário. O usuário irá inserir -1 para indicar o fim de uma coleção e o início da próxima. Uma coleção sem elementos indica o final do programa.
 Exemplo de entrada e saída esperada:
@@ -347,6 +442,9 @@ Saída: 90
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "SomaColecoes.java"
 Nota da questão 0.0 / 0.3
+```
+a
+```
 ### Q25 Média de uma Coleção
 Escreva um programa (classe MediaColecao) que calcula a média de uma coleção de valores digitados pelo usuário, com precisão de duas casas decimais. O usuário irá inserir -1 para indicar que não há mais valores serem fornecidos.
 Exemplo de entrada e saída esperada:
@@ -355,6 +453,9 @@ Saída: 4.20
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "MediaColecao.java"
 Nota da questão 0.0 / 0.3
+```
+a
+```
 ### Q26 Aproximação de PI 
 O valor de  pode ser aproximado pela seguinte série infinita:
 
@@ -377,6 +478,9 @@ Saída: 3.000000
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "AproximacaoPi.java"
 Nota da questão 0.0 / 0.3
+```
+a
+```
 ### Q27 Aproximação do Número E 
 O número , o número neperiano, pode ser calculado através da seguinte série de Taylor:
 
@@ -397,6 +501,9 @@ Saída: 2.718282
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "NumeroNeperiano.java"
 Nota da questão 0.0 / 0.3
+```
+a
+```
 ### Q28 Aproximação do Seno
 O seno de um ângulo , medido em radianos, , pode ser calculado através da seguinte série de Taylor:
 
@@ -423,6 +530,9 @@ Saída: 1.5707963268
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "AproximacaoSeno.java"
 Nota da questão 0.0 / 0.3
+```
+a
+```
 ### Q29 Porcentagem de Acerto
 As respostas de um candidato a uma prova de múltipla escolha são guardadas em um vetor. O gabarito é guardado em outro vetor de mesmo tamanho. Escreva um programa (classe PorcentagemAcerto) que leia o vetor de respostas e o vetor do gabarito, nessa ordem, e imprima na saída a porcentagem de acerto do candidato, com duas casas decimais de precisão. Considere que os dois vetores inseridos são sempre do mesmo tamanho, possuem pelo menos um elemento e, para indicar o fim do vetor, o número -1 é inserido.
 Exemplo de entrada e saída esperada:
@@ -431,6 +541,9 @@ Saída: 60.00
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "PorcentagemAcerto.java"
 Nota da questão 0.0 / 0.3
+```
+a
+```
 ### Q30 Área do Polígono
 Se  pontos estão ligados formando um polígono fechado, como mostrado abaixo,
 
@@ -456,6 +569,9 @@ Hanly & Koffman. “Problem Solving and Program Design in C”, 5th edition. Pea
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "AreaPoligono.java"
 Nota da questão 0.0 / 0.4
+```
+a
+```
 ### Q31 Data por Extenso
 Escreva um programa em Java (classe DataExtenso) que leia do teclado uma data no formato "ddmmaaaa" e imprima essa data por extenso (suponha valores sempre válidos).
 Exemplo de entrada e saída esperada:
@@ -471,6 +587,9 @@ Leia a data como um int e use operações de divisão e resto para isolar o dia/
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "DataExtenso.java"
 Nota da questão 0.0 / 0.4
+```
+a
+```
 ### Q32 Cifra de César
 A criptografia tem por objetivo esconder o significado de uma mensagem para um possível interceptador. Para tanto, os caracteres do texto podem ser misturados de acordo com um protocolo (algoritmo) previamente estabelecido entre emissor e receptor. Assim, o receptor da mensagem pode reverter o protocolo misturador e tornar a mensagem compreensível.
 Uma maneira de se criptografar uma mensagem é substituir o "alfabeto original" por um "alfabeto cifrado", deslocado por um determinado número de letras (5, no exemplo abaixo), em relação ao alfabeto original. O registro mais antigo desse procedimento é atribuído ao general romano Júlio César (100-44 a.C.). Por isso, ele é conhecido como Cifra de César. Por convenção, escreve-se o alfabeto original em minúsculas e o alfabeto cifrado em maiúsculas.
@@ -502,6 +621,9 @@ Uma maneira de encontrar a letra do alfabeto cifrado que vai além da letra 'Z' 
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "CifraCesar.java"
 Nota da questão 0.0 / 0.4
+```
+a
+```
 ### Q33 Palíndromos
 Um palíndromo é uma sequência de caracteres cuja leitura é idêntica se feita da direita para esquerda ou vice−versa. Por exemplo: "OSSO" e "OVO" são palíndromos. Em textos mais complexos, espaços, acentos e pontuação são ignorados. A frase "SUBI NO ONIBUS" é o exemplo de uma frase palíndroma onde os espaços foram ignorados.
 Escreva um programa (classe Palindromos) que leia uma sequência de caracteres. Em seguida, o programa deve imprimir a mesma sequência em letras maiúsculas com os espaços removidos e informar se ela é um palíndromo (saída 1) ou não (saída 0).
@@ -520,6 +642,9 @@ Para pegar um caractere de uma String usando seu índice, use o método charAt(i
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "Palindromos.java"
 Nota da questão 0.0 / 0.4
+```
+a
+```
 ### Q34 Operações em Números Inteiros
 Escreva programa em Java (classe OperacoesInteiros) que leia do teclado um vetor de inteiros. Em seguida, o programa deve imprimir na ordem:
 Quantidade de elementos
@@ -551,6 +676,9 @@ A classe Integer possui as constantes MAX_VALUE e MIN_VALUE para o maior e menor
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "OperacoesInteiros.java"
 Nota da questão 0.0 / 0.4
+```
+a
+```
 ### Q35 Mediana de uma Coleção
 A Mediana é uma forma de resumir os valores típicos associados com os membros de uma população (Wiki).
 A mediana de um conjunto ordenado com número de elementos ímpar é o valor do elemento na posição central. Por exemplo, para o conjunto {1, 3, 5, 7, 9}, a mediana será o elemento na posição 3, i.e., o elemento com valor 5. Já a mediana de um conjunto ordenado com número de elementos par é a média dos dois elementos centrais. Por exemplo, para o conjunto {1, 2, 5, 8, 9, 10}, a mediana será a média entre os elementos nas posições 3 e 4, i.e., 6.5.
@@ -563,6 +691,9 @@ Saída: 20.5
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "Mediana.java"
 Nota da questão 0.0 / 0.4
+```
+a
+```
 ### Q36 Time de Futebol
 Os resultados das partidas de um time de futebol ao longo de um campeonato são armazenados em dois vetores de mesmo tamanho. O primeiro vetor guarda o número de gols efetuados por esse time em cada partida. O segundo vetor guarda o número de gols efetuados pelo time adversário. Uma posição  de cada vetor indica a -ésima partida realizada.
 Escreva um programa (classe TimeFutebol) que leia esses dois vetores, na ordem em que foram explicados. Como saída, deve ser informado em uma única linha os seguintes dados, em ordem, em relação ao time:
@@ -576,6 +707,9 @@ Saída: 2 3 1
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "TimeFutebol.java"
 Nota da questão 0.0 / 0.4
+```
+a
+```
 ### Q37 Aprovação em Disciplina
 Na Universidade Federal do Amazonas, um aluno é aprovado em uma disciplina se atender a dois critérios: ter média igual ou superior a 5.0 e ter frequência igual ou superior a 75% da carga horária. Se sua frequência for menor que esse limiar, o aluno é reprovado por frequência, independentemente da sua nota. Por fim, o aluno é reprovado por nota se, tendo comparecido ao número mínimo de aulas, não atingiu a média exigida.
 As notas dos alunos de uma classe são guardadas em um vetor de reais. A quantidade de presenças às aulas (em horas) é armazenada em outro vetor de mesmo tamanho, mas contendo elementos inteiros.
@@ -590,6 +724,9 @@ Saída: 2 0 1
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "AprovacaoDisciplina.java"
 Nota da questão 0.0 / 0.4
+```
+a
+```
 ### Q38 Dia da Semana
 Suponha que as horas de trabalho semanais dos funcionários de uma empresa são armazenadas em uma tabela semelhante à do exemplo abaixo. Cada linha registra o número de horas trabalhadas por um funcionário em sete colunas, uma para cada dia da semana, de domingo a sábado. Por exemplo, a tabela a seguir armazena as horas de trabalho para quatro funcionários.
  	DOM	SEG	TER	QUA	QUI	SEX	SAB
@@ -608,6 +745,9 @@ Saída: 1
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "DiaSemana.java"
 Nota da questão 0.0 / 0.4
+```
+a
+```
 ### Q39 Distância Percorrida pelo Avião
 O tempo que um determinado avião dispensa para percorrer o trecho entre duas cidades distintas está disponível através da seguinte tabela:
  	111	222	333	444	555	666	777
@@ -629,6 +769,9 @@ Em Java, você pode inicializar um vetor ou matriz diretamente com seus dados. E
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "DistanciaAviao.java"
 Nota da questão 0.0 / 0.4
+```
+a
+```
 ### Q40 Fração Contínua: Raiz Quadrada de Dois
 Contextualização
 Seja  o conjunto dos números inteiros. Sabemos que a quantidade de elementos em  é infinita. Contudo, tomando-se dois números inteiros  e  quaisquer, com , teremos uma quantidade finita de elementos  tais que , ou seja, compreendidos entre  e . Por outro lado, no conjunto  dos números reais, tomando-se dois elementos  e  quaisquer, com , teremos uma quantidade infinita de elementos  tais que . Esse fato dificulta a representação de números reais em máquinas com recursos limitados de armazenamento, tais como os computadores. Uma vez que a memória de qualquer computador é finita, não há como representar nela todos os números reais, cuja quantidade é infinita.
@@ -669,4 +812,8 @@ Saída: 1.33333333333333
 1.41176470588235
 1.41463414634146
 1.41414141414141
+
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
+```
+a
+```
