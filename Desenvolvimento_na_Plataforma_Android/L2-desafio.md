@@ -677,8 +677,9 @@ Nota da questão 0.0 / 0.2
 a
 ```
 ### Q12 Área do Triângulo
-Considere um triângulo cujos lados sejam designados por ,  e . Considere ainda que . A área do triângulo pode ser calculada usando a seguinte fórmula:
-
+Considere um triângulo cujos lados sejam designados por ,  e . Considere ainda que . ![areaTriangulo](https://user-images.githubusercontent.com/33138839/230797552-8ef8ab01-db82-456a-aed4-77969a72a8aa.png)
+A área do triângulo pode ser calculada usando a seguinte fórmula:
+![areaTriangulo2](https://user-images.githubusercontent.com/33138839/230797579-52c782ce-0b1c-4b5e-b95a-031889016858.png)
 Escreva um programa em Java (nome da classe: AreaTriangulo) que leia os comprimentos dos lados de um triângulo e mostre a sua área com duas casas decimais. Assuma que as entradas podem também corresponder a um triângulo inválido. Neste caso, imprima a mensagem "Triangulo invalido".
 Exemplo de entrada e saída esperada:
 Entrada: 4 8 6
