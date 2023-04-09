@@ -555,7 +555,17 @@ Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "IdadeUfam.java"
 Nota da questão 0.0 / 0.1
 ```
-a
+public class IdadeUfam {
+    public static void main(String[] args) {
+        System.out.println("Digite o ano: ");
+        Scanner scan = new Scanner(System.in); 
+        int anoAtual = scan.nextInt();
+        int anoFundada = 1909;
+        anoFundada = (anoAtual - anoFundada);
+        System.out.printf("A UFAM tem %d anos de fundacao",anoFundada);
+    }
+    
+}
 ```
 ### Q8 Raiz Quadrada
 Crie uma classe em Java chamada RaizQuadrada que calcule e imprima a raiz quadrada de um número inteiro lido do teclado. Sua saída deverá ter 4 casas decimais.
