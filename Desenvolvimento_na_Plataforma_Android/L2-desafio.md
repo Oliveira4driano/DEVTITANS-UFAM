@@ -696,7 +696,26 @@ Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "AreaTriangulo.java"
 Nota da questão 0.0 / 0.2
 ```
-a
+public class AreaTriangulo {
+    public static void main(String[] args) {
+       
+      //  System.out.println("Digite a raiz");
+        Scanner scan = new Scanner(System.in);
+        int a = scan.nextInt();
+        int b = scan.nextInt();
+        int c = scan.nextInt();
+       
+        if (a < (b + c) && b < (a+c) && c < (a+b)){		
+
+            double s = (a+b+c)/2;
+            double raiz = Math.sqrt(s*(s-a)*(s-b)*(s-c));
+            System.out.printf("%.2f\n", raiz);
+
+        }else{
+            System.out.println("Triangulo invalido");
+        }     
+    }
+}
 ```
 ### Q13 Soma dos Dígitos
 Desenvolva um programa (classe SomaDigitos) que leia um número inteiro a partir do teclado e exiba a soma dos dígitos do número.
