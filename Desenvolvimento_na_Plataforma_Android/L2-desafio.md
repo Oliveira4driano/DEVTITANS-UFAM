@@ -286,6 +286,100 @@ public class AsciiArtJava {
     
 }
 ```
+### Q6-4 ASCII Art Ampulheta
+Escreva um programa (classe AsciiArt) que imprima uma figura semelhante à representada abaixo, a partir da leitura do número de asteriscos presentes na base. Por exemplo, para uma entrada igual a 5, o resultado produzido será igual ao da figura abaixo.
+```
+\            *            /
+ \          ***          /
+  \        *****        /
+   \      *******      /
+    \    *********    /
+     \  ***********  /
+      \*************/
+       \***********/
+        \*********/
+         \*******/
+          \*****/
+           \***/
+            \*/
+            /*\
+           /***\
+          /*****\
+         /*******\
+        /*********\
+       /***********\
+      /*************\
+     /  ***********  \
+    /    *********    \
+   /      *******      \
+  /        *****        \
+ /          ***          \
+/            *            \
+```
+```
+public class AsciiArt {
+    //Função que imprime o preechimento
+    public static void preenche(int n) {
+        int i;
+        for (i=1; i <= n; i++){
+            System.out.print("*");
+        }
+        //System.out.print("\n");
+    }
+    
+    //Função que imprime o espaçamento
+    public static void espaco(int n){
+            int i;
+            for (i=1; i <= n; i++){  
+                System.out.print(" ");
+            }
+    }
+    
+    public static void main(String[] args) {
+	int tam, i;
+         tam =10;
+	 
+        //Superior
+	for (i=0; i<tam; i++){
+		espaco(i);
+		System.out.printf("\\");
+		espaco(2*(tam-i-1));
+		preenche(2*i+1);
+		espaco(2*(tam-i-1));
+		System.out.printf("/");
+		System.out.printf("\n");
+	}
+	for (i=tam-1; i>0; i--){
+		espaco(2*tam-1-i);
+		System.out.printf("\\");
+		preenche(2*i-1);
+		System.out.printf("/");
+		System.out.printf("\n");
+	}
+        //Inferior
+	for (i=0; i<tam-1; i++){
+		espaco(2*tam-2-i);
+		System.out.printf("/");
+		preenche(2*i+1);
+		System.out.printf("\\");
+		System.out.printf("\n");
+	}
+	for (i=tam-1; i>=0; i--){
+		espaco(i);
+		System.out.printf("/");
+		espaco(2*(tam-i-1));
+		preenche(2*i+1);
+		espaco(2*(tam-i-1));
+		System.out.printf("\\");
+		System.out.printf("\n");
+	}
+       
+        
+    }
+    
+    
+}
+```
 ### Q7 Idade UFAM
 Crie uma classe em Java chamada IdadeUfam que leia o ano atual do teclado e imprima "A UFAM tem X anos de fundacao", trocando o X pela idade da UFAM.
 Dicas:
