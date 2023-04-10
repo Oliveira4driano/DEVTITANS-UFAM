@@ -674,7 +674,30 @@ Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "CaixaEletronico.java"
 Nota da questão 0.0 / 0.2
 ```
-a
+public class CaixaEletronico {
+    public static void main(String[] args) {
+    
+        Scanner scan = new Scanner(System.in);
+        double valor = scan.nextDouble();
+       // double valor =378;
+        int[] cedulas = {50,10,2};
+        String[] ponto ={", "," e "," "};
+       // System.out.println("sinal "+ Math.signum(valor)); //verifica o sinal positivo ou não
+        if(valor % 2 ==0 && Math.signum(valor) ==1.0 ){
+		for(int i = 0; i < cedulas.length; i++){
+			if( valor >= cedulas[i] ){
+				System.out.print( (int)valor/cedulas[i] + " notas de R$" + cedulas[i]+ponto[i]);
+				valor = valor % cedulas[i];                               
+			}
+			
+		}	
+	
+	}else{
+                    System.out.println("Valor Invalido");
+                }
+    }
+    
+}
 ```
 ### Q12 Área do Triângulo
 Considere um triângulo cujos lados sejam designados por ,  e . Considere ainda que . ![areaTriangulo](https://user-images.githubusercontent.com/33138839/230797552-8ef8ab01-db82-456a-aed4-77969a72a8aa.png)
