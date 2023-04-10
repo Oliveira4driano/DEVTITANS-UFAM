@@ -45,7 +45,24 @@ Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "Media.java" Solução correta!
 Nota da questão 0.0 / 1.5
 ```
-a
+public class Media {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	    Scanner scan = new Scanner(System.in);
+	    System.out.print("");
+	    double valor = Double.parseDouble(scan.next());
+	    System.out.print("" );
+	    double valor2 = Double.parseDouble(scan.next());
+	    System.out.print("");
+	    double valor3 = Double.parseDouble(scan.next());
+	    double media = (valor+valor2+valor3)/3;
+	 
+	    System.out.printf("%.2f",media);
+	    scan.close();
+	}
+
+}	
 ```
 ### Q3 Temperatura Fahrenheit
 Escreva uma classe chamada Fahrenheit que converta uma temperatura digitada de  em . Use apenas uma casa decimal na saída. A fórmula para essa conversão é:
