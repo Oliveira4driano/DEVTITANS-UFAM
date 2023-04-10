@@ -13,7 +13,7 @@ Nas questões que trabalham com vetores, considere um tamanho máximo de vetor d
 ### Agradecimentos
 Grande parte das questões foram baseadas no material de IPC, produzido pelo professor Leandro Galvão.
 Nota da questão 0.5 / 0.5
-### Quetao 1 Hello Groot
+### Q1 Hello Groot
 Crie uma classe em Java chamada HelloGroot que imprima a mensagem "I am Groot".
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "HelloGroot.java" Solução correta!
@@ -31,19 +31,22 @@ public class HelloGroot {
 
 ### Q2 Média
 Crie uma classe em Java chamada Media que calcule e imprima, com duas casas decimais, a média aritmética de três números reais lidos do teclado.
-Exemplo de entrada e saída esperada:
-Entrada: 88.0 1.21 70.2
-Saída: 53.14
-Dicas:
-A classe Scanner, usada para ler dados do teclado, usa as configurações do sistema para setar o formato dos números reais. Dependendo da linguagem do seu sistema, um número real pode usar "." (ponto) ou "," (vírgula).
-Você pode representar os números reais usando float ou double.
+### Exemplo de entrada e saída esperada:
+* Entrada: 88.0 1.21 70.2
+* Saída: 53.14
+### Dicas:
+* A classe Scanner, usada para ler dados do teclado, usa as configurações do sistema para setar o formato dos números reais. Dependendo da linguagem do seu sistema, um número real pode usar "." (ponto) ou "," (vírgula).
+* Você pode representar os números reais usando float ou double.
 Em Java, um número real isolado (e.g., 1.21) é considerado como sendo do tipo double. Para usar um número como sendo do tipo float, use o 'f' ao final do número (e.g., 1.21f).
 Java converte automaticamente tipos quando não há perda de precisão. Exemplo: double nota = 8.7f; // Converte de float para double automaticamente
 Entretanto, quando há perda de precisão, isso não é possível e o uso do cast é obrigatório. Exemplo: float nota = (float) 8.7; // Converte de double para float usando o cast
-Para imprimir algo formatado em Java, use o método System.out.printf(String format, Object... args). Exemplo: System.out.printf("%.3f\n", media);
+* Para imprimir algo formatado em Java, use o método System.out.printf(String format, Object... args). Exemplo: System.out.printf("%.3f\n", media);
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "Media.java" Solução correta!
 Nota da questão 0.0 / 1.5
+```
+a
+```
 ### Q3 Temperatura Fahrenheit
 Escreva uma classe chamada Fahrenheit que converta uma temperatura digitada de  em . Use apenas uma casa decimal na saída. A fórmula para essa conversão é:
 
@@ -74,14 +77,39 @@ public class Fahrenheit {
 ```
 ### Q4 Média de uma Coleção
 Escreva um programa (classe MediaColecao) que calcula a média de uma coleção de valores digitados pelo usuário, com precisão de duas casas decimais. O usuário irá inserir -1 para indicar que não há mais valores serem fornecidos.
-Exemplo de entrada e saída esperada:
-Entrada: 5 3 9 3 1 -1
-Saída: 4.20
+### Exemplo de entrada e saída esperada:
+* Entrada: 5 3 9 3 1 -1
+* Saída: 4.20
+
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "MediaColecao.java"
 Nota da questão 0.0 / 2.5
 ```
+import java.util.Scanner;
 
+public class MediaColecao {
+	public static void main(String[] args) {
+                     
+            int  cont=0; 
+            double media = 0;    
+            Scanner scan = new Scanner(System.in);
+           // System.out.println("Digite numero1: " );
+            double  v = scan.nextDouble();  
+       
+               while(v != -1){
+                    
+                     //System.out.println("Digite numero: " );
+                        
+                       media +=v;
+                       cont+=1;
+                        v = scan.nextDouble();                                               
+                } 
+                 media = (media)/cont;
+                 System.out.printf("%.2f",media );   
+            }
+
+
+        }
 ```
 
 ### Q5 Operações em Números Inteiros
