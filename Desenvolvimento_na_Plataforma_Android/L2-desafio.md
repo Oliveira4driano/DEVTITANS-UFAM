@@ -865,15 +865,15 @@ public class SomaDigitos {
 }
 ```
 ### Q14 Área do Círculo, Volume da Esfera
-Escreva um programa (classe AreaVolume) que leia o valor de um raio , inserido a partir do teclado. O programa deverá mostrar a área de um círculo com o raio  e o volume de uma esfera com raio , de acordo com o exemplo abaixo. Para esta questão, use apenas variáveis do tipo double.
-Exemplo de entrada e saída esperada:
-Entrada: 45
-Saída: Um circulo com raio de 45.00 centimetros tem uma area de 6361.73 centimetros quadrados.
-Uma esfera com raio de 45.00 centimetros tem um volume de 381703.51 centimetros cubicos.
-Fórmulas:
-A área de um círculo é dada pela fórmula .
-O volume de uma esfera é dada pela fórmula .
-Dicas:
+Escreva um programa (classe AreaVolume) que leia o valor de um raio |r|, inserido a partir do teclado. O programa deverá mostrar a área de um círculo com o raio |r| e o volume de uma esfera com raio , de acordo com o exemplo abaixo. Para esta questão, use apenas variáveis do tipo double.
+### Exemplo de entrada e saída esperada:
+* Entrada: 45
+* Saída: Um circulo com raio de 45.00 centimetros tem uma area de 6361.73 centimetros quadrados.
+	Uma esfera com raio de 45.00 centimetros tem um volume de 381703.51 centimetros cubicos.
+### Fórmulas:
+* A área de um círculo é dada pela fórmula . ![area](https://user-images.githubusercontent.com/33138839/230807998-97708771-0c0f-4bbf-8192-4dbe16c582c7.png)
+* O volume de uma esfera é dada pela fórmula . ![volume](https://user-images.githubusercontent.com/33138839/230808022-f00a3cba-201e-4df4-8f2d-0135884b0581.png)
+### Dicas:
 Use apenas variáveis do tipo double para não perder precisão e não dar erro na correção automática.
 Use a constante PI presente na classe Math do Java para pegar o valor de . Exemplo: double pi = Math.PI;
 Note que em Java, 1/3 = 1, enquanto que 1.0/3.0 = 1.333.
