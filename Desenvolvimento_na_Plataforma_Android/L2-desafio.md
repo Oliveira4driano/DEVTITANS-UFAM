@@ -753,6 +753,34 @@ Nota da questão 0.0 / 0.2
 ```
 a
 ```
+```
+public class SomaDigitos {
+    public static void main(String[] args) {
+       // System.out.println("May the Force be with you");
+       // int numero  = 3141
+       Scanner scan = new Scanner(System.in);
+       int a = scan.nextInt();
+       int soma=0;
+       List<Integer> numerosGerados = new ArrayList<>();
+
+        int x = a > 0 ? a : -a;
+        do {
+            numerosGerados.add(0, x % 10);
+            x /= 10;
+        } while (x > 0);
+
+        if (a < 0) numerosGerados.set(0, -numerosGerados.get(0));
+
+        for (int item : numerosGerados) {
+           // System.out.println(item);
+            soma = soma+item;
+        }
+        System.out.println(soma);
+        
+    }
+    
+}
+```
 ### Q14 Área do Círculo, Volume da Esfera
 Escreva um programa (classe AreaVolume) que leia o valor de um raio , inserido a partir do teclado. O programa deverá mostrar a área de um círculo com o raio  e o volume de uma esfera com raio , de acordo com o exemplo abaixo. Para esta questão, use apenas variáveis do tipo double.
 Exemplo de entrada e saída esperada:
