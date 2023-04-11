@@ -163,39 +163,66 @@ A tabela a seguir descreve cada um dos campos:
 </tr>
 <tr>
   <td>1</td>
-  <td> </td>
-  <td> </td>
-  <td> </td>
+  <td>Login</td>
+  <td>devtux</td>
+  <td>Login do usuário conforme existente no /etc/passwd.</td>
 </tr>
 <tr>
   <td>2</td>
-  <td> </td>
-  <td> </td>
-  <td> </td>
+  <td>Password</td>
+  <td>$y$j9T$XBp3xEpHK...QS46</td>
+  <td>A senha criptografada do usuário.</td>
 </tr>
 <tr>
   <td>3</td>
-  <td> </td>
-  <td> </td>
-  <td> </td>
+  <td>Last Change</td>
+  <td>19443</td>
+  <td>Data da última modificação da senha, definida em quantidade de dias após 01/01/1970.</td>
 </tr>
 <tr>
   <td>4</td>
-  <td> </td>
-  <td> </td>
-  <td> </td>
+  <td></td>
+  <td></td>
+  <td></td>
 </tr>
-
+<tr>
+  <td>4</td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td>4</td>
+  <td>Minimum</td>
+  <td>0</td>
+  <td>Quantidade mínima de dias permitida entre troca de senhas.</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td>Maximum</td>
+  <td>99999</td>
+  <td>Quantidade máxima de dias que o usuário pode ficar sem trocar a senha.</td>
+</tr>
+<tr>
+  <td>6</td>
+  <td>Warn</td>
+  <td>7</td>
+  <td>Número de dias que o usuário deve ser avisado antes da senha expirar.</td>
+</tr>
+<tr>
+  <td>7</td>
+  <td>Inactive</td>
+  <td>14</td>
+  <td>Número de dias após a senha expirar que a conta deverá ser desabilitada.</td>
+</tr>
+<tr>
+  <td>8</td>
+  <td>Expire</td>
+  <td>39378</td>
+  <td>Uma data fixa, medida em dias após 01/01/1970, em que a senha irá expirar.</td>
+</tr>
 </table>
-	
-1	Login	devtux	Login do usuário conforme existente no /etc/passwd.
-2	Password	$y$j9T$XBp3xEpHK...QS46	A senha criptografada do usuário.
-3	Last Change	19443	Data da última modificação da senha, definida em quantidade de dias após 01/01/1970.
-4	Minimum	0	Quantidade mínima de dias permitida entre troca de senhas.
-5	Maximum	99999	Quantidade máxima de dias que o usuário pode ficar sem trocar a senha.
-6	Warn	7	Número de dias que o usuário deve ser avisado antes da senha expirar.
-7	Inactive	14	Número de dias após a senha expirar que a conta deverá ser desabilitada.
-8	Expire	39378	Uma data fixa, medida em dias após 01/01/1970, em que a senha irá expirar.
+			
 ### Criptografia da Senha
 A senha criptografada é dividida em três partes, separadas pelo caractere $. A figura a seguir mostra uma visão geral dessas três partes:
 
@@ -233,11 +260,16 @@ No caso do Linux, quando você define a sua senha pela primeira vez, o sistema g
 Portanto, dado um hash, a única forma de se "descobrir" a senha original (se você for um atacante) é testando todas as possibilidades. Por exemplo, podemos começar com a senha "aaa", gerar o hash dessa string compará-lo com o armazenado no /etc/shadow. Se for igual, você descobriu a senha. Caso contrário, vamos tentar outra possibilidade (e.g., aab). Como a quantidade possível de senhas (com 8 caracteres) é um número absurdamente grande (728 = 7,2*1014), essa senha não seria descoberta a tempo de ser útil, pois poderia demorar séculos para descobri-la.
 Mas calma! Ainda tem mais! Para evitar que o atacante coloque o hash no Google e encontre uma possível palavra (senha) para o hash, o Linux usa uma técnica conhecida como salt. Basicamente, se a sua senha for lala e o salt for HL3 (por exemplo), o Linux irá gerar o hash não só da sua senha, mas dela concatenada com o salt, ou seja, lalaHL3. O salt original é salvo junto com a sua senha, como mostrado anteriormente.
 Chega de conceitos. Vamos tentar gerar uma senha criptografada? O Linux tem um comando para isso chamado mkpasswd. Dado uma senha e um salt, ele é capaz de gerar uma senha criptografada:
+```	
 echo -n "ncc1701" | mkpasswd --stdin --method=sha-512 --salt="j9T"
 Wrong salt length: 3 bytes when 8 <= n <= 16 expected.
-Se o seu Laptop/PC não tiver o comando mkpasswd, instale o pacote whois: sudo apt install whois
-<spon>Desafio:</spon> Vamos tentar gerar a sua senha criptografada! Antes de mais nada, execute o comando abaixo para evitar que o bash salve o histórico da sua sessão para a sua senha não ficar aparecendo no seu histórico de comandos:
+```
+Se o seu Laptop/PC não tiver o comando mkpasswd, instale o pacote whois: <p> sudo apt install whois</p>
+<span>Desafio:</span> 
+Vamos tentar gerar a sua senha criptografada! Antes de mais nada, execute o comando abaixo para evitar que o bash salve o histórico da sua sessão para a sua senha não ficar aparecendo no seu histórico de comandos:
+```
 export HISTFILE=/dev/null
+```
 Veja a sua senha criptografada no /etc/shadow para descobrir o salt que o Linux usou para salvar a sua senha. Em seguida, execute o comando mkpasswd acima colocando sua senha (real) depois do echo (entre aspas) e mudando o salt no final do comando. A senha criptografada gerada deve ser igual à do /etc/shadow.
 ### 3. Grupos
 Assim como as contas de usuários, os grupos no Linux são definidos em um arquivo: /etc/group
@@ -266,11 +298,39 @@ Cada linha do arquivo /etc/group possui 4 campos separados por : (dois pontos). 
 
 ![Screenshot from 2023-04-11 17-34-09](https://user-images.githubusercontent.com/33138839/231293506-c9f911d9-43da-4f24-ba1e-307f2c597f4f.png)
 A tabela a seguir descreve cada um dos campos:
-Campo #	Nome	Exemplo	Descrição
-1	Name	adm	Nome do grupo.
-2	Password	x	Normalmente, uma senha não é usada, por isso o x. Mas esse campo pode ser usado para armazenar uma senha para o grupo.
-1	ID	4	ID do grupo, também conhecido como GID (group id).
-1	List	syslog,devtitans-admin	Lista de usuários do grupo. Normalmente, este campo é vazio, pois o grupo principal de um usuário é definido no /etc/passwd. Esse campo só é necessário quando um usuário precisa pertencer a vários grupos (além do seu principal).
+	<table>
+		<tr>
+			<td>Campo</td>
+			<td>Nome</td>
+			<td>Exemplo</td>
+			<td>Descrição</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>Name</td>
+			<td>adm</td>
+			<td>Nome do grupo.</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>Password</td>
+			<td>x</td>
+			<td>Normalmente, uma senha não é usada, por isso o x. Mas esse campo pode ser usado para armazenar uma senha para o grupo.</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>ID</td>
+			<td>4</td>
+			<td>ID do grupo, também conhecido como GID (group id).</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>List</td>
+			<td>syslog,devtitans-admin</td>
+			<td>Lista de usuários do grupo. Normalmente, este campo é vazio, pois o grupo principal de um usuário é definido no /etc/passwd. Esse campo só é necessário quando um usuário precisa pertencer a vários grupos (além do seu principal).</td>
+		</tr>
+	</table>
+		
 Para adicionar um novo grupo, use o comando addgroup:
 ```
 sudo addgroup <GROUP_NAME>               # Substitua <GROUP_NAME> pelo NOME do novo grupo (sem <>)
@@ -305,15 +365,34 @@ uid=1001(devtitans-1) gid=1001(devtitans-1) groups=1001(devtitans-1),​​20(di
 Tais credenciais são verificadas pelo kernel sempre que o usuário acessa um arquivo (dentre outras ações). No primeiro laboratório, detalhamos a saída do comando ls -l através da figura abaixo:
 
 ![Screenshot from 2023-04-11 17-34-23](https://user-images.githubusercontent.com/33138839/231293504-a6320617-db87-4526-9a8a-c68f40f192fa.png)	
+
 O controle de acesso ao arquivo é feito comparando os campos tipo, permissões, dono e grupo com as credenciais do usuário tentando acessar o arquivo.
 Sobre o primeiro campo da saída do ls, o tipo do arquivo, ele pode assumir os seguintes valores:
-Valor	Tipo de Arquivo
--	Arquivo Normal
-d	Diretório
-l	Link
-c, b,
-p, s
-Arquivo especial de caractere, bloco, pipe e socket.
+<table>
+	<tr>
+		<td>Valor</td>
+		<td>Tipo de Arquivo</td>
+	</tr>
+	<tr>
+		<td>-</td>
+		<td>Arquivo Normal</td>
+	</tr>
+	<tr>
+		<td>d</td>
+		<td>Diretório</td>
+	</tr>
+	<tr>
+		<td>l</td>
+		<td>Link</td>
+	</tr>
+	<tr>
+		<td>c, b,
+p, s</td>
+		<td>Arquivo especial de caractere, bloco, pipe e socket.</td>
+	</tr>
+	
+</table>
+
 ### Campo de Permissões
 Sobre o campo de permissões do arquivo, este é dividido em três partes, conforme a figura abaixo:
 	
