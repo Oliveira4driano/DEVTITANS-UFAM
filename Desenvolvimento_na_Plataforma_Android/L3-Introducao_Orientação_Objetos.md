@@ -193,7 +193,32 @@ public class Computador {
 Por fim, submeta a classe ComputadorMain.
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "ComputadorMain.java"
-
-
+```
+public class ComputadorMain {
+     public static void main(String[] args) {
+        Processador processador = new Processador();
+        processador.marca="intel";
+        processador.modelo="i7";
+        processador.numNucleos=8;
+        processador.velocidade=3.0;
+        Memoria memoria = new Memoria();
+        memoria.marca="Kingston";
+        memoria.tipo="DDR5";
+        memoria.tamanho=32;
+        memoria.velocidade=3.2;
+        memoria.numPentes=2;
+        Disco disco = new Disco();
+        disco.marca = "Kingston";
+        disco.tipo="SSD";
+        disco.capacidade=6000.0;
+        disco.rpm = 9600;
+       Computador computador = new Computador();
+       computador.fabricante="Dell";
+       computador.processador.modelo="I7";
+       computador.memoria.tamanho=32.0;
+       computador.disco.capacidade=980;
+    }
+}
+```
 
 
