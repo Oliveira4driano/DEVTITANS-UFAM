@@ -153,6 +153,7 @@ devtux:$y$j9T$XBp3xEpHKSqG2U9wxNdfG/$J3uI7pI3lfdVuGpg5BJaRDiNhvrnPwr/6M/EveSQS46
 Cada linha do arquivo /etc/shadow possui 8 campos separados por : (dois pontos). A figura a seguir mostra um exemplo, destacando os campos:
 
 ![Screenshot from 2023-04-11 17-32-20](https://user-images.githubusercontent.com/33138839/231293513-f530087a-546f-4363-9c1f-69cf5e1bcc01.png)
+
 A tabela a seguir descreve cada um dos campos:
 <table border=1>
 <tr>
@@ -178,18 +179,6 @@ A tabela a seguir descreve cada um dos campos:
   <td>Last Change</td>
   <td>19443</td>
   <td>Data da última modificação da senha, definida em quantidade de dias após 01/01/1970.</td>
-</tr>
-<tr>
-  <td>4</td>
-  <td></td>
-  <td></td>
-  <td></td>
-</tr>
-<tr>
-  <td>4</td>
-  <td></td>
-  <td></td>
-  <td></td>
 </tr>
 <tr>
   <td>4</td>
