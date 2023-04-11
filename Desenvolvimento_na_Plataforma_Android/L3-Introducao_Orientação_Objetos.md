@@ -15,18 +15,10 @@ O Eclipse compila automaticamente as classes sempre que você salva. Para execut
 A saída e entrada do programa será feita através da aba "Console" do Eclipse.
 Nota da questão 2.5 / 2.5
 ### Q1-Classe Processador
-* Classe	Processador
-* Atributo	marca: String
-* Atributo	modelo: String
-* Atributo	velocidade: double
-* Atributo	numNucleos: int
-* Método construtorEste C indica um método construtor	Processador()
-* Método construtorEste C indica um método construtor	Processador(String marca, String modelo, double velocidade, int numNucleos)
-* Método	getVelocidadeParalela(): double
-* Método	getDescricao(): String
+![processador](https://user-images.githubusercontent.com/33138839/231196953-eeca7d2b-4991-483e-ae18-e2bdc74e68e6.png)
 Crie uma classe para representar um Processador de acordo com o diagrama de classe ao lado. Os atributos de um objeto da classe Processador poderão ser setados diretamente (e.g., proc1.marca="Intel") ou pelo método construtor. Use a técnica de encadeamento de construtores para criar os dois construtores da classe, semelhante ao feito em sala e mostrado nos slides. Implemente os métodos:
-getVelocidadeParalela: retorna um double contendo a multiplicação da velocidade do processador pela quantidade total de núcleos.
-getDescricao: retorna uma String contendo a descrição do processador de acordo com a linha a seguir:
+* getVelocidadeParalela: retorna um double contendo a multiplicação da velocidade do processador pela quantidade total de núcleos.
+* getDescricao: retorna uma String contendo a descrição do processador de acordo com a linha a seguir:
 Processador: marca=Intel, modelo=i7, velocidade=3.2GHz, numNucleos=8, velocidadeParalela=25.6GHz.
 Para testar a classe, crie uma nova classe chamada ComputadorMain. Nesta classe, crie o método main, que será o ponto de partida do seu programa. No método main, crie um ou mais objetos da classe Processador e, em seguida, imprima o resultado da execução do método getDescricao dos objetos criados.
 Para essa questão, submeta apenas a classe Processador. Não precisa submeter a classe ComputadorMain.
@@ -68,21 +60,12 @@ public class Processador {
 }
 ```
 ### Q2-Classe Memoria
-Classe	Memoria
-Atributo	marca: String
-Atributo	tipo: String
-Atributo	tamanho: double
-Atributo	velocidade: double
-Atributo	numPentes: int
-Método construtorEste C indica um método construtor	Memoria()
-Método construtorEste C indica um método construtor	Memoria(String marca, String tipo, double tamanho, double velocidade, int numPentes)
-Método	getTamanhoTotal(): double
-Método	getVelocidadeParalela(): double
-Método	getDescricao(): String
+
+![memoria](https://user-images.githubusercontent.com/33138839/231196949-8c0b2273-79ef-4b8c-bbf4-8860e4efdadc.png)
 De forma semelhante à questão anterior, implemente uma classe para representar a Memoria do computador de acordo com o diagrama de classe ao lado. Implemente os métodos:
-getTamanhoTotal: retorna um double contendo a multiplicação da quantidade pelo tamanho dos pentes de memória.
-getVelocidadeParalela: retorna um double contendo a multiplicação da quantidade pela velocidade dos pentes de memória.
-getDescricao: retorna uma String contendo a descrição da memória de acordo com a linha a seguir:
+* getTamanhoTotal: retorna um double contendo a multiplicação da quantidade pelo tamanho dos pentes de memória.
+* getVelocidadeParalela: retorna um double contendo a multiplicação da quantidade pela velocidade dos pentes de memória.
+* getDescricao: retorna uma String contendo a descrição da memória de acordo com a linha a seguir:
 Memoria: marca=Kingston, tipo=DDR4, tamanho=8.0GB, velocidade=3.2GHz, numPentes=4, tamanhoTotal=32.0GB, velocidadeParalela=12.8GHz.
 Para testar esta segunda classe, modifique a classe ComputadorMain, criada na questão anterior para criar um ou mais objetos da classe Memoria e, em seguida, imprimir o resultado da execução do método getDescricao dos objetos criados.
 Para essa questão, submeta apenas a classe Memoria. Não precisa submeter a classe ComputadorMain.
@@ -132,16 +115,9 @@ public class Memoria {
 }
 ```
 ### Q3-Classe Disco
-Classe	Disco
-Atributo	marca: String
-Atributo	tipo: String
-Atributo	capacidade: double
-Atributo	rpm: int
-Método construtorEste C indica um método construtor	Disco()
-Método construtorEste C indica um método construtor	Disco(String marca, String tipo, double capacidade, int rpm)
-Método	getDescricao(): String
+![disco](https://user-images.githubusercontent.com/33138839/231196943-7bfac7d6-d97e-4433-b8d8-b79ad00d8fd5.png)
 Como nas questões anteriores, implemente uma classe para representar o Disco do computador de acordo com o diagrama de classe ao lado. Implemente o método:
-getDescricao: retorna uma String contendo a descrição da memória de acordo com a linha a seguir:
+* getDescricao: retorna uma String contendo a descrição da memória de acordo com a linha a seguir:
 Disco: marca=Western Digital, tipo=HDD, capacidade=4000.0GB, rpm=9600rpm.
 Para testar esta terceira classe, modifique a classe ComputadorMain, criada nas questões anteriores para criar um ou mais objetos da classe Disco e, em seguida, imprimir o resultado da execução do método getDescricao dos objetos criados.
 Para essa questão, submeta apenas a classe Disco. Não precisa submeter a classe ComputadorMain.
@@ -176,13 +152,7 @@ public class Disco {
 }
 ```
 ### Q4-Classe Computador
-Classe	Computador
-Atributo	fabricante: String
-Atributo	processador: Processador
-Atributo	memoria: Memoria
-Atributo	disco: Disco
-Método construtorEste C indica um método construtor	Computador(String fabricante, Processador processador, Memoria memoria, Disco disco)
-Método	getDescricao(): String
+![computador](https://user-images.githubusercontent.com/33138839/231196939-d8a7626b-4062-42d1-ac10-e6cc43e67cb8.png)
 Implemente uma classe para Computador. Conforme o diagrama de classe ao lado, o computador deverá ter um atributo para seu fabricante (String), um atributo da classe Processador (criada na Questão 1), um atributo da classe Memoria (criada na Questão 2) e um atributo da classe Disco (criada na Questão 3).
 Crie o método getDescricao que retorne uma String contendo todos os dados do computador. Este método deverá se basear na execução do método getDescricao dos objetos das outras classes (Processador, Memória e Disco), gerando uma String como a seguinte:
 Computador da fabricante Dell. Processador: marca=Intel, modelo=i7, velocidade=3.2GHz, numNucleos=8, velocidadeParalela=25.6GHz. Memoria: marca=Kingston, tipo=DDR4, tamanho=8.0GB, velocidade=3.2GHz, numPentes=4, tamanhoTotal=32.0GB, velocidadeParalela=12.8GHz. Disco: marca=Western Digital, tipo=HDD, capacidade=4000.0GB, rpm=9600rpm.
