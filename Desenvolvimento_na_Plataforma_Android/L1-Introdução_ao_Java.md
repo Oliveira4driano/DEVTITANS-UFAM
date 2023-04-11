@@ -255,6 +255,34 @@ public class Memoria {
 	}
 }
 ```
+```
+public class Disco {
+	String marca;
+	String tipo;
+	double capacidade;
+	int rpm;
+	
+	public Disco(String marca, String tipo, double capacidade, int rpm) {
+		super();
+		this.marca = marca;
+		this.tipo = tipo;
+		this.capacidade = capacidade;
+		this.rpm = rpm;
+	}
+
+	public Disco() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	String 	getDescricao() {
+		String desc = "Disco: marca="+marca+", tipo="+tipo+", capacidade="+capacidade+"GB, rpm="+rpm+"rpm.";
+		return desc;
+	}
+	
+}
+```
+
 Fonte:
 Hanly & Koffman. “Problem Solving and Program Design in C”, 5th edition. Pearson, 2007. (p. 423)
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
