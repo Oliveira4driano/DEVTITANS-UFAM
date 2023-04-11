@@ -184,7 +184,36 @@ Saída: 25.5000
 Entrada: 4 9 11 2 4 -1 10 7 2 2 10 -1
 Saída: 45.5000
 ```
-a
+questao lab 3
+public class Processador {
+		String marca;
+		String modelo;
+		double velocidade;
+		int numNucleos;
+	public Processador() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Processador(String marca,String modelo, double velocidade, int numNucleos) { 
+		this.marca = marca;
+		this.modelo = modelo;
+		this.velocidade = velocidade;
+		this.numNucleos = numNucleos;	
+	}
+	
+	double getVelocidadeParalela() {
+		return velocidade*numNucleos;
+	}
+	
+	String getDescricao() {
+	
+		Processador.this.getVelocidadeParalela();
+		String processador= "Processador: marca="+marca+", modelo="+modelo+", velocidade="+velocidade+"GHz, numNucleos="+numNucleos+", velocidadeParalela="+velocidade*numNucleos+"GHz.";
+		return processador;
+	}
+		
+
+}
 ```
 Fonte:
 Hanly & Koffman. “Problem Solving and Program Design in C”, 5th edition. Pearson, 2007. (p. 423)
