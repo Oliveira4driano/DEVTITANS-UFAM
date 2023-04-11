@@ -37,15 +37,9 @@ syslog:x:104:111::/home/syslog:/usr/sbin/nologin
 sshd:x:124:65534::/run/sshd:/usr/sbin/nologin
 ```
 O motivo de se executar alguns serviços usando usuários próprios é que, caso eles sejam invadidos, o atacante não terá acesso ao sistema como root, e sim como o usuário normal do próprio daemon, impedindo ou dificultando o acesso a informações privilegiadas. Algo muito parecido é usado pelo Android para proteger os dados de um app e impedindo que eles sejam acessados por outros apps, como veremos futuramente.
-Cada linha do arquivo /etc/passwd possui 7 campos separados por : (dois pontos). A figura a seguir mostra um exemplo de uma linha:
-booker	:	x	:	1004	:	2000	:	Booker DeWitt	:	/home/booker	:	/bin/bash
-Login		
-Password		
-User Id		
-Group Id		
-Name		
-Home Dir		
-Shell	
+
+![Screenshot from 2023-04-11 17-32-07](https://user-images.githubusercontent.com/33138839/231293514-4427b612-c3e3-41d1-b3a6-d43764857ffb.png)
+
 A tabela a seguir descreve cada um dos campos:
 <table border=1>
   <tr>
@@ -157,15 +151,8 @@ $ sudo cat /etc/shadow | grep '^devtux:'
 devtux:$y$j9T$XBp3xEpHKSqG2U9wxNdfG/$J3uI7pI3lfdVuGpg5BJaRDiNhvrnPwr/6M/EveSQS46:19443:0:99999:7:::
 ```
 Cada linha do arquivo /etc/shadow possui 8 campos separados por : (dois pontos). A figura a seguir mostra um exemplo, destacando os campos:
-devtux	:	$y$j9T$XBp3xEpHKSqG2U9wxNdfG/$...vrnPwr/6M/EveSQS46	:	19443	:	0	:	99999	:	7	:	14	:	39378	:
-Login		
-Encrypted Password		
-Last Change		
-Minimum		
-Maximum		
-Warn		
-Inactive		
-Expire	
+
+![Screenshot from 2023-04-11 17-32-20](https://user-images.githubusercontent.com/33138839/231293513-f530087a-546f-4363-9c1f-69cf5e1bcc01.png)
 A tabela a seguir descreve cada um dos campos:
 <table border=1>
 <tr>
@@ -209,12 +196,10 @@ A tabela a seguir descreve cada um dos campos:
 6	Warn	7	Número de dias que o usuário deve ser avisado antes da senha expirar.
 7	Inactive	14	Número de dias após a senha expirar que a conta deverá ser desabilitada.
 8	Expire	39378	Uma data fixa, medida em dias após 01/01/1970, em que a senha irá expirar.
-Criptografia da Senha
+### Criptografia da Senha
 A senha criptografada é dividida em três partes, separadas pelo caractere $. A figura a seguir mostra uma visão geral dessas três partes:
-$	y	$	j9T	$	XBp3xEpHKSqG2U9wxNdfG/
-Type		
-Salt		
-Hash	
+
+![Screenshot from 2023-04-11 17-32-38](https://user-images.githubusercontent.com/33138839/231293509-a2a177a8-ea3e-45a4-a73b-d07afff06f3e.png)
 A tabela a seguir descreve cada um dos campos:
 <table border=1>
 <tr>
@@ -256,25 +241,30 @@ export HISTFILE=/dev/null
 Veja a sua senha criptografada no /etc/shadow para descobrir o salt que o Linux usou para salvar a sua senha. Em seguida, execute o comando mkpasswd acima colocando sua senha (real) depois do echo (entre aspas) e mudando o salt no final do comando. A senha criptografada gerada deve ser igual à do /etc/shadow.
 ### 3. Grupos
 Assim como as contas de usuários, os grupos no Linux são definidos em um arquivo: /etc/group
+```
 cat /etc/group
+```
 Como você poder ver, são diversos grupos. Vamos mostrar apenas os 3 primeiros:
+```
 head -3 /etc/group
 root:x:0:
 daemon:x:1:
 bin:x:2:
+```
 Olhe também o grupo que o usuário que você criou pertence:
+```
 cat /etc/group | grep '^devtux:'
 devtux:x:1003:
+```
 No Linux, por padrão, ao criar um usuário é criado também um grupo com o mesmo nome. Se os usuários pertencessem a um mesmo grupo (e.g., normal-users), dependendo das permissões, os usuários poderiam acessar os arquivos dos outros usuários, o que não é recomendado.
 Por fim, alguns grupos possuem uma lista de usuários no final:
+```
 cat /etc/group | grep '^adm:'
 adm:x:4:syslog,devtitans-admin
+```
 Cada linha do arquivo /etc/group possui 4 campos separados por : (dois pontos). A figura a seguir mostra um exemplo de uma linha:
-adm	:	x	:	4	:	syslog,devtitans-admin
-Name		
-Password		
-ID		
-List of Users
+
+![Screenshot from 2023-04-11 17-34-09](https://user-images.githubusercontent.com/33138839/231293506-c9f911d9-43da-4f24-ba1e-307f2c597f4f.png)
 A tabela a seguir descreve cada um dos campos:
 Campo #	Nome	Exemplo	Descrição
 1	Name	adm	Nome do grupo.
@@ -282,35 +272,39 @@ Campo #	Nome	Exemplo	Descrição
 1	ID	4	ID do grupo, também conhecido como GID (group id).
 1	List	syslog,devtitans-admin	Lista de usuários do grupo. Normalmente, este campo é vazio, pois o grupo principal de um usuário é definido no /etc/passwd. Esse campo só é necessário quando um usuário precisa pertencer a vários grupos (além do seu principal).
 Para adicionar um novo grupo, use o comando addgroup:
+```
 sudo addgroup <GROUP_NAME>               # Substitua <GROUP_NAME> pelo NOME do novo grupo (sem <>)
 Adding group `group_dev' (GID 1005) ...
 Done.
+```
 Veja se o seu novo grupo foi criado no /etc/group:
-
+```
 cat /etc/group | grep '^group_dev:'
 group_dev:x:1005:
+```
 Para adicionar um usuário em um grupo, use o comando usermod:
+```
 sudo usermod -a -G group_dev devtux
+```
 Veja se o seu usuário foi realmente adicionado ao novo grupo:
+```
 cat /etc/group | grep '^group_dev:'
 group_dev:x:1005:devtux
+```
 Por fim, você pode ver todos os grupos que um usuário pertence através do comando groups:
+```
 groups devtux
 devtux : devtux group_dev
+```
 ### 4. Permissões de Arquivos
 Uma vez que você efetuou logon com seu usuário e senha, o restante da segurança é feito através de controle de acesso via permissões. Cada usuário logado possui as suas credenciais, que podem ser vistas através do comando id:
+```	
 id
 uid=1001(devtitans-1) gid=1001(devtitans-1) groups=1001(devtitans-1),​​20(dialout),​​27(sudo),​​109(kvm)
+```
 Tais credenciais são verificadas pelo kernel sempre que o usuário acessa um arquivo (dentre outras ações). No primeiro laboratório, detalhamos a saída do comando ls -l através da figura abaixo:
--		rwxr--r--	 	1	 	root	 	root	 	42	 	Oct 21 2015	 	/etc/hosts
-Tipo		
-Permissões		
-Links		
-Dono		
-Grupo		
-Tamanho		
-Data de Modificação		
-Nome do Arquivo	
+
+![Screenshot from 2023-04-11 17-34-23](https://user-images.githubusercontent.com/33138839/231293504-a6320617-db87-4526-9a8a-c68f40f192fa.png)	
 O controle de acesso ao arquivo é feito comparando os campos tipo, permissões, dono e grupo com as credenciais do usuário tentando acessar o arquivo.
 Sobre o primeiro campo da saída do ls, o tipo do arquivo, ele pode assumir os seguintes valores:
 Valor	Tipo de Arquivo
@@ -322,62 +316,136 @@ p, s
 Arquivo especial de caractere, bloco, pipe e socket.
 ### Campo de Permissões
 Sobre o campo de permissões do arquivo, este é dividido em três partes, conforme a figura abaixo:
-rwx		r--		r--	
-User		
-Group		
-Other	
+	
+![Screenshot from 2023-04-11 17-34-34](https://user-images.githubusercontent.com/33138839/231293503-6fc0e53a-accb-446b-82c8-009fa6a03b60.png)
+	
 Os três primeiros caracteres mostram as permissões para o usuário que é o dono do arquivo. O primeiro caractere diz se o usuário pode ler (r) ou não o arquivo. O segundo caractere diz se o usuário pode escrever (w) no arquivo e, por fim, o terceiro caractere diz se o usuário pode executar (x) o arquivo.
 Os próximos três caracteres indicam essas mesmas três permissões para os usuários que fazem parte do mesmo grupo do arquivo. No caso do exemplo da figura acima, os usuários pertencentes ao grupo do arquivo (root) só podem ler o arquivo (r).
 Por fim, os três últimos caracteres indicam as permissões para todos os outros usuários (other) que não são o dono do arquivo nem pertencem ao grupo dele.
 ### Mudando as Permissões de Arquivos
 O comando usado para mudar as permissões de um arquivo é o chmod. Para vermos o seu funcionamento, vamos criar um script bash que poderemos executar depois:
+```	
 echo '#!/bin/bash'           >  HelloBash.sh
 echo 'echo "Hello Bash ..."' >> HelloBash.sh
+```
 Veja o conteúdo do arquivo:
+```
 cat HelloBash.sh
+```
 Veja as permissões padrões que o arquivo foi criado:
+```
 ls -l HelloBash.sh
 -rw-rw-r-- 1 devtitans-1 devtitans-1 34 mar 27 20:05 HelloBash.sh
+```
 Como você pode ver, o dono do arquivo não pode executá-lo. Pode apenas ler e escrever nele. Vamos tentar executar assim mesmo e ver o que acontece:
+```
 ./HelloBash.sh
 bash: ./HelloBash.sh: Permission denied
+```
 Finalmente, vamos mudar as permissões do arquivo usando o chmod: Para adicionar a permissão de execução do arquivo para o usuário dono do mesmo, use a seguinte sintaxe:
+```
 chmod u+x HelloBash.sh
+```
 O comando acima adiciona (+) a permissão de execução (x) para o usuário dono do arquivo (u). Vamos listar o arquivo para ver suas permissões novamente:
+```
 ls -l HelloBash.sh
 -rw-rw-r-- 1 devtitans-1 devtitans-1 34 mar 27 20:05 HelloBash.sh
+```
 Note como agora o usuário pode executar. Vamos testar:
+```
 ./HelloBash.sh
 Hello Bash ...
+```
 Obviamente, se queremos mudar várias permissões de uma só vez, o comando chmod pode ficar bem confuso. Para isso, este comando permite setar as permissões através de bits, normalmente representados por números octais. A tabela a seguir mostra cada uma das oito possibilidades de permissões:
-Valor Octal	Valor Binário	Valor Texto	Descrição da Permissão
-0	000	---	Nenhuma permissão
-1	001	--x	Somente execução
-2	010	-w-	Somente escrita
-3	011	-wx	Escrita e execução
-4	100	r--	Somente leitura
-5	101	r-x	Leitura e execução
-6	110	rw-	Leitura e escrita
-7	111	rwx	Leitura, escrita e execução
+	<table border=1>
+		<tr>
+			<td>Valor Octal</td>
+			<td>Valor Binário</td>
+			<td>Valor Texto</td>
+			<td>Descrição da Permissão</td>
+		</tr>
+		<tr>
+			<td>0</td>
+			<td>000</td>
+			<td>---</td>
+			<td>Nenhuma permissão</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>001</td>
+			<td>--x</td>
+			<td>Somente execução</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>010</td>
+			<td>-w-</td>
+			<td>Somente escrita</td>
+		</tr>
+		<tr>
+			<tr>
+			<td>3</td>
+			<td>011</td>
+			<td>-wx</td>
+			<td>Escrita e execução</td>
+		</tr>
+		<tr>
+		<tr>
+			<td>4</td>
+			<td>100</td>
+			<td>r--</td>
+			<td>Somente leitura</td>
+		</tr>
+		<tr>
+			<tr>
+			<td>5</td>
+			<td>101</td>
+			<td>r-x</td>
+			<td>Leitura e execução</td>
+		</tr>
+		<tr>
+			<tr>
+			<td>6</td>
+			<td>110</td>
+			<td>rw-</td>
+			<td>Leitura e escrita</td>
+		</tr>
+		<tr>
+			<tr>
+			<td>7</td>
+			<td>111</td>
+			<td>rwx</td>
+			<td>Leitura, escrita e execução</td>
+		</tr>
+	</table>
+				
 Para mudar as permissões para o dono, grupo e outros, usamos três números:
+```
 chmod 700 HelloBash.sh
 ls -l HelloBash.sh
 -rwx------ 1 devtitans-1 devtitans-1 34 mar 27 20:05 HelloBash.sh
+```
 O comando acima seta as permissões de leitura, gravação e execução para o usuário (7), e retira todas as permissões para o grupo (0) e para os outros (0).
+```
 chmod 755 HelloBash.sh
 ls -l HelloBash.sh
 -rwxr-xr-x 1 devtitans-1 devtitans-1 34 mar 27 20:05 HelloBash.sh
+```
 O comando acima seta as permissões de leitura, gravação e execução para o usuário (7), e seta as permissões de leitura e execução (5) para o grupo e para os outros. Ou seja, todos podem ler e executar o arquivo, mas só o dono pode alterar (escrever) o mesmo.
 ### 5. Mudando o Dono e o Grupo de um Arquivo
 Para mudar o dono de um arquivo, usamos o comando chown. Já para mudar o grupo de um arquivo, usamos o comando chgrp. Ambos os comandos não podem ser executados por usuários normais, apenas pelo root. Como a sintaxe dos dois é parecida, testaremos apenas a mudança do grupo de um arquivo.
 Execute o comando abaixo para mudar o grupo do arquivo criado anteriormente:
+```
 sudo chgrp group_dev HelloBash.sh
 ls -l HelloBash.sh
 -rwxr-xr-x 1 devtitans-1 group_dev 34 mar 27 20:05 HelloBash.sh
+```
 ### 6. Executando Comandos como Root
 Várias vezes neste laboratório atual, e algumas nos anteriores, foi necessário executar o comando sudo para executar um comando como root. Finalmente, vamos falar um pouco dele!
 Antigamente, a forma mais usada para "virar root" era executando o comando su. Esse comando existe até hoje. O problema deste comando é que ele pede a senha do root. Portanto, para que várias pessoas pudessem executar um comando como root, seria necessário distribuir a senha dele para todos. Os usuários, além de decorar a senha deles, precisavam decorar a senha do root.
 A principal vantagem do sudo é que ele pede a senha do próprio usuário, e não a senha do root. Além disso, o sudo deixa registrado nos logs do sistema quem executou o que, permitindo um controle e um registro mais detalhado de quem fez mudanças no sistema.
 O sudo é configurado através do arquivo /etc/sudoers:
+```
 sudo cat /etc/sudoers
+```
 Se você analisar bem o arquivo, verá que uma das linhas configura que os usuários do grupo sudo podem executar o comando sudo. Portanto, o controle de quem pode "virar root" é feito basicamente através desse grupo. Para permitir que um determinado usuário possa executar comandos como root, basta colocá-lo neste grupo.
