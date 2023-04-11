@@ -215,6 +215,46 @@ public class Processador {
 
 }
 ```
+```
+public class Memoria {
+	 
+	String marca;
+	 String tipo;
+	 double tamanho;
+	 double velocidade;
+	 int numPentes;
+	
+	
+	public Memoria(String marca, String tipo, double tamanho, double velocidade, int numPentes) {
+		super();
+		this.marca = marca;
+		this.tipo = tipo;
+		this.tamanho = tamanho;
+		this.velocidade = velocidade;
+		this.numPentes = numPentes;
+	}
+
+
+	public Memoria() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	double 	getTamanhoTotal() {
+		return numPentes*tamanho;
+		
+	}
+	
+	double getVelocidadeParalela() {
+		return numPentes*velocidade;
+		
+	}
+	String 	getDescricao() {
+		String desc = "Memoria: marca="+marca+", tipo="+tipo+", tamanho="+tamanho+"GB, velocidade="+velocidade+"GHz, numPentes="+numPentes+", tamanhoTotal="+numPentes*tamanho+"GB, velocidadeParalela="+numPentes*velocidade+"GHz.";
+		return desc;
+	}
+}
+```
 Fonte:
 Hanly & Koffman. “Problem Solving and Program Design in C”, 5th edition. Pearson, 2007. (p. 423)
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
