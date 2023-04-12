@@ -69,7 +69,7 @@ public class IniciadoJedi {
 
 ![Screenshot from 2023-04-12 01-08-11](https://user-images.githubusercontent.com/33138839/231367466-1d7e2625-e2c4-486d-94ed-23eefd5b2747.png)
 
-De forma semelhante às questões anteriores, crie uma classe para representar o TreinadorJedi.
+De forma semelhante às questões anteriores, crie uma classe para representar o <b>TreinadorJedi</b>.
 Implemente o método:
 getDescricao: retorna uma String contendo a descrição completa do TreinadorJedi de acordo com o exemplo abaixo (onde a titulacao é "Grão-Mestre"):
 Grão-Mestre Fae Coven
@@ -78,6 +78,26 @@ Para essa questão, submeta apenas a classe TreinadorJedi. Não precisa submeter
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "TreinadorJedi.java"
 Nota da questão 0.0 / 4.5
+```
+public class TreinadorJedi {
+    String titulacao;
+    String nome;
+
+    public TreinadorJedi() {
+    }
+
+    public TreinadorJedi(String titulacao, String nome) {
+        this.titulacao = titulacao;
+        this.nome = nome;
+    }
+    
+    String getDescricao(){
+        String desc = titulacao+" "+nome;
+        return desc;
+        
+    }
+}
+```
 ### Q3 Classe SessaoJedi
 
 ![Screenshot from 2023-04-12 01-08-21](https://user-images.githubusercontent.com/33138839/231367464-3a43e257-ba5d-40ff-8ee4-537b73f79518.png)
@@ -98,14 +118,23 @@ Para essa questão, submeta apenas a classe SessaoJedi. Não precisa submeter a 
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "SessaoJedi.java"
 Nota da questão 0.0 / 0.5
+```
+a
+```
 ### Q4 Classe SessaoJediMain
 Submeta agora a classe SessaoJediMain, usada para testar as questões anteriores.
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "SessaoJediMain.java"
 Nota da questão 0.0 / 0.5
+```
+a
+```
 ### Q5 Documentação JavaDoc
 Por fim, gere a documentação do seu código através do JavaDoc. No Eclipse, vá em "Project" → "Generate javadoc...". Selecione o seu projeto e os arquivos e clique no botão "Finish".
 Para visualizar a documentação, na aba esquerda do Eclipse ("Package Explorer"), abra o diretório "doc" do seu projeto e clique duas vezes no arquivo "index.html".
 Após resolver e testar a questão no Eclipse, submeta-o usando os botões abaixo.
 Dica: você pode clicar em apenas um dos botões e submeter os vários arquivos solicitados de uma só vez (ou, ainda, você pode arrastar todos os arquivos para esta janela).
 Enviar "IniciadoJedi.html" Enviar "TreinadorJedi.html" Enviar "SessaoJedi.html" Enviar "SessaoJediMain.html"
+```
+a
+```
