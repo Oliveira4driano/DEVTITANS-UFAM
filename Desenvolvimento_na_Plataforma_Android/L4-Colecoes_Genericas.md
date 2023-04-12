@@ -2,30 +2,66 @@
 ### Objetivo
 Modelagem e implementação de classes em Java que usam listas implementadas pela Java Collections Framework.
 ### Descrição
-Neste trabalho, você implementará as classes necessárias para representar Iniciados Jedi em uma Sessão Jedi.
-Irá descrever atributos e implementar métodos e construtores com base em um diagrama de classes da UML.
-Em seguida, objetos serão criados a partir das classes implementadas.
-Nesta abstração, uma Sessão Jedi possui um Mestre Jedi e uma lista de Iniciados Jedi.
+* Neste trabalho, você implementará as classes necessárias para representar Iniciados Jedi em uma Sessão Jedi.
+* Irá descrever atributos e implementar métodos e construtores com base em um diagrama de classes da UML.
+* Em seguida, objetos serão criados a partir das classes implementadas.
+* Nesta abstração, uma Sessão Jedi possui um Mestre Jedi e uma lista de Iniciados Jedi.
 ### Passos Iniciais
-Inicie o Eclipse. Vá em "File" → "New" → "New Java Project". Nome do projeto: "TAP-ColecoesGenericasI".
+* Inicie o Eclipse. Vá em "File" → "New" → "New Java Project". Nome do projeto: "TAP-ColecoesGenericasI".
 Na parte Module (parte de baixo da janela), desselecione "Create module-info.java file".
-Nas questões a seguir, será pedido para criar diversas classes. Para isso, vá em "File" → "New" → "Class".
+* Nas questões a seguir, será pedido para criar diversas classes. Para isso, vá em "File" → "New" → "Class".
 Deixe o campo "package" em branco.
-O Eclipse compila automaticamente as classes sempre que você salva. Para executar e testar, basta ir em "Run" → "Run" (Ctrl+F11).
-A saída e entrada do programa será feita através da aba "Console" do Eclipse.
+* O Eclipse compila automaticamente as classes sempre que você salva. Para executar e testar, basta ir em "Run" → "Run" (Ctrl+F11).
+* A saída e entrada do programa será feita através da aba "Console" do Eclipse.
 Nota da questão 0.0 / 2.5
 ### Q1 Classe IniciadoJedi
 
 Crie uma classe para representar o IniciadoJedi. Os atributos de um objeto da classe IniciadoJedi poderão ser setados diretamente (e.g., iniciado1.nome="Katooni") ou pelo método construtor. Use a técnica de encadeamento de construtores para criar os construtores da classe, semelhante ao feito em sala e mostrado nos slides.
 Implemente os métodos:
-getAnoNascimento: retorna uma String contendo o ano de nascimento do Iniciado Jedi seguido da sigla ABY ("Antes da Batalha de Yavin". caso o anoNacimento seja negativo) ou DBY ("Depois da Batalha de Yavin", caso o anoNascimento seja positivo). Exemplo: "23 ABY", para um anoNascimento=-23.
-getDescricao: retorna uma String contendo a descrição completa do Iniciado Jedi de acordo com o exemplo abaixo:
+* getAnoNascimento: retorna uma String contendo o ano de nascimento do Iniciado Jedi seguido da sigla ABY ("Antes da Batalha de Yavin". caso o anoNacimento seja negativo) ou DBY ("Depois da Batalha de Yavin", caso o anoNascimento seja positivo). Exemplo: "23 ABY", para um anoNascimento=-23.
+* getDescricao: retorna uma String contendo a descrição completa do Iniciado Jedi de acordo com o exemplo abaixo:
 Katooni (especie=Tholothian, nascimento=23 ABY)
 Para testar a classe, crie uma nova classe chamada SessaoJediMain. Nesta classe, crie o método main, que será o ponto de partida do seu programa. No método main, crie um ou mais objetos da classe IniciadoJedi e, em seguida, imprima o resultado da execução do método getDescricao dos objetos criados.
 Para essa questão, submeta apenas a classe IniciadoJedi. Não precisa submeter a classe SessaoJediMain.
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "IniciadoJedi.java"
 Nota da questão 0.0 / 2.0
+```
+public class IniciadoJedi {
+    String nome;
+    String especie;
+    int anoNascimento;
+
+    public IniciadoJedi() {
+    }
+
+    public IniciadoJedi(String nome, String especie, int anoNascimento) {
+        this.nome = nome;
+        this.especie = especie;
+        this.anoNascimento = anoNascimento;
+    }
+       
+    String getDescricao(){
+        String desc =nome+" (especie="+especie+", nascimento="+getAnoNascimento()+")";   
+        return desc;
+    }
+    
+    String getAnoNascimento(){
+        
+        String ano;
+        if(anoNascimento>0){
+            ano=anoNascimento+" DBY";
+       }else{
+            
+            ano=Math.abs(anoNascimento)+" ABY";
+       }
+   
+        return ano;
+    }
+   
+}
+
+```
 ### Q2 Classe TreinadorJedi
 
 De forma semelhante às questões anteriores, crie uma classe para representar o TreinadorJedi.
