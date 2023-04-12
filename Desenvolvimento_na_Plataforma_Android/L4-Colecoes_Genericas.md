@@ -1,0 +1,68 @@
+# Laboratório 4: Coleções Genéricas I (Desafio)
+### Objetivo
+Modelagem e implementação de classes em Java que usam listas implementadas pela Java Collections Framework.
+### Descrição
+Neste trabalho, você implementará as classes necessárias para representar Iniciados Jedi em uma Sessão Jedi.
+Irá descrever atributos e implementar métodos e construtores com base em um diagrama de classes da UML.
+Em seguida, objetos serão criados a partir das classes implementadas.
+Nesta abstração, uma Sessão Jedi possui um Mestre Jedi e uma lista de Iniciados Jedi.
+### Passos Iniciais
+Inicie o Eclipse. Vá em "File" → "New" → "New Java Project". Nome do projeto: "TAP-ColecoesGenericasI".
+Na parte Module (parte de baixo da janela), desselecione "Create module-info.java file".
+Nas questões a seguir, será pedido para criar diversas classes. Para isso, vá em "File" → "New" → "Class".
+Deixe o campo "package" em branco.
+O Eclipse compila automaticamente as classes sempre que você salva. Para executar e testar, basta ir em "Run" → "Run" (Ctrl+F11).
+A saída e entrada do programa será feita através da aba "Console" do Eclipse.
+Nota da questão 0.0 / 2.5
+### Q1 Classe IniciadoJedi
+
+Crie uma classe para representar o IniciadoJedi. Os atributos de um objeto da classe IniciadoJedi poderão ser setados diretamente (e.g., iniciado1.nome="Katooni") ou pelo método construtor. Use a técnica de encadeamento de construtores para criar os construtores da classe, semelhante ao feito em sala e mostrado nos slides.
+Implemente os métodos:
+getAnoNascimento: retorna uma String contendo o ano de nascimento do Iniciado Jedi seguido da sigla ABY ("Antes da Batalha de Yavin". caso o anoNacimento seja negativo) ou DBY ("Depois da Batalha de Yavin", caso o anoNascimento seja positivo). Exemplo: "23 ABY", para um anoNascimento=-23.
+getDescricao: retorna uma String contendo a descrição completa do Iniciado Jedi de acordo com o exemplo abaixo:
+Katooni (especie=Tholothian, nascimento=23 ABY)
+Para testar a classe, crie uma nova classe chamada SessaoJediMain. Nesta classe, crie o método main, que será o ponto de partida do seu programa. No método main, crie um ou mais objetos da classe IniciadoJedi e, em seguida, imprima o resultado da execução do método getDescricao dos objetos criados.
+Para essa questão, submeta apenas a classe IniciadoJedi. Não precisa submeter a classe SessaoJediMain.
+Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
+Enviar "IniciadoJedi.java"
+Nota da questão 0.0 / 2.0
+### Q2 Classe TreinadorJedi
+
+De forma semelhante às questões anteriores, crie uma classe para representar o TreinadorJedi.
+Implemente o método:
+getDescricao: retorna uma String contendo a descrição completa do TreinadorJedi de acordo com o exemplo abaixo (onde a titulacao é "Grão-Mestre"):
+Grão-Mestre Fae Coven
+Para testar a classe, modifique a classe SessaoJediMain, criada na questão anterior, para criar um ou mais objetos da classe TreinadorJedi e, em seguida, imprima o resultado da execução do método getDescricao dos objetos criados.
+Para essa questão, submeta apenas a classe TreinadorJedi. Não precisa submeter a classe SessaoJediMain.
+Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
+Enviar "TreinadorJedi.java"
+Nota da questão 0.0 / 4.5
+### Q3 Classe SessaoJedi
+
+De forma semelhante às questões anteriores, crie uma classe para representar uma SessaoJedi.
+Implemente os métodos:
+addIniciado: adiciona um IniciadoJedi na lista de iniciados que farão parte da sessão. Caso já exista um iniciado com o mesmo nome, o iniciado não deve ser adicionado.
+getIniciado: retorna um IniciadoJedi da lista de iniciados da sessão que possui o nome especificado. Retorna nulo caso o iniciado não pertença à sessão.
+getMediaAnoNascimento: retorna a média do ano de nascimento dos iniciados.
+getDescricao: retorna uma String contendo a descrição completa da sessão, incluindo as informações (getDescricao) do treinador e dos iniciados participantes, de acordo com o exemplo abaixo:
+--> SESSÃO Instruções de Uso da Força (Treinador: Grão-Mestre Fae Coven)
+  - Iniciado 1: Katooni (especie=Tholothian, nascimento=23 ABY)
+  - Iniciado 2: Byph (especie=Ithorian, nascimento=21 ABY)
+  - Iniciado 3: Gungi (especie=Wookiee, nascimento=23 ABY)
+  - Iniciado 4: Petro (especie=Human, nascimento=22 ABY)
+Para testar a classe, modifique a classe SessaoJediMain, criada nas questões anteriores, para criar um ou mais objetos da classe SessaoJedi. Adicione iniciados às sessões e, em seguida, imprima o resultado da execução do método getDescricao dos objetos criados.
+Para essa questão, submeta apenas a classe SessaoJedi. Não precisa submeter a classe SessaoJediMain.
+Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
+Enviar "SessaoJedi.java"
+Nota da questão 0.0 / 0.5
+### Q4 Classe SessaoJediMain
+Submeta agora a classe SessaoJediMain, usada para testar as questões anteriores.
+Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
+Enviar "SessaoJediMain.java"
+Nota da questão 0.0 / 0.5
+### Q5 Documentação JavaDoc
+Por fim, gere a documentação do seu código através do JavaDoc. No Eclipse, vá em "Project" → "Generate javadoc...". Selecione o seu projeto e os arquivos e clique no botão "Finish".
+Para visualizar a documentação, na aba esquerda do Eclipse ("Package Explorer"), abra o diretório "doc" do seu projeto e clique duas vezes no arquivo "index.html".
+Após resolver e testar a questão no Eclipse, submeta-o usando os botões abaixo.
+Dica: você pode clicar em apenas um dos botões e submeter os vários arquivos solicitados de uma só vez (ou, ainda, você pode arrastar todos os arquivos para esta janela).
+Enviar "IniciadoJedi.html" Enviar "TreinadorJedi.html" Enviar "SessaoJedi.html" Enviar "SessaoJediMain.html"
