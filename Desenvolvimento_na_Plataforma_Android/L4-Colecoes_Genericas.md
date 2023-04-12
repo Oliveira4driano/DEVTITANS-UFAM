@@ -15,12 +15,15 @@ Deixe o campo "package" em branco.
 * A saída e entrada do programa será feita através da aba "Console" do Eclipse.
 Nota da questão 0.0 / 2.5
 ### Q1 Classe IniciadoJedi
+![Screenshot from 2023-04-12 01-08-00](https://user-images.githubusercontent.com/33138839/231367469-86fbcc62-7f63-4d1a-b2bd-7db4fb129543.png)
 
 Crie uma classe para representar o IniciadoJedi. Os atributos de um objeto da classe IniciadoJedi poderão ser setados diretamente (e.g., iniciado1.nome="Katooni") ou pelo método construtor. Use a técnica de encadeamento de construtores para criar os construtores da classe, semelhante ao feito em sala e mostrado nos slides.
 Implemente os métodos:
 * getAnoNascimento: retorna uma String contendo o ano de nascimento do Iniciado Jedi seguido da sigla ABY ("Antes da Batalha de Yavin". caso o anoNacimento seja negativo) ou DBY ("Depois da Batalha de Yavin", caso o anoNascimento seja positivo). Exemplo: "23 ABY", para um anoNascimento=-23.
 * getDescricao: retorna uma String contendo a descrição completa do Iniciado Jedi de acordo com o exemplo abaixo:
+```
 Katooni (especie=Tholothian, nascimento=23 ABY)
+```
 Para testar a classe, crie uma nova classe chamada SessaoJediMain. Nesta classe, crie o método main, que será o ponto de partida do seu programa. No método main, crie um ou mais objetos da classe IniciadoJedi e, em seguida, imprima o resultado da execução do método getDescricao dos objetos criados.
 Para essa questão, submeta apenas a classe IniciadoJedi. Não precisa submeter a classe SessaoJediMain.
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
@@ -64,6 +67,8 @@ public class IniciadoJedi {
 ```
 ### Q2 Classe TreinadorJedi
 
+![Screenshot from 2023-04-12 01-08-11](https://user-images.githubusercontent.com/33138839/231367466-1d7e2625-e2c4-486d-94ed-23eefd5b2747.png)
+
 De forma semelhante às questões anteriores, crie uma classe para representar o TreinadorJedi.
 Implemente o método:
 getDescricao: retorna uma String contendo a descrição completa do TreinadorJedi de acordo com o exemplo abaixo (onde a titulacao é "Grão-Mestre"):
@@ -74,6 +79,8 @@ Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "TreinadorJedi.java"
 Nota da questão 0.0 / 4.5
 ### Q3 Classe SessaoJedi
+
+![Screenshot from 2023-04-12 01-08-21](https://user-images.githubusercontent.com/33138839/231367464-3a43e257-ba5d-40ff-8ee4-537b73f79518.png)
 
 De forma semelhante às questões anteriores, crie uma classe para representar uma SessaoJedi.
 Implemente os métodos:
