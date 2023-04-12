@@ -2,6 +2,8 @@
 ## Introdução aos Branches
 Digamos que você queira criar um novo recurso, mas esteja preocupado em fazer alterações no projeto principal. É aqui que entram os "branches" do Git. O Git trabalha como se fosse uma linha do tempo e esta linha seria o nosso branch principal, que é conhecido como master. Por exemplo, se você deseja adicionar uma nova página ao seu site, você pode criar uma nova ramificação apenas para essa página sem afetar a parte principal do projeto. Depois de terminar a página, você pode mesclar suas alterações no branch atual para o branch principal.
 
+![git-branch](https://user-images.githubusercontent.com/33138839/231346588-4531bc6e-1ec2-4ab6-a9a3-99b5debf8221.png)
+
 Vejam, na imagem acima, que temos três branchs, trabalhando de forma simultânea. O master e mais dois branchs, em paralelo.
 Criar um branch é fazer um novo commit, contendo todos os commits anteriores a ele. Resumindo, trabalhar com branch é trabalhar em um mesmo projeto de forma assíncrona, de modo que, muitos desenvolvedores possam trabalhar em um mesmo projeto, sem um atrapalhar o outro.
 ### 1. Criando um Primeiro Branch
