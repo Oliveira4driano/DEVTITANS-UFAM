@@ -173,7 +173,34 @@ Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "SessaoJediMain.java"
 Nota da questão 0.0 / 0.5
 ```
-a
+public class SessaoJediMain {
+    public static void main(String[] args){
+        IniciadoJedi iniciadoJedi = new IniciadoJedi();
+        iniciadoJedi.nome ="Oliveira";
+        iniciadoJedi.especie = "Tholothion";
+        iniciadoJedi.anoNascimento =22;
+        
+        TreinadorJedi treinador = new TreinadorJedi();
+        treinador.nome = "Gungi";
+        treinador.titulacao = "T2";
+        
+        SessaoJedi sessaoJedi = new SessaoJedi();
+        sessaoJedi.nome = "jed";
+        sessaoJedi.treinador = treinador;
+        sessaoJedi.addIniciado(iniciadoJedi);
+        
+        System.out.println(iniciadoJedi.getDescricao());
+        System.out.println(treinador.getDescricao());
+        //descricao da Sessão
+        System.out.println(sessaoJedi.getDescricao());
+        //descrição de um iniciadoJedi
+        System.out.println(sessaoJedi.getIniciado(iniciadoJedi.nome).nome);
+        //retorno da média da idade
+        System.out.println(sessaoJedi.getMediaAnoNascimento());
+                
+    }
+}
+
 ```
 ### Q5 Documentação JavaDoc
 Por fim, gere a documentação do seu código através do JavaDoc. No Eclipse, vá em "Project" → "Generate javadoc...". Selecione o seu projeto e os arquivos e clique no botão "Finish".
