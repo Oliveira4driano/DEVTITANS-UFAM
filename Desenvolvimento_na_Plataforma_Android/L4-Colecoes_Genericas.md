@@ -207,7 +207,9 @@ Por fim, gere a documentação do seu código através do JavaDoc. No Eclipse, v
 Para visualizar a documentação, na aba esquerda do Eclipse ("Package Explorer"), abra o diretório "doc" do seu projeto e clique duas vezes no arquivo "index.html".
 Após resolver e testar a questão no Eclipse, submeta-o usando os botões abaixo.
 Dica: você pode clicar em apenas um dos botões e submeter os vários arquivos solicitados de uma só vez (ou, ainda, você pode arrastar todos os arquivos para esta janela).
-Enviar "IniciadoJedi.html" Enviar "TreinadorJedi.html" Enviar "SessaoJedi.html" Enviar "SessaoJediMain.html"
+
 ```
-a
+Enviar "IniciadoJedi.html" Enviar "TreinadorJedi.html" Enviar "SessaoJedi.html" Enviar "SessaoJediMain.html"
+//arquivos gerados na pasta apidocs no netbeans
+/home/oliveira/NetBeansProjects/TAP-ColecoesGenericasI/target/site/apidocs
 ```
