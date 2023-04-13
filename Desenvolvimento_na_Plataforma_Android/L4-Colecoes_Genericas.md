@@ -119,7 +119,53 @@ Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "SessaoJedi.java"
 Nota da questão 0.0 / 0.5
 ```
-a
+public class SessaoJedi {
+    String nome;
+    TreinadorJedi treinador;
+    ArrayList<IniciadoJedi> iniciados = new ArrayList<>();
+
+    public SessaoJedi() {
+    }
+
+    public SessaoJedi(String nome, TreinadorJedi treinador) {
+        this.nome = nome;
+        this.treinador = treinador;
+       
+    }
+    
+    void addIniciado(IniciadoJedi iniciado){
+       this.iniciados.add(iniciado);
+        
+    }
+    
+    IniciadoJedi getIniciado(String nome){
+        for(IniciadoJedi iniciadoJedi : iniciados){
+            if(iniciadoJedi.nome == nome)
+                return  iniciadoJedi;
+                }
+       
+       return null;
+    }
+    double getMediaAnoNascimento(){
+        int idade = 0;
+        for(IniciadoJedi iniciadoJedi : iniciados){
+            idade +=iniciadoJedi.anoNascimento;
+        }
+        return idade / iniciados.size();
+        
+    }
+    String getDescricao(){
+        StringBuffer  desc = new StringBuffer();
+        desc.append("--> SESSÃO "+this.nome+" (Treinador: "+this.treinador.titulacao+" "+this.treinador.nome+ ")");
+        int posicao=0;
+        for(IniciadoJedi iniciadoJedi : iniciados){
+            posicao +=1;
+            desc.append("\n");
+            desc.append(" - Iniciado "+ posicao +":"+iniciadoJedi.getDescricao());
+        }
+        return desc.toString();      
+    }
+}
 ```
 ### Q4 Classe SessaoJediMain
 Submeta agora a classe SessaoJediMain, usada para testar as questões anteriores.
