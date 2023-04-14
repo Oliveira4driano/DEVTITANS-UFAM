@@ -88,18 +88,55 @@ Crie uma classe para representar um Circulo. Um Circulo é uma subclasse da clas
 * getArea(): implementação do método abstrato que veio da superclasse. Retorna a área do círculo. Importante: use a constante PI do java para realizar o cálculo (veja dicas abaixo).
 * getPerimetro(): implementação do método abstrato que veio da superclasse. Retorna o perímetro do círculo. Importante: use a constante PI do java para realizar o cálculo (veja dicas abaixo).
 * toString: sobrepõe o método toString da classe Object. Deve retornar uma descrição do círculo atual conforme exemplo abaixo. Importante: como este método sobrepõe outro, este precisa ter o mesmo modificador de acesso (ou um mais permissível) que o original. Neste caso, o método precisa ser public (note o círculo verde na descrição do método no diagrama de classes ao lado).
+```
 Círculo na posição (32, 87) com raio de 6.0cm (área=113.09733552923255cm2, perímetro=37.69911184307752cm)
-Dicas:
-A área de um círculo é dada pela fórmula: 
-O perímetro de um círculo é dado pela fórmula: 
-Use a constante PI presente na classe Math do Java para pegar o valor de . Exemplo: double pi = Math.PI;
+```
+### Dicas:
+* A área de um círculo é dada pela fórmula: 
+* O perímetro de um círculo é dado pela fórmula: 
+* Use a constante PI presente na classe Math do Java para pegar o valor de . Exemplo: double pi = Math.PI;
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "Circulo.java" Compilou, mas a resposta está parcialmente errada. Veja mensagens abaixo.
 A saída do último comando abaixo não corresponde ao esperado.
-Código:	Circulo c1 = new Circulo(4, 5, 8); [NL] System.out.println(c1.toString()); [NL] 
-Saída esperada:	Círculo na posição (4, 5) com raio de 8.0cm (área=201.06192982974676cm2, perímetro=50.26548245743669cm)
-Saída obtida:	Círculo na posição (32, 87) com raio de 8.0cm (área=201.06192982974676cm2, perímetro=50.26548245743669cm)
-Nota da questão 0.0 / 3.0
+
+```
+public class Circulo extends FormaGeometrica {
+	public double raio;
+	
+	
+	
+	public Circulo() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Circulo(int posx, int posy,double raio) {
+		super(posx, posy);
+		this.raio = raio;
+		// TODO Auto-generated constructor stub
+	}
+	
+
+	@Override
+	public double getArea() {
+		double pi = Math.PI;
+		double area = pi * Math.pow(raio, 2);
+		return area;
+	}
+
+	@Override
+	public double getPerimetro() {
+		double pi = Math.PI;
+		double circulo =  2* pi * raio;
+		return circulo;
+	}
+
+    @Override
+    public String toString() {
+        return "Círculo na posição ("+Circulo.super.posX+", "+Circulo.super.posY
+                +") com raio de "+raio+"cm (área="+getArea()+"cm2, perímetro="+getPerimetro()+"cm)";
+    }
+```    
 ### Q3 Classe Retangulo
 ClasseEste ícone indica uma classe pública (public)	Retangulo
 AtributoEste ícone indica um atributo público (public)	largura: double
@@ -122,6 +159,9 @@ O perímetro de um retângulo é dado pela fórmula:
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "Retangulo.java"
 Nota da questão 0.0 / 3.0
+```
+a
+```
 ### Q4 Classe Quadrado
 ClasseEste ícone indica uma classe pública (public)	Quadrado
 Método construtorEste C indica um método construtorEste ícone indica um atributo público (public)	Quadrado(int posX, int posY, double lado)
@@ -137,6 +177,12 @@ Quadrado na posição (45, 39) com lado de 6.0cm (área=36.0cm2, perímetro=24.0
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "Quadrado.java"
 Nota da questão 0.0 / 0.5
+```
+a
+```
 ### Q5 Classe FormasMain
 Por fim, para exercitar o conceito de polimorfismo crie uma classe chamada FormasMain que terá o método main. Neste método, crie um vetor de objetos da classe FormaGeometrica. Crie e insira no vetor um ou mais objetos das classes Circulo, Retangulo e Quadrado. Em seguida, faça um for para iterar entre todos os elementos e mande imprimir cada um dos objetos. Como você sobrepôs o método toString, você pode mandar imprimir diretamente. Exemplo: System.out.println(circulo1);
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
+```
+a
+```
