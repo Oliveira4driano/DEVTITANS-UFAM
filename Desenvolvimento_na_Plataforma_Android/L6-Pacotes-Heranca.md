@@ -153,14 +153,39 @@ Crie uma classe para representar um Retangulo. Um Retangulo é uma subclasse da 
 * getPerimetro(): implementação do método abstrato que veio da superclasse. Retorna o perímetro do retângulo.
 * toString: sobrepõe o método toString da classe Object. Deve retornar uma descrição do retângulo atual conforme exemplo abaixo.
 Retângulo na posição (12, 65) com largura de 2.0cm e altura de 7.0cm (área=14.0cm2, perímetro=18.0cm)
-Dicas:
-A área de um retângulo é dada pela fórmula: 
-O perímetro de um retângulo é dado pela fórmula: 
-Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
-Enviar "Retangulo.java"
+### Dicas:
+A área de um retângulo é dada pela fórmula: ![AreaRetangulo](https://user-images.githubusercontent.com/33138839/231938224-3d27cf44-8f94-48df-849e-3cc8721c7de2.png)
+
+O perímetro de um retângulo é dado pela fórmula: ![perimetroRetangulo](https://user-images.githubusercontent.com/33138839/231938262-e4e9d5a1-e36b-4fb6-afce-74451416869e.png)
+
 Nota da questão 0.0 / 3.0
 ```
-a
+public class Retangulo extends FormaGeometrica {
+    public double largura;
+    public double altura;
+
+    public Retangulo() {
+        super();
+    }
+    public Retangulo(int posx, int posy, double largura, double altura) {
+        super(posx, posy);
+        this.largura = largura;
+        this.altura = altura;
+    }
+    @Override
+    public double getArea() {
+        return largura * altura;
+    }
+    @Override
+    public double getPerimetro() {
+        return 2*(largura + altura);
+    }
+    @Override
+    public String toString() {
+        return "Retângulo na posição ("+Retangulo.super.posX+", "+Retangulo.super.posY+") com largura de "
+                +largura+"cm e altura de "+altura+"cm (área="+getArea()+"cm2, perímetro="+getPerimetro()+"    cm)";
+    }
+}
 ```
 ### Q4 Classe Quadrado
 ClasseEste ícone indica uma classe pública (public)	Quadrado
