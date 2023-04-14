@@ -17,6 +17,9 @@ Para isso, ao criar uma nova classe, vá em "File" →
 Como estamos usando pacotes, use o modificador
 public na declaração das classes, dos atributos e dos métodos.
 Explicaremos isso na próxima aula.
+
+![Classe](https://user-images.githubusercontent.com/33138839/231910272-fce6f420-2dd1-41bb-b7a5-22c7e1e072a5.png)
+
 Nota da questão 1.5 / 1.5
 
 ### Q1 Classe FormaGeometrica
@@ -28,6 +31,9 @@ Método construtorEste C indica um método construtorEste ícone indica um atrib
 MétodoEste A indica um método abstrado. Note que o nome do método está em itálico.	getArea(): double
 MétodoEste A indica um método abstrado. Note que o nome do método está em itálico.	getPerimetro(): double
 MétodoEste ícone indica um método público (public)	getPosString(): String
+
+![formaGeometrica](https://user-images.githubusercontent.com/33138839/231910270-6fb1c96b-6364-44eb-99a7-9bdf65654b98.png)
+
 Crie uma classe para representar uma FormaGeometrica. Uma FormaGeometrica possui os atributos posX e posY indicando a posição da forma na tela.
 Esta classe possui os métodos:
 * getPosString: retorna uma String contendo a posição da forma geométrica na tela conforme o exemplo abaixo (para posX = 32 e posY = 87):
@@ -75,6 +81,9 @@ Método construtorEste C indica um método construtorEste ícone indica um atrib
 MétodoEste ícone indica um método público (public)	getArea(): double
 MétodoEste ícone indica um método público (public)	getPerimetro(): double
 MétodoEste ícone indica um método público (public)	toString(): String
+
+![circulo](https://user-images.githubusercontent.com/33138839/231910268-e7e5fa54-8447-43c2-8613-b5a37ce1ec56.png)
+
 Crie uma classe para representar um Circulo. Um Circulo é uma subclasse da classe FormaGeometrica que, além dos atributos e métodos herdados, possui o atributo raio e os métodos:
 * getArea(): implementação do método abstrato que veio da superclasse. Retorna a área do círculo. Importante: use a constante PI do java para realizar o cálculo (veja dicas abaixo).
 * getPerimetro(): implementação do método abstrato que veio da superclasse. Retorna o perímetro do círculo. Importante: use a constante PI do java para realizar o cálculo (veja dicas abaixo).
@@ -99,6 +108,9 @@ Método construtorEste C indica um método construtorEste ícone indica um atrib
 MétodoEste ícone indica um método público (public)	getArea(): double
 MétodoEste ícone indica um método público (public)	getPerimetro(): double
 MétodoEste ícone indica um método público (public)	toString(): String
+
+![retangulo](https://user-images.githubusercontent.com/33138839/231910266-5f98845c-e282-4482-b6b1-c47af213f85d.png)
+
 Crie uma classe para representar um Retangulo. Um Retangulo é uma subclasse da classe FormaGeometrica que, além dos atributos e métodos herdados, possui os atributos largura e altura e os métodos:
 * getArea(): implementação do método abstrato que veio da superclasse. Retorna a área do retângulo.
 * getPerimetro(): implementação do método abstrato que veio da superclasse. Retorna o perímetro do retângulo.
@@ -114,9 +126,14 @@ Nota da questão 0.0 / 3.0
 ClasseEste ícone indica uma classe pública (public)	Quadrado
 Método construtorEste C indica um método construtorEste ícone indica um atributo público (public)	Quadrado(int posX, int posY, double lado)
 MétodoEste ícone indica um método público (public)	toString(): String
+
+![quadrado](https://user-images.githubusercontent.com/33138839/231910263-28408b3c-766c-4b9e-9d1b-25939274b4a6.png)
+
 Crie uma classe para representar um Quadrado. Um Quadrado é uma subclasse da classe Retangulo. Note que ele não possui atributos adicionais (irá usar os atributos largura e altura da superclasse). Os métodos getArea e getPerimetro serão herdados da superclasse. Será necessário apenas sobrepor o método toString.
-toString: sobrepõe o método toString da classe Object. Deve retornar uma descrição do quadrado atual conforme exemplo abaixo.
+* toString: sobrepõe o método toString da classe Object. Deve retornar uma descrição do quadrado atual conforme exemplo abaixo.
+```
 Quadrado na posição (45, 39) com lado de 6.0cm (área=36.0cm2, perímetro=24.0cm)
+```
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "Quadrado.java"
 Nota da questão 0.0 / 0.5
