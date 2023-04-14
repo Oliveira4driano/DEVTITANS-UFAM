@@ -207,7 +207,29 @@ Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "Quadrado.java"
 Nota da questão 0.0 / 0.5
 ```
-a
+package br.edu.icomp.ufam.lab_heranca;
+
+public class Quadrado extends Retangulo {
+	public double lado;
+	
+	public Quadrado() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Quadrado(int posx, int posy, double lado) {
+		super(posx, posy, lado, lado);
+		this.lado = lado;
+		}
+
+	@Override
+	public String toString() {
+		return "Quadrado na posição ("+Quadrado.super.posX+", "+Quadrado.super.posY+") com lado de "+lado+"cm (área="+super.getArea()+"cm2, perímetro="+super.getPerimetro()+"cm)";
+	}
+
+	
+	
+}
 ```
 ### Q5 Classe FormasMain
 Por fim, para exercitar o conceito de polimorfismo crie uma classe chamada FormasMain que terá o método main. Neste método, crie um vetor de objetos da classe FormaGeometrica. Crie e insira no vetor um ou mais objetos das classes Circulo, Retangulo e Quadrado. Em seguida, faça um for para iterar entre todos os elementos e mande imprimir cada um dos objetos. Como você sobrepôs o método toString, você pode mandar imprimir diretamente. Exemplo: System.out.println(circulo1);
