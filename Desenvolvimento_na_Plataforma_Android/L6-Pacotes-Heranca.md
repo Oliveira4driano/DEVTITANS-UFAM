@@ -235,5 +235,22 @@ public class Quadrado extends Retangulo {
 Por fim, para exercitar o conceito de polimorfismo crie uma classe chamada FormasMain que terá o método main. Neste método, crie um vetor de objetos da classe FormaGeometrica. Crie e insira no vetor um ou mais objetos das classes Circulo, Retangulo e Quadrado. Em seguida, faça um for para iterar entre todos os elementos e mande imprimir cada um dos objetos. Como você sobrepôs o método toString, você pode mandar imprimir diretamente. Exemplo: System.out.println(circulo1);
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 ```
-a
+package br.edu.icomp.ufam.lab_heranca;
+
+public class FormasMain {
+
+	public static void main(String[] args) {
+		Circulo circulo = new Circulo(32, 87,6.0);
+		Retangulo retangulo = new Retangulo(12, 65,2.0,7.0);
+		Quadrado quadrado = new Quadrado(45, 39,6.0);
+		System.out.println(
+		circulo.toString()+"\n"+
+		retangulo.toString()+"\n"+
+		quadrado.toString()
+				);
+		
+
+	}
+
+}
 ```
