@@ -100,10 +100,11 @@ Enviar "Circulo.java" Compilou, mas a resposta está parcialmente errada. Veja m
 A saída do último comando abaixo não corresponde ao esperado.
 
 ```
+package br.edu.icomp.ufam.lab_heranca;
+
 public class Circulo extends FormaGeometrica {
 	public double raio;
-	
-	
+
 	
 	public Circulo() {
 		super();
@@ -136,6 +137,7 @@ public class Circulo extends FormaGeometrica {
         return "Círculo na posição ("+Circulo.super.posX+", "+Circulo.super.posY
                 +") com raio de "+raio+"cm (área="+getArea()+"cm2, perímetro="+getPerimetro()+"cm)";
     }
+}
 ```    
 ### Q3 Classe Retangulo
 ClasseEste ícone indica uma classe pública (public)	Retangulo
