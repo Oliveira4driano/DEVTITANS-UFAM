@@ -162,6 +162,8 @@ O perímetro de um retângulo é dado pela fórmula: ![perimetroRetangulo](https
 
 Nota da questão 0.0 / 3.0
 ```
+package br.edu.icomp.ufam.lab_heranca;
+
 public class Retangulo extends FormaGeometrica {
     public double largura;
     public double altura;
