@@ -92,8 +92,8 @@ Crie uma classe para representar um Circulo. Um Circulo é uma subclasse da clas
 Círculo na posição (32, 87) com raio de 6.0cm (área=113.09733552923255cm2, perímetro=37.69911184307752cm)
 ```
 ### Dicas:
-* A área de um círculo é dada pela fórmula: 
-* O perímetro de um círculo é dado pela fórmula: 
+* A área de um círculo é dada pela fórmula: ![area](https://user-images.githubusercontent.com/33138839/231930982-fe93e73e-1b86-4fa1-93a1-78f854652462.png)
+* O perímetro de um círculo é dado pela fórmula: ![perimetroCirculo](https://user-images.githubusercontent.com/33138839/231930950-5c2f2cc1-7c9e-44c6-8945-f234ba565606.png)
 * Use a constante PI presente na classe Math do Java para pegar o valor de . Exemplo: double pi = Math.PI;
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "Circulo.java" Compilou, mas a resposta está parcialmente errada. Veja mensagens abaixo.
