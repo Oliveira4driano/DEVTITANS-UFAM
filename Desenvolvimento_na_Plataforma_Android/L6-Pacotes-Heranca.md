@@ -1,0 +1,125 @@
+# Laboratório 6: Pacotes, Herança
+### Objetivo
+* Exercitar os conceitos de pacotes, herança, sobreposição, polimorfismo
+e classes abstratas.
+* Use os slides do arquivo "" como
+exemplos de código em Java para resolver este laboratório.
+* Neste trabalho, você implementará a hierarquia de classes ao lado para
+representar formas geométricas.
+* O detalhamento das classes, seus atributos e métodos, serão
+descritos nas questões abaixo.
+### Obervações Importantes
+Nome do projeto: "Lab-Heranca".
+As classes deste trabalho deverão estar dentro do
+pacote br.edu.icomp.ufam.lab_heranca
+Para isso, ao criar uma nova classe, vá em "File" →
+"New" → "Class" e preencha o campo "package".
+Como estamos usando pacotes, use o modificador
+public na declaração das classes, dos atributos e dos métodos.
+Explicaremos isso na próxima aula.
+Nota da questão 1.5 / 1.5
+
+### Q1 Classe FormaGeometrica
+ClasseEste A indica que a classe é uma classe abstrata. Note que o nome dela está em itálico também.Este ícone indica uma classe pública (public)	
+FormaGeometrica
+AtributoEste ícone indica um atributo público (public)	posX: int
+AtributoEste ícone indica um atributo público (public)	posY: int
+Método construtorEste C indica um método construtorEste ícone indica um atributo público (public)	FormaGeometrica(int posX, int posY)
+MétodoEste A indica um método abstrado. Note que o nome do método está em itálico.	getArea(): double
+MétodoEste A indica um método abstrado. Note que o nome do método está em itálico.	getPerimetro(): double
+MétodoEste ícone indica um método público (public)	getPosString(): String
+Crie uma classe para representar uma FormaGeometrica. Uma FormaGeometrica possui os atributos posX e posY indicando a posição da forma na tela.
+Esta classe possui os métodos:
+* getPosString: retorna uma String contendo a posição da forma geométrica na tela conforme o exemplo abaixo (para posX = 32 e posY = 87):
+```
+posição (32, 87)
+```
+* getArea(): método abstrato, não possui implementação.
+* getPerimetro(): método abstrato, não possui implementação.
+Note que como a classe possui métodos abstratos, ela também deverá ser declarada como abstrata. Note também que como a classe é abstrata, você não terá como gerar instâncias dela (objetos) para testar o método getPosString.
+Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
+Enviar "FormaGeometrica.java" Solução correta!
+```
+package br.edu.icomp.ufam.lab_heranca;
+
+public abstract class FormaGeometrica {
+
+	public int posX;
+	public int posY;
+	public FormaGeometrica() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public FormaGeometrica(int posx, int posy) {
+		super();
+		this.posX = posx;
+		this.posY = posy;
+	}
+	public abstract double getArea();
+		
+	
+	public abstract double getPerimetro();
+		
+	public String getPosString() {
+		String pos= "posição ("+posX+", "+posY+")";
+		return pos;
+		
+	}
+}
+```
+Nota da questão 0.6 / 2.0
+### Q2 Classe Circulo
+ClasseEste ícone indica uma classe pública (public)	Circulo
+AtributoEste ícone indica um atributo público (public)	raio: double
+Método construtorEste C indica um método construtorEste ícone indica um atributo público (public)	Circulo(int posX, int posY, double raio)
+MétodoEste ícone indica um método público (public)	getArea(): double
+MétodoEste ícone indica um método público (public)	getPerimetro(): double
+MétodoEste ícone indica um método público (public)	toString(): String
+Crie uma classe para representar um Circulo. Um Circulo é uma subclasse da classe FormaGeometrica que, além dos atributos e métodos herdados, possui o atributo raio e os métodos:
+* getArea(): implementação do método abstrato que veio da superclasse. Retorna a área do círculo. Importante: use a constante PI do java para realizar o cálculo (veja dicas abaixo).
+* getPerimetro(): implementação do método abstrato que veio da superclasse. Retorna o perímetro do círculo. Importante: use a constante PI do java para realizar o cálculo (veja dicas abaixo).
+* toString: sobrepõe o método toString da classe Object. Deve retornar uma descrição do círculo atual conforme exemplo abaixo. Importante: como este método sobrepõe outro, este precisa ter o mesmo modificador de acesso (ou um mais permissível) que o original. Neste caso, o método precisa ser public (note o círculo verde na descrição do método no diagrama de classes ao lado).
+Círculo na posição (32, 87) com raio de 6.0cm (área=113.09733552923255cm2, perímetro=37.69911184307752cm)
+Dicas:
+A área de um círculo é dada pela fórmula: 
+O perímetro de um círculo é dado pela fórmula: 
+Use a constante PI presente na classe Math do Java para pegar o valor de . Exemplo: double pi = Math.PI;
+Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
+Enviar "Circulo.java" Compilou, mas a resposta está parcialmente errada. Veja mensagens abaixo.
+A saída do último comando abaixo não corresponde ao esperado.
+Código:	Circulo c1 = new Circulo(4, 5, 8); [NL] System.out.println(c1.toString()); [NL] 
+Saída esperada:	Círculo na posição (4, 5) com raio de 8.0cm (área=201.06192982974676cm2, perímetro=50.26548245743669cm)
+Saída obtida:	Círculo na posição (32, 87) com raio de 8.0cm (área=201.06192982974676cm2, perímetro=50.26548245743669cm)
+Nota da questão 0.0 / 3.0
+### Q3 Classe Retangulo
+ClasseEste ícone indica uma classe pública (public)	Retangulo
+AtributoEste ícone indica um atributo público (public)	largura: double
+AtributoEste ícone indica um atributo público (public)	altura: double
+Método construtorEste C indica um método construtorEste ícone indica um atributo público (public)	Retangulo(int posX, int posY, double largura, double altura)
+MétodoEste ícone indica um método público (public)	getArea(): double
+MétodoEste ícone indica um método público (public)	getPerimetro(): double
+MétodoEste ícone indica um método público (public)	toString(): String
+Crie uma classe para representar um Retangulo. Um Retangulo é uma subclasse da classe FormaGeometrica que, além dos atributos e métodos herdados, possui os atributos largura e altura e os métodos:
+* getArea(): implementação do método abstrato que veio da superclasse. Retorna a área do retângulo.
+* getPerimetro(): implementação do método abstrato que veio da superclasse. Retorna o perímetro do retângulo.
+* toString: sobrepõe o método toString da classe Object. Deve retornar uma descrição do retângulo atual conforme exemplo abaixo.
+Retângulo na posição (12, 65) com largura de 2.0cm e altura de 7.0cm (área=14.0cm2, perímetro=18.0cm)
+Dicas:
+A área de um retângulo é dada pela fórmula: 
+O perímetro de um retângulo é dado pela fórmula: 
+Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
+Enviar "Retangulo.java"
+Nota da questão 0.0 / 3.0
+### Q4 Classe Quadrado
+ClasseEste ícone indica uma classe pública (public)	Quadrado
+Método construtorEste C indica um método construtorEste ícone indica um atributo público (public)	Quadrado(int posX, int posY, double lado)
+MétodoEste ícone indica um método público (public)	toString(): String
+Crie uma classe para representar um Quadrado. Um Quadrado é uma subclasse da classe Retangulo. Note que ele não possui atributos adicionais (irá usar os atributos largura e altura da superclasse). Os métodos getArea e getPerimetro serão herdados da superclasse. Será necessário apenas sobrepor o método toString.
+toString: sobrepõe o método toString da classe Object. Deve retornar uma descrição do quadrado atual conforme exemplo abaixo.
+Quadrado na posição (45, 39) com lado de 6.0cm (área=36.0cm2, perímetro=24.0cm)
+Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
+Enviar "Quadrado.java"
+Nota da questão 0.0 / 0.5
+### Q5 Classe FormasMain
+Por fim, para exercitar o conceito de polimorfismo crie uma classe chamada FormasMain que terá o método main. Neste método, crie um vetor de objetos da classe FormaGeometrica. Crie e insira no vetor um ou mais objetos das classes Circulo, Retangulo e Quadrado. Em seguida, faça um for para iterar entre todos os elementos e mande imprimir cada um dos objetos. Como você sobrepôs o método toString, você pode mandar imprimir diretamente. Exemplo: System.out.println(circulo1);
+Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
