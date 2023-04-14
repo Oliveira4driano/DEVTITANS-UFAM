@@ -26,6 +26,9 @@ Atributo	acessivel: boolean
 Método construtorEste C indica um método construtor	Sala()
 Método construtorEste C indica um método construtor	Sala(int bloco, int sala, int capacidade, boolean acessivel)
 Método	getDescricao(): String
+
+![sala](https://user-images.githubusercontent.com/33138839/231961628-a29baa16-0437-4461-a693-b4b32b8af3a8.png)
+
 Crie uma classe para representar uma Sala de aula. Os atributos de um objeto da classe Sala poderão ser setados diretamente (e.g., sala1.bloco=6) 
 ou pelo método construtor. Use a técnica de encadeamento de 
 construtores para criar os construtores da classe, semelhante ao feito em sala e mostrado nos slides. No diagrama ao lado, o atributo capacidade 
@@ -89,6 +92,9 @@ Método construtorEste C indica um método construtor	Turma(String nome, String 
 Método	addHorario(int horario): void
 Método	getHorariosString(): String
 Método	getDescricao(): String
+
+![turma](https://user-images.githubusercontent.com/33138839/231961625-94b44acd-e6d4-4f10-8749-5a846dfc59cf.png)
+    
 De forma semelhante às questões anteriores, crie uma classe para representar uma Turma. Nesta classe, o atributo numAlunos indica a quantidade de 
 alunos matriculados na disciplina. O atributo acessivel indica se algum aluno na turma requer uma sala de fácil acesso. Já o atributo horarios, 
 que é uma lista 
@@ -127,6 +133,9 @@ Atributo	turma: Turma
 Atributo	sala: Sala
 Método construtorEste C indica um método construtor	TurmaEmSala()
 Método construtorEste C indica um método construtor	TurmaEmSala(Turma turma, Sala sala)
+    
+![turmaEmSala](https://user-images.githubusercontent.com/33138839/231961622-518650cd-0285-4214-b959-eed8f917b83e.png)
+    
 De forma semelhante às questões anteriores, crie uma classe para representar uma TurmaEmSala, que indica que uma turma está alocada em uma 
 determinada sala.
 
@@ -152,6 +161,9 @@ Método	getTotalEspacoLivre(): int
 Método	relatorioResumoEnsalamento(): String
 Método	relatorioTurmasPorSala(): String
 Método	relatorioSalasPorTurma(): String
+    
+![ensalamento](https://user-images.githubusercontent.com/33138839/231961613-6ff1ab56-e4e3-47f3-b3ed-954dc5cb8a7b.png)
+
 De forma semelhante às questões anteriores, crie uma classe para representar um Ensalamento. Esta classe será a principal parte do sistema, 
 pois terá como atributos uma lista de salas e uma lista de turmas e, adicionalmente, terá métodos para gerar o ensalamento (alocar salas às turmas) 
 e métodos para gerar relatórios.
