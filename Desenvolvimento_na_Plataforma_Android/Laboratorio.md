@@ -1,77 +1,179 @@
-### L6-Q1
+### L8 Q1
 ```
-package br.edu.icomp.ufam.lab_heranca;
+package br.edu.ufam.icomp.lab_excecoes;
 
-public abstract class FormaGeometrica {
+public class Exception extends RuntimeException {
+	private static final long serialVersionUID = 1L;
+	
+	public String s;
+	public Exception() {
+		this("Arquivo texto não encontrado");
 
-	public int posX;
-	public int posY;
-	public FormaGeometrica() {
-		super();
 		// TODO Auto-generated constructor stub
 	}
-	public FormaGeometrica(int posx, int posy) {
-		super();
-		this.posX = posx;
-		this.posY = posy;
+	public Exception(String s) {
+		super(s);
+		// TODO Auto-generated constructor stub
 	}
-	public abstract double getArea();
-		
 	
-	public abstract double getPerimetro();
-		
-	public String getPosString() {
-		String pos= "posição ("+posX+", "+posY+")";
-		return pos;
-		
+	
+
+}
+```
+************************
+```
+package br.edu.ufam.icomp.lab_excecoes;
+
+public class RoverException extends Exception   {
+	private static final long serialVersionUID = 1L;
+
+	public RoverException() {
+		this("Exceção geral do rover");
+	}
+	public RoverException(String s) {
+		super(s);
+		// TODO Auto-generated constructor stub
+	}
+	
+
+}
+```
+************************
+```
+package br.edu.ufam.icomp.lab_excecoes;
+
+public class RoverCoordenadaException extends RoverException {
+	private static final long serialVersionUID = 1L;
+	public RoverCoordenadaException() {
+		this("Exceção geral de coordenada do rover");
+	}
+	
+	
+	public RoverCoordenadaException(String s) {
+		super(s);
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+
+}
+```
+************************
+```
+package br.edu.ufam.icomp.lab_excecoes;
+
+public class CoordenadaNegativaException extends RoverCoordenadaException {
+	private static final long serialVersionUID = 1L;
+
+	public CoordenadaNegativaException() {
+		this("Coordenada com valor negativo");
+	}
+
+	public CoordenadaNegativaException(String s) {
+		super(s);
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+}
+```
+************************
+```
+package br.edu.ufam.icomp.lab_excecoes;
+
+public class CoordenadaForaDosLimitesException extends RoverCoordenadaException{
+	private static final long serialVersionUID = 1L;
+
+	public CoordenadaForaDosLimitesException() {
+		this("Coordenada com valores fora dos limites");
+		// TODO Auto-generated constructor stub
+	}
+
+	public CoordenadaForaDosLimitesException(String s) {
+		super(s);
+		// TODO Auto-generated constructor stub
 	}
 }
 ```
+************************
 ```
-package br.edu.icomp.ufam.lab_heranca;
+package br.edu.ufam.icomp.lab_excecoes;
 
-public class Circulo extends FormaGeometrica {
-	public double raio;
-	
-	
-	
-	public Circulo() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	
+public class DigitoInvalidoException extends RoverCoordenadaException {
+	private static final long serialVersionUID = 1L;
 
-
-	public Circulo(int posx, int posy,double raio) {
-		super(posx, posy);
-		this.raio = raio;
-		// TODO Auto-generated constructor stub
-	}
-	public Circulo(int posx, int posy) {
-		super(posx, posy);
-		
+	public DigitoInvalidoException() {
+		this( "Digito da coordenada inválido");
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public double getArea() {
-		double pi = Math.PI;
-		double area = pi * Math.pow(raio, 2);
-		return area;
-	}
-
-	@Override
-	public double getPerimetro() {
-		double pi = Math.PI;
-		double circulo =  2* pi * raio;
-		return circulo;
-	}
-
-	@Override
-	public String toString() {
-		return "Círculo na posição ("######") com raio de "+raio+"cm (área="+getArea()+"cm2, perímetro="+getPerimetro()+"cm)";
+	public DigitoInvalidoException(String s) {
+		super(s);
+		// TODO Auto-generated constructor stub
 	}
 	
 	
 }
 ```
+************************
+```
+package br.edu.ufam.icomp.lab_excecoes;
+
+public class RoverCaminhoException extends RoverException {
+	private static final long serialVersionUID = 1L;
+
+	public RoverCaminhoException() {
+		this("Exceção geral de caminho do rover");
+		// TODO Auto-generated constructor stub
+	}
+
+	public RoverCaminhoException(String s) {
+		super(s);
+		// TODO Auto-generated constructor stub
+	}
+	
+}
+```
+************************
+```
+package br.edu.ufam.icomp.lab_excecoes;
+
+public class TamanhoMaximoExcedidoException extends RoverCaminhoException {
+
+
+	public TamanhoMaximoExcedidoException() {
+		
+		this( "Quantidade máxima de coordenadas excedida");
+	}
+	
+	public TamanhoMaximoExcedidoException(String s) {
+		super(s);
+		
+	}
+   
+}
+```
+```
+package br.edu.ufam.icomp.lab_excecoes;
+
+public class DistanciaEntrePontosExcedidaException extends RoverCaminhoException {
+	private static final long serialVersionUID = 1L;
+
+	public DistanciaEntrePontosExcedidaException() {
+		this("Distância máxima entre duas coordenadas vizinhas excedida");
+		// TODO Auto-generated constructor stub
+	}
+
+	public DistanciaEntrePontosExcedidaException(String s) {
+		super(s);
+		// TODO Auto-generated constructor stub
+	}
+}
+```
+### L8 Q2
+```
+a
+```
+### L8 Q3
+```
+a
