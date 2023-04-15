@@ -171,8 +171,58 @@ public class DistanciaEntrePontosExcedidaException extends RoverCaminhoException
 }
 ```
 ### L8 Q2
-```
-a
+package br.edu.ufam.icomp.lab_excecoes;
+
+public class Coordenada {
+	public int posX;
+	public int posY;
+	public int digito;
+	
+	
+	public Coordenada() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Coordenada(int posX, int posY, int digito) {
+		super();
+		this.posX = posX;
+		this.posY = posY;
+		this.digito = digito;
+	}
+	
+	public int getPosX() {
+		return digito;
+		
+	}
+	
+	public int getPosY() {
+		return digito;
+		
+	}
+	public double distancia(Coordenada coordenada) {
+		int aux=0;
+		try {
+			if(coordenada.posX <0 || coordenada.posY < 0) {
+				aux =1;
+			}else if(coordenada.posX <=30000 || coordenada.posY <=30000) {
+				aux =2;
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
+		
+	}
+
+
+	@Override
+	public String toString() {
+		return "Coordenada [posX=" + posX + ", posY=" + posY + ", digito=" + digito + "]";
+	}
+
+}
+
 ```
 ### L8 Q3
 ```
