@@ -286,3 +286,30 @@ Nota da questão 0.0 / 0.5
 Por fim, para exercitar o conceito de polimorfismo (agora usando interfaces) modifique a classe GISMain. Crie um vetor de objetos de classes que implementam a interface Localizavel. Crie e insira no vetor um ou mais objetos das classes Celular e CarroLuxuoso. Em seguida, faça um for para iterar entre todos os elementos e mande imprimir a posição de cada um dos objetos. Como você sobrepôs o método toString na classe Posicao, você pode mandar imprimir diretamente o resultado do método getPosicao diretamente. Exemplo: System.out.println(vetorLocalizaveis[i].getPosicao());
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "GISMain.java"
+```                                                      
+package br.edu.ufam.icomp.lab_encapsulamento;
+                                                      
+public class GISMain  {
+
+    public static Localizavel vetorLocalizaveis[] = new Localizavel[4];
+
+    public static void main(String[] args) {
+        
+        //celular
+        Localizavel cel1 =new Celular(55, 92, 992920000);
+        Localizavel cel2 =new Celular(55, 92, 992920001);
+        //carro luxo
+        Localizavel clux1 = new CarroLuxuoso("PPK-0800");
+        Localizavel clux2 = new CarroLuxuoso("OAB-0800");
+ 
+        vetorLocalizaveis[0] = cel1;
+        vetorLocalizaveis[1] = cel2;
+        vetorLocalizaveis[2] = clux1;
+        vetorLocalizaveis[3] = clux2;
+
+        for (Localizavel vetorLocalizavei : vetorLocalizaveis) {
+            System.out.println(vetorLocalizavei.getPosicao());
+        }
+    }
+}
+```                                                      
