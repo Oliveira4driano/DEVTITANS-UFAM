@@ -180,18 +180,38 @@ public class Carro {
 ```
 Nota da questão 0.0 / 2.0
 ### Q5 Classe CarroLuxuoso
-ClasseEste ícone indica uma classe pública (public)	CarroLuxuoso
-Método construtorEste C indica um método construtorEste ícone indica um atributo público (public)	CarroLuxuoso(String placa)
-MétodoEste ícone indica um método público (public)	getPosicao(): Posicao
-MétodoEste ícone indica um método público (public)	getErroLocalizacao(): double
-  
+
  ![carroLuxuoso](https://user-images.githubusercontent.com/33138839/231965610-7c405a31-eeb8-405e-9d27-eec4b9542b40.png)
  
 Crie uma classe para representar um CarroLuxuoso, que herda a classe Carro e implementa a interface Localizavel. Como o CarroLuxuoso implementa a interface Localizavel, este deverá implementar os seus métodos, que serão iguais aos da classe Celular com exceção do método getErroLocalizacao que deverá retornar 15.0.
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "CarroLuxuoso.java"
 ```
-  a
+package br.edu.ufam.icomp.lab_encapsulamento;
+
+import java.util.Random;
+
+public class CarroLuxuoso extends Carro implements Localizavel{
+    public Random r = new Random();
+    
+    public CarroLuxuoso(String placa) {
+        super(placa);       
+    }
+
+    @Override
+    public Posicao getPosicao() {       
+        double latitude = -3.160000  + (-2.960000 - -3.160000 ) * r.nextDouble();
+        double longitude = -60.120000 + (-59.820000 - -60.120000) * r.nextDouble();
+        double altitude = 15.0 + (100.0 - 15.0) * r.nextDouble();
+        
+        return new Posicao(latitude,longitude,altitude);
+    }
+
+    @Override
+    public double getErroLocalizacao() {
+        return 15.0;
+    }  
+}
 ```
   
 Nota da questão 0.0 / 0.5
