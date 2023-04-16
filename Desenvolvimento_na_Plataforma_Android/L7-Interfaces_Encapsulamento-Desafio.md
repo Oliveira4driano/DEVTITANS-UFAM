@@ -148,12 +148,7 @@ Enviar "Celular.java"
 ```
 Nota da questão 0.0 / 1.5
 ### Q4 Classe Carro
-ClasseEste ícone indica uma classe pública (public)	Carro
-AtributoEste ícone indica um atributo protegido (protected)	placa: String
-Método construtorEste C indica um método construtorEste ícone indica um atributo público (public)	Carro(String placa)
-MétodoEste ícone indica um método público (public)	setPlaca(String placa): void
-MétodoEste ícone indica um método público (public)	getPlaca(): String
-  
+
 ![carro](https://user-images.githubusercontent.com/33138839/231965616-b4056653-6dcc-4306-905d-0cb9bfc58f2f.png) 
   
 Crie uma classe para representar um Carro. O seu único atributo, placa deve ser setado como protected e seu getter/setter deve ser implementado. Note que:
@@ -163,7 +158,25 @@ o atributo placa da classe é protected, ou seja, ele só poderá ser acessado p
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "Carro.java"
 ```
-  a
+package br.edu.ufam.icomp.lab_encapsulamento;
+
+public class Carro {
+    
+    protected String placa;
+
+    public Carro(String placa){
+        this.placa = placa;
+    }
+
+    public String getPlaca() {
+        return placa;
+    }
+
+    public void setPlaca(String placa) {
+        this.placa = placa;
+    }
+  
+}
 ```
 Nota da questão 0.0 / 2.0
 ### Q5 Classe CarroLuxuoso
