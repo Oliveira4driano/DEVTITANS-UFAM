@@ -111,40 +111,107 @@ public interface Localizavel {
 Nota da questão 0.0 / 2.0 
 ### Q3 Classe Celular
 ClasseEste ícone indica uma classe pública (public)	Celular
-AtributoEste ícone indica um atributo privado (private)	codPais: int
-AtributoEste ícone indica um atributo privado (private)	codArea: int
-AtributoEste ícone indica um atributo privado (private)	numero: int
+
 Método construtorEste C indica um método construtorEste ícone indica um atributo público (public)	Celular(int codPais, int codArea, int numero)
 MétodoEste F indica um método final, que não pode ser sobreposto pelas subclasses	setCodPais(int codPais): void
-MétodoEste ícone indica um método público (public)	getCodPais(): int
-MétodoEste F indica um método final, que não pode ser sobreposto pelas subclasses	setCodArea(int codArea): void
-MétodoEste ícone indica um método público (public)	getCodArea(): int
-MétodoEste F indica um método final, que não pode ser sobreposto pelas subclasses	setNumero(int numero): void
-MétodoEste ícone indica um método público (public)	getNumero(): int
-MétodoEste ícone indica um método público (public)	getPosicao(): Posicao
-MétodoEste ícone indica um método público (public)	getErroLocalizacao(): double
 
 ![celular](https://user-images.githubusercontent.com/33138839/231965617-6624df6a-c3fa-4ab1-8f14-5b54ae739ab1.png)
  
-Crie uma classe para representar um Celular. Um celular é Localizavel (ou seja, ele implementa a interface Localizavel) e possui algumas regras para seus atributos que deverão ser escondidos (private) e verificados nos métodos setters. Caso algum valor passado para o setter não esteja correto, o valor do atributo deverá ser setado para -1:
-codPais: deve estar entre os valores 1 e 1999 (inclusive).
-codArea: deve estar entre os valores 10 e 99 (inclusive).
-numero: deve estar entre os valores 10000000 e 999999999 (inclusive).
+Crie uma classe para representar um Celular. Um celular é Localizavel (ou seja, ele implementa a interface Localizavel) e possui algumas regras para seus atributos que deverão ser escondidos (private) e verificados nos métodos setters. Caso algum valor passado para o setter não esteja   correto, o valor do atributo deverá ser setado para -1:
+* codPais: deve estar entre os valores 1 e 1999 (inclusive). //utilizar no construtor metodos setCodPais
+* codArea: deve estar entre os valores 10 e 99 (inclusive).
+* numero: deve estar entre os valores 10000000 e 999999999 (inclusive).
 Note que os métodos setCodPais(), setCodArea() e setNumero() estão marcados como final, indicando que estes métodos não poderão ser sobrepostos por subclasses da classe Celular. Além dos métodos getters e setters, implemente os métodos declarados na interface Localizavel:
-getPosicao: deverá retornar uma posição geográfica aleatória dentro da cidade de Manaus (isso irá simular um "GPS"), ou seja:
-latitude: entre -3.160000 e -2.960000.
-longitude: entre -60.120000 e -59.820000.
-altitude: entre 15.0 e 100.0.
-Em java, para gerar um número aleatório entre dois números, importe todas as classes do pacote java.util e use:
+* getPosicao: deverá retornar uma posição geográfica aleatória dentro da cidade de Manaus (isso irá simular um "GPS"), ou seja:
+- latitude: entre -3.160000 e -2.960000.
+- longitude: entre -60.120000 e -59.820000.
+- altitude: entre 15.0 e 100.0.
+- Em java, para gerar um número aleatório entre dois números, importe todas as classes do pacote java.util e use:
+```
 Random r = new Random();
 double latitude = valorMinimo + (valorMaximo - valorMinimo) * r.nextDouble();
-getErroLocalizacao: como estamos usando um celular, que possui GPS menos preciso, este método irá simplesmente retornar o valor 50.0.
+```
+* getErroLocalizacao: como estamos usando um celular, que possui GPS menos preciso, este método irá simplesmente retornar o valor 50.0.
 Para testar a classe, modifique a classe GISMain, criada na primeira questão, para criar um ou mais objetos da classe Celular e, em seguida, imprima a posição do celular executando o método getPosicao.
 Para essa questão, submeta apenas a classe Celular. Não precisa submeter a classe GISMain.
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "Celular.java"
 ```
-  a
+package br.edu.ufam.icomp.lab_encapsulamento;
+ 
+import java.util.Random;
+
+public class Celular implements Localizavel {
+    
+    private int codPais;
+    private int codArea;
+    private int numero;
+
+    public Celular() {
+        super();
+    }
+    //utiliza os sets criados par fazer a validaões das condições
+    public Celular(int codPais, int codArea, int numero) {
+        this.setCodPais(codPais);
+        this.setCodArea(codArea);
+        this.setNumero(numero);
+    }
+
+    public int getCodPais() {
+        return codPais;
+    }
+
+    public final void setCodPais(int codPais) {
+        if (codPais > 0  && codPais < 2000){
+            this.codPais = codPais;
+        }else{
+            this.codPais = -1;
+        }
+    }
+
+    public int getCodArea() {
+        return codArea;
+    }
+
+    public final void setCodArea(int codArea) {
+        
+        if (codArea > 9 && codArea < 100){
+            this.codArea = codArea;
+        }else{
+            this.codArea = -1;
+        }      
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public final void setNumero(int numero) {
+
+        if (numero >= 10000000 && numero <= 999999999){
+            this.numero = numero;
+        }else{
+            this.numero = -1;
+        }
+    }
+
+    @Override
+    public Posicao getPosicao() {
+        
+        Random r = new Random();
+        double latitude = -3.160000  + (-2.960000 - -3.160000 ) * r.nextDouble();
+        double longitude = -60.120000 + (-59.820000 - -60.120000) * r.nextDouble();
+        double altitude = 15.0 + (100.0 - 15.0) * r.nextDouble();
+        
+        return new Posicao(latitude,longitude,altitude);
+    }
+
+    @Override
+    public double getErroLocalizacao() {
+        return 50.0;
+    }
+
+}
 ```
 Nota da questão 0.0 / 1.5
 ### Q4 Classe Carro
