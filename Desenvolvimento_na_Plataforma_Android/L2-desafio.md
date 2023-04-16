@@ -963,7 +963,36 @@ Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "PontoReta.java"
 Nota da questão 0.0 / 0.2
 ```
-a
+import java.util.Scanner;
+
+public class PontoReta {
+    private double pontoX;
+    private double pontoY;
+
+    public PontoReta(double pontoX, double pontoY) {
+        this.pontoX = pontoX;
+        this.pontoY = pontoY;
+    }
+    
+    public void calcula(){
+        String msg;
+        double plan = (2* pontoX + pontoY);
+        if(plan == 3){
+            msg = "Ponto ("+pontoX+", "+pontoY+") pertence a reta 2x + y = 3.";
+        } else{
+            msg = "Ponto ("+pontoX+", "+pontoY+") nao pertence a reta 2x + y = 3.";
+        }
+        System.out.print(msg);
+    }
+ 
+   public static void main(String[] args) {
+       Scanner scan = new Scanner(System.in);
+        double p1 = scan.nextDouble(); 
+        double p2 = scan.nextDouble(); 
+       PontoReta ponto = new PontoReta(p1, p2);
+        ponto.calcula();
+    }
+}
 ```
 ### Q17 Desconto
 Para atrair mais clientes, uma loja de roupas oferece um desconto de 5% em compras de R$200,00 ou mais. Escreva um programa (classe Desconto) que lê o preço sem desconto de uma compra e imprime o valor a ser pago pelo cliente (com duas casas decimais).
