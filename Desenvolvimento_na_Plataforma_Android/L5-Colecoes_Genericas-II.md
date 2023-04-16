@@ -132,8 +132,8 @@ de inteiros, indica os horários desta turma de acordo com a tabela abaixo:
      <tr>
         <td>16	</td>
         <td>5	</td>
-        <td>12	/td>
-        <td>19	<</td>
+        <td>12	</td>
+        <td>19	</td>
         <td>26	</td>
         <td>33</td>
     </tr>
@@ -262,7 +262,21 @@ determinada sala.
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "TurmaEmSala.java"
 ```
-a
+public class TurmaEmSala {
+
+    public Turma turma;
+    public Sala sala;
+
+    public TurmaEmSala() {
+        super();
+    }
+
+    public TurmaEmSala(Turma turma, Sala sala) {
+        this.turma = turma;
+        this.sala = sala;
+    }
+
+}
 ```
 Nota da questão 0.0 / 8.0
 ### Q4 Classe Ensalamento
