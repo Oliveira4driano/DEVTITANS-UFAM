@@ -25,34 +25,67 @@ opção "Interface" do menu.
 
 Nota da questão 0.0 / 2.0
 ### Q1 Classe Posicao
-ClasseEste ícone indica uma classe pública (public)	Posicao
-AtributoEste ícone indica um atributo privado (private)	latitude: double
-AtributoEste ícone indica um atributo privado (private)	longitude: double
-AtributoEste ícone indica um atributo privado (private)	altitude: double
-Método construtorEste C indica um método construtorEste ícone indica um atributo público (public)	Posicao(double latitude, double longitude, double altitude)
-MétodoEste ícone indica um método público (public)	setLatitude(double latitude): void
-MétodoEste ícone indica um método público (public)	getLatitude(): double
-MétodoEste ícone indica um método público (public)	setLongitude(double longitude): void
-MétodoEste ícone indica um método público (public)	getLongitude(): double
-MétodoEste ícone indica um método público (public)	setAltitude(double altitude): void
-MétodoEste ícone indica um método público (public)	getAltitude(): double
-MétodoEste ícone indica um método público (public)	toString(): String
-
-
 ![posicao](https://user-images.githubusercontent.com/33138839/231965622-e81da6c0-e374-4374-bdaf-ea56d6b6e16e.png)
   
 Crie uma classe para representar uma Posicao (composta de latitude, longitude e altitude). Os atributos da classe são todos privados (private) e não poderão ser acessados diretamente, apenas através dos métodos getters e setters.
 Além dos métodos getters e setters, sobreponha o método:
-toString: retorna uma String contendo a descrição da posição conforme o exemplo abaixo (na ordem latitude, longitude, altitude):
+* toString: retorna uma String contendo a descrição da posição conforme o exemplo abaixo (na ordem latitude, longitude, altitude):
+```
 Posição: -3.089242, -59.964874, 88.374
+```
 Para testar a classe, crie uma nova classe chamada GISMain. Nesta classe, crie o método main, que será o ponto de partida do seu programa. No método main, crie um ou mais objetos da classe Posicao e, em seguida, imprima os objetos (eles serão convertidos automaticamente para String usando o método toString).
 Para essa questão, submeta apenas a classe Posicao. Não precisa submeter a classe GISMain.
-
-Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
-Enviar "Posicao.java"
 Nota da questão 0.0 / 2.0
 ```
-a
+package br.edu.ufam.icomp.lab_encapsulamento;
+
+public class Posicao{
+
+
+    private double latitude;
+    private double longitude;
+    private double altitude;
+
+    public Posicao() {
+        super();
+    }
+    
+    public Posicao(double latitude, double longitude, double altitude){
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.altitude = altitude;
+    }
+  
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public double getAltitude() {
+        return altitude;
+    }
+
+    public void setAltitude(double altitude) {
+        this.altitude = altitude;
+    }
+
+    @Override
+    public String toString(){
+        return "Posição: "+this.getLatitude()+", "+this.getLongitude()+", "+this.getAltitude();
+    }
+
+}
 ```
 ### Q2 Interface Localizavel
 ClasseEste ícone indica uma classe pública (public)	<<interface>>
@@ -67,7 +100,13 @@ Por ser uma interface, não tem como instanciar um objeto dela. Para usarmos a i
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "Localizavel.java"
 ```
-  a
+package br.edu.ufam.icomp.lab_encapsulamento;
+  
+public interface Localizavel {
+    abstract Posicao getPosicao();
+    abstract double getErroLocalizacao();
+}
+
 ```
 Nota da questão 0.0 / 2.0 
 ### Q3 Classe Celular
