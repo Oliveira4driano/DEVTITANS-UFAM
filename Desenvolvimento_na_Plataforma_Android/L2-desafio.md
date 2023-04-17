@@ -1103,7 +1103,75 @@ Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "AnimaisCedulas.java"
 Nota da questão 0.0 / 0.3
 ```
-a
+import java.util.Scanner;
+
+public class AnimaisCedulas {
+    
+    public String[] animais ={"Tartaruga","Garça","Arara","Mico-leão-dourado","Onça-pintada","Garoupa"};
+    
+    public void verficaValor(int valor){
+        switch (valor) {
+            case 2:
+                System.out.println(animais[0]);
+                break;
+            case 5:
+                System.out.println(animais[1]);
+                break;
+            case 10:
+                System.out.println(animais[2]);
+                break;
+            case 20:
+                System.out.println(animais[3]);
+                break;
+            case 50:
+                System.out.println(animais[4]);
+                break;
+            case 100:
+                System.out.println(animais[5]);
+                break;
+            default:
+                System.out.println("erro");  
+    }
+     
+    }
+    
+    public static void main(String[] args){
+        AnimaisCedulas cedulas = new AnimaisCedulas();
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Digite o valor da nota");
+        int numero = scan.nextInt();
+        cedulas.verficaValor(numero);  
+    }    
+}
+```
+```
+import java.util.Scanner;
+
+public class AnimaisCedulas {
+    
+    public String[] animais ={"Tartaruga","Garça","Arara","Mico-leão-dourado","Onça-pintada","Garoupa"};
+    
+    public void verficaValor(int valor){
+        switch (valor) {
+            case 2 -> System.out.println(animais[0]);
+            case 5 -> System.out.println(animais[1]);
+            case 10 -> System.out.println(animais[2]);
+            case 20 -> System.out.println(animais[3]);
+            case 50 -> System.out.println(animais[4]);
+            case 100 -> System.out.println(animais[5]);
+            default -> System.out.println("erro");  
+    }
+        
+    }
+    
+    public static void main(String[] args){
+        AnimaisCedulas cedulas = new AnimaisCedulas();
+        Scanner scan = new Scanner(System.in);
+        //  System.out.println("Digite o valor da nota");
+        int numero = scan.nextInt();
+        cedulas.verficaValor(numero);     
+    }   
+}
 ```
 ### Q21 Conta de Energia
 Escreva um programa (classe ContaEnergia) que determine o preço a pagar pelo fornecimento de energia elétrica. Como entrada, ele deve receber o consumo de energia (em kWh) e o tipo de instalação (R para residências, I para indústrias, e C para comércios). Use a tabela a seguir para calcular o preço devido:
