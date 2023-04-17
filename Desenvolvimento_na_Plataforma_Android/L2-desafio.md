@@ -1178,17 +1178,70 @@ public class SomaColecao {
 Nota da questão 0.0 / 0.3
 ### Q24 Soma de Várias Coleções
 Escreva um programa (classe SomaColecoes) que calcula a soma de várias coleções de valores digitados pelo usuário. O usuário irá inserir -1 para indicar o fim de uma coleção e o início da próxima. Uma coleção sem elementos indica o final do programa.
-Exemplo de entrada e saída esperada:
+### Exemplo de entrada e saída esperada:
+```
 Entrada: 20 30 40 -1 8 7 64 -1 38 26 15 95 -1 -1
 Saída: 90
 79
 174
-Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
-Enviar "SomaColecoes.java"
+```
+import java.util.ArrayList;
+
+import java.util.Scanner;
+/**
+ *
+ * @author oliveira
+ */
+   
+public class SomaColecoes {
+      
+    ArrayList<Integer> inteiro = new ArrayList();
+   
+    double media = 0,soma =0;   
+  
+    public void addInteiro(){
+        Scanner scan = new Scanner(System.in);
+        int v = scan.nextInt();
+        int ant;
+        boolean aux = true;  
+        
+        do{
+            inteiro.add(v);
+            ant=v;
+            v = scan.nextInt();
+
+            if(ant == -1 && v == -1){              
+                aux= false;
+                recursivo(inteiro);              
+            }
+        }while(aux);
+   
+    }
+    public void limpaVariavel(){
+        soma =0;
+    }
+    public  void  recursivo(ArrayList<Integer> inteiro){
+       
+        for (Integer double1 : inteiro) {
+            if (double1 != -1) {                
+               // cont = cont +1;
+                soma = (soma+double1);              
+            }else{
+            System.out.printf("%.0f \n",soma);
+            limpaVariavel();                
+            }   
+        }      
+    }
+    
+    public static void main(String[] args) {
+      
+       SomaColecoes soma = new SomaColecoes();       
+            //System.out.println("Digite um número");
+            soma.addInteiro();         
+    }      
+}
+```
 Nota da questão 0.0 / 0.3
-```
-a
-```
 ### Q25 Média de uma Coleção
 Escreva um programa (classe MediaColecao) que calcula a média de uma coleção de valores digitados pelo usuário, com precisão de duas casas decimais. O usuário irá inserir -1 para indicar que não há mais valores serem fornecidos.
 Exemplo de entrada e saída esperada:
