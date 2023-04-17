@@ -1154,12 +1154,28 @@ Escreva um programa (classe SomaColecao) que calcula a soma de uma coleção de 
 Exemplo de entrada e saída esperada:
 Entrada: 1 2 3 4 -1
 Saída: 10
-Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
-Enviar "SomaColecao.java"
+
+```
+import java.util.Scanner;
+
+public class SomaColecao {
+    public static void main(String[] args) {
+                              
+        double soma = 0;    
+        Scanner scan = new Scanner(System.in);
+           // System.out.println("Digite numero1: " );
+        double  v = scan.nextDouble();  
+       
+        while(v != -1){ 
+            soma +=v;
+                      // cont+=1;
+            v = scan.nextDouble();                                               
+        } 
+        System.out.println(soma );   
+    }   
+}
+```
 Nota da questão 0.0 / 0.3
-```
-a
-```
 ### Q24 Soma de Várias Coleções
 Escreva um programa (classe SomaColecoes) que calcula a soma de várias coleções de valores digitados pelo usuário. O usuário irá inserir -1 para indicar o fim de uma coleção e o início da próxima. Uma coleção sem elementos indica o final do programa.
 Exemplo de entrada e saída esperada:
