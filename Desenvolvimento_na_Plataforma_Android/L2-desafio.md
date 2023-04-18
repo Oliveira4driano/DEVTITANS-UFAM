@@ -1175,26 +1175,95 @@ public class AnimaisCedulas {
 ```
 ### Q21 Conta de Energia
 Escreva um programa (classe ContaEnergia) que determine o preço a pagar pelo fornecimento de energia elétrica. Como entrada, ele deve receber o consumo de energia (em kWh) e o tipo de instalação (R para residências, I para indústrias, e C para comércios). Use a tabela a seguir para calcular o preço devido:
-Preço por tipo e faixa de consumo
-Tipo	Faixa (kWh)	Preço
-Residencial	Até 500	R$ 0,40
-Acima de 500	R$ 0,65
-Comercial	Até 1000	R$ 0,55
-Acima de 1000	R$ 0,60
-Industrial	Até 5000	R$ 0,55
-Acima de 5000	R$ 0,60
+<table border=1>
+	<tr><td>Preço por tipo e faixa de consumo</td></tr>
+	<tr>
+		<td>Tipo</td>
+		<td>Faixa (kWh)</td>
+		<td>Preço</td>
+	</tr>
+	<tr>
+		<td>Residencial</td>
+		<td>Até 500</td>
+		<td>R$ 0,40</td>
+	</tr>
+	<tr>
+		<td>Residencial</td>
+		<td>Acima de 500</td>
+		<td>R$ 0,65</td>
+	</tr>
+	<tr>
+		<td>Comercial</td>
+		<td>Até 1000</td>
+		<td>R$ 0,55</td>
+	</tr>
+	<tr>
+		<td>Comercial</td>
+		<td>Acima de 1000</td>
+		<td>R$ 0,60</td>
+	</tr>
+	<tr>
+		<td>Industrial</td>
+		<td>Até 5000</td>
+		<td>R$ 0,55</td>
+	</tr>
+	<tr>
+		<td>Industrial</td>
+		<td>Acima de 5000</td>
+		<td>R$ 0,60</td>
+	</tr>
+</table>		
+
 A saída deve ter duas casas decimais. Caso algum valor inválido seja inserido, o programa deve imprimir -1.00.
 ### Exemplo de entrada e saída esperada:
+```
 Entrada: 6340 R
 Saída: 4121.00
+```
 Dica:
 A classe Scanner não possui o método nextChar(). Para ler um caractere do teclado use: char tipo = scan.next().charAt(0);
-Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
-Enviar "ContaEnergia.java"
+
+```
+import java.util.Scanner;
+
+public class ContaEnergia {
+    private double preco;
+        
+    public void faixaConsumo(int consumo, String tipo){
+ 
+        if(consumo > 0 && tipo.equals("R")){
+            preco = 0.40 * consumo;
+   
+        }else if(consumo > 500 && tipo.equals("R") ){
+            preco = 0.65 * consumo;           
+        }
+        else if(consumo > 0 && tipo.equals("C")){
+            preco = 0.55 * consumo;          
+        }else if(consumo > 1000 && tipo.equals("C") ){
+            preco = 0.60*consumo;       
+        }
+        else if(consumo >0 && tipo.equals("I")){
+            preco = 0.55 * consumo;          
+        }else if(consumo > 5000 && tipo.equals("I") ){
+            preco = 0.65 * consumo;          
+        }
+        else{
+            preco = -1.00;
+        }
+         System.out.printf("%.2f",preco);
+            
+    }
+    
+    public static void main(String[] args){
+        ContaEnergia energia = new ContaEnergia();
+        Scanner scan = new Scanner(System.in);
+        int consumo = scan.nextInt();
+        String tipo = scan.next();
+        energia.faixaConsumo(consumo,tipo);
+    }
+}
+```
 Nota da questão 0.0 / 0.3
-```
-a
-```
 ### Q22 Volume de Combustível
 Considere um tanque de combustível com o formato descrito na figura abaixo.
 
