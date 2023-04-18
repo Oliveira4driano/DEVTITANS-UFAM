@@ -1322,6 +1322,7 @@ Saída: 90
 79
 174
 ```
+```
 import java.util.ArrayList;
 
 import java.util.Scanner;
@@ -1575,21 +1576,23 @@ Use o método replace(CharSequence target, CharSequence replacement) da classe S
 Para pegar um caractere de uma String usando seu índice, use o método charAt(int index) da classe String. Exemplo: char carac = textoLimpo.charAt(i);
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "Palindromos.java"
-Nota da questão 0.0 / 0.4
+
 ```
 a
 ```
+Nota da questão 0.0 / 0.4
 ### Q34 Operações em Números Inteiros
 Escreva programa em Java (classe OperacoesInteiros) que leia do teclado um vetor de inteiros. Em seguida, o programa deve imprimir na ordem:
-Quantidade de elementos
-Quantos são pares
-Quantos são ímpares
-Soma total
-Média (duas casas decimais)
-Maior
-Menor
+* Quantidade de elementos
+* Quantos são pares
+* Quantos são ímpares
+* Soma total
+* Média (duas casas decimais)
+* Maior
+* Menor
 O final de um vetor é determinado pelo número -1. Seu programa deve repetir esse procedimento indefinidamente para diversos vetores, de tamanhos variados, até que um vetor sem elementos seja inserido, terminando a execução do programa.
-Exemplo de entrada e saída esperada:
+### Exemplo de entrada e saída esperada:
+``` 
 Entrada: 1 5 2 8 4 -1 10 54 23 78 -1 -1
 Saída: 5
 3
@@ -1605,14 +1608,95 @@ Saída: 5
 41.25
 78
 10
-Dica:
+``` 
+### Dica:
 A classe Integer possui as constantes MAX_VALUE e MIN_VALUE para o maior e menor número inteiro armazenável. Exemplo: int numero = Integer.MAX_VALUE;
-Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
-Enviar "OperacoesInteiros.java"
+```  
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class OperacoesInteiros {
+      
+    ArrayList<Integer> inteiro = new ArrayList();
+    ArrayList<Integer> ordenalista = new ArrayList();
+    double media = 0,soma =0;   
+    int vpar = 0, vimpar = 0, maior  = 0, menor=1, cont = 0;
+             
+    public void addInteiro(){
+        Scanner scan = new Scanner(System.in);
+        int v = scan.nextInt();
+        int ant;
+        boolean aux = true;  
+        
+        do{
+          // System.out.println("Digite um número");
+            inteiro.add(v);
+            ant=v;
+            v = scan.nextInt();
+
+            if(ant == -1 && v == -1){              
+                aux= false;
+              //  System.out.println("dddd"+inteiro.toString());
+                recursivo(inteiro);              
+            }
+        }while(aux);
+   
+    }
+    public void limpaVariavel(){
+        cont =0;
+        vpar = 0;
+        vimpar=0;
+        soma =0;
+        maior=0;
+        menor=1;  
+        ordenalista = new ArrayList();
+    }
+    public void maxMin(){
+        Collections.sort(ordenalista);        
+        maior = Collections.max(ordenalista);
+        menor = Collections.min(ordenalista);
+       // System.out.println("orde"+ordenalista.toString());
+    }
+       
+    public  void  recursivo(ArrayList<Integer> inteiro){
+       
+        for (Integer double1 : inteiro) {
+            if (double1 != -1) {                
+                cont = cont +1;
+                soma = (soma+double1);
+                ordenalista.add(double1);
+            if(double1 % 2 == 0){
+                vpar += 1;          
+            }else if(double1 % 2 == 1){
+                vimpar += 1;
+            }
+     
+            }else{
+   
+                maxMin();
+                System.out.println(cont);
+                System.out.println(vpar);
+                System.out.println(vimpar);
+                System.out.printf("%.0f \n",soma);
+                media = (soma)/cont;
+                System.out.printf("%.2f \n",media ); 
+                System.out.println(maior);  
+                System.out.println(menor); 
+               limpaVariavel();                
+            }   
+        }      
+    }
+    
+    public static void main(String[] args) {
+      
+       OperacoesInteiros op = new OperacoesInteiros();       
+            //System.out.println("Digite um número");
+            op.addInteiro();         
+    }      
+}
+```
 Nota da questão 0.0 / 0.4
-```
-a
-```
 ### Q35 Mediana de uma Coleção
 A Mediana é uma forma de resumir os valores típicos associados com os membros de uma população (Wiki).
 A mediana de um conjunto ordenado com número de elementos ímpar é o valor do elemento na posição central. Por exemplo, para o conjunto {1, 3, 5, 7, 9}, a mediana será o elemento na posição 3, i.e., o elemento com valor 5. Já a mediana de um conjunto ordenado com número de elementos par é a média dos dois elementos centrais. Por exemplo, para o conjunto {1, 2, 5, 8, 9, 10}, a mediana será a média entre os elementos nas posições 3 e 4, i.e., 6.5.
