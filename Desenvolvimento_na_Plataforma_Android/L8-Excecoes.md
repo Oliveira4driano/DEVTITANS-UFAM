@@ -210,14 +210,60 @@ Já o método toString deverá imprimir as coordenadas de acordo com o exemplo a
 ```
 32, 67
 ```
-Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
-Enviar "Coordenada.java"
+```
+package br.edu.ufam.icomp.lab_excecoes;
+
+public class Coordenada { 
+    private int posX; 
+    private int posY; 
+    private int digito;
+
+    public Coordenada() {
+    }
+
+    public Coordenada(int posX, int posY, int digito)throws CoordenadaNegativaException, CoordenadaForaDosLimitesException, DigitoInvalidoException {
+
+            if(posX <0 || posY < 0) throw new  CoordenadaNegativaException();
+
+            if(posX <0 || posX > 30000 || posY <0 || posY > 30000) throw new CoordenadaForaDosLimitesException();
+
+                int validarDigito = (posX + posY) % 10;
+                if(validarDigito <0 || validarDigito >9)  throw new DigitoInvalidoException();
+
+                if(validarDigito != digito )  throw new DigitoInvalidoException();
+
+                  this.posX = posX;
+                  this.posY = posY;
+                  this.digito = digito;
+    }
+
+    public int getPosX() {
+            return posX;	
+    }
+
+    public int getPosY() {
+            return posY;	
+    }
+    public int getDigito(){
+            return digito;
+    }
+
+    public double distancia(Coordenada coordenada) {
+            double distancia = 0;
+            double posx = this.posX - coordenada.posX;
+            double posy = this.posY - coordenada.posY;
+            distancia = Math.sqrt(posx * posx +  posy * posy);         
+            return distancia;	
+    }
+
+    @Override
+    public String toString() {
+            return getPosX() + ", " + getPosY() ;
+    }
+}
+// raiz (x2 -x1)^2 + (y2 - y1) ^2 
+```
 Nota da questão 0.0 / 4.3
-
-```
-a
-```
-
 ### Q3 Classe Caminho
 
 Crie uma classe para representar um Caminho, que gerenciará um vetor de Coordenadas. O método addCoordenada poderá dispará as seguintes exceções (em ordem de prioridade), caso algo inesperado ocorra:
