@@ -1220,7 +1220,7 @@ A saída deve ter duas casas decimais. Caso algum valor inválido seja inserido,
 Entrada: 6340 R
 Saída: 4121.00
 ```
-Dica:
+### Dica:
 A classe Scanner não possui o método nextChar(). Para ler um caractere do teclado use: char tipo = scan.next().charAt(0);
 
 ```
@@ -1387,10 +1387,26 @@ Entrada: 5 3 9 3 1 -1
 Saída: 4.20
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "MediaColecao.java"
+```
+import java.util.Scanner;
+
+public class MediaColecao {
+    public static void main(String[] args) {
+                              
+        double media = 0, cont=0;    
+        Scanner scan = new Scanner(System.in);
+           // System.out.println("Digite numero1: " );
+        double  v = scan.nextDouble();        
+        while(v != -1){ 
+            media +=v;
+            cont+=1;
+            v = scan.nextDouble();                                               
+        } 
+        System.out.printf("%.2f",media/cont );   
+    }    
+}
+```
 Nota da questão 0.0 / 0.3
-```
-a
-```
 ### Q26 Aproximação de PI 
 O valor de  pode ser aproximado pela seguinte série infinita:
 
