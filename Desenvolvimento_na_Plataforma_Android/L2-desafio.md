@@ -1104,8 +1104,34 @@ Se pelo menos um dos lados for negativo ou os três lados não formarem um triâ
 Dicas:
 A saída é em minúsculo, sem acentos.
 Em um triângulo, a soma dos comprimentos de quaisquer dois lados é maior que o comprimento do terceiro lado [Wiki].
-Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
-Enviar "TipoTriangulo.java"
+```
+import java.util.Scanner;
+
+public class TipoTriangulo {
+   
+    public void triangulos(int a, int b, int c){
+	
+	if((a+b>c) && (a+c>b) && (b+c>a)){
+            if(a == b && a == c){
+                System.out.println("equilatero");
+            }else if((a == b) || (a == c) || (b == c)){
+                System.out.println("isosceles");
+            }else
+                System.out.println("escaleno");
+	}else{
+            System.out.println("invalido");
+        }	
+    }
+    public static void main(String[] args){
+        Scanner scan = new Scanner (System.in);
+	int a = scan.nextInt();
+        int b = scan.nextInt();
+        int c = scan.nextInt();
+        TipoTriangulo triangulo = new TipoTriangulo();
+        triangulo.triangulos(a, b, c);
+    }    
+}
+```
 Nota da questão 0.0 / 0.2
 ### Q20 Animais nas Cédulas do Real
 As cédulas do real começaram a entrar em circulação no Brasil em 1994. Diferentemente das moedas que haviam circulado anteriormente, o real não traz na sua nota personalidades da história nacional, mas sim animais da fauna brasileira, conforme mostra a tabela abaixo.
@@ -1617,6 +1643,56 @@ Uma maneira de encontrar a letra do alfabeto cifrado que vai além da letra 'Z' 
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "CifraCesar.java"
 Nota da questão 0.0 / 0.4
+```
+import java.util.Scanner;
+
+public class CifraCesar {
+     public static void main(String[] args) {
+        Scanner texto = new Scanner(System.in);
+        Scanner codigo = new Scanner(System.in);
+        char ascii;
+        char x, y;
+        
+        System.out.println("Digite a CHAVE: ");//chave será um número que deslocará a mensagem pela sua quantidade (msg 'a' e chave = 3, cifra= 'c')
+        int chave = codigo.nextInt();
+        System.out.println("Digite a mensagem: ");
+        String mens = texto.nextLine().toUpperCase();
+        while (chave >= 26) {//chave tem que ter o tamanho do alfabeto
+            chave = chave - 26;
+        }
+        for (int i = 0; i < mens.length(); i++) {
+         //Tratamento Letras minusculas  
+            if (mens.charAt(i) >= 97 && mens.charAt(i) <= 122) {//letrans minusculas de acordo com a tabela ASCII
+                if ((int) (mens.charAt(i) + chave) > 122) {
+                    x = (char) (mens.charAt(i) + chave);
+                    y = (char) (x - 122);
+                    ascii = (char) (96 + y);
+                    System.out.print(ascii + " ");
+                } else {
+                    ascii = (char) (mens.charAt(i) + chave);
+                    System.out.print(ascii + " ");
+
+                }
+            }
+	//Tratamento Letras mausculas
+            if (mens.charAt(i) >= 65 && mens.charAt(i) <= 90) {
+                if (mens.charAt(i) + chave > 90) {
+                    x = (char) (mens.charAt(i) + chave);
+                    y = (char) (x - 90);
+                    ascii = (char) (64 + y);
+                    System.out.print(ascii + " ");
+                } else {
+                    ascii = (char) (mens.charAt(i) + chave);
+                    System.out.print(ascii + " ");
+                }
+            }
+        }
+    }
+    
+}
+
+```
+resolução II
 ```
 a
 ```
