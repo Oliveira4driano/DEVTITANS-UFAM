@@ -1608,10 +1608,71 @@ Leia a data como uma String e use o método substring(int beginIndex, int endInd
 Leia a data como um int e use operações de divisão e resto para isolar o dia/mês/ano. Esta é a forma mais eficiente.
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "DataExtenso.java"
+
+```
+import java.util.Scanner;
+
+public class DataExtenso {
+    
+    String meses ;
+    public void formataTexto(String valorStr){
+       
+         String dia = valorStr.substring(0, 2); 
+        String mes = valorStr.substring(2, 4);
+        String ano = valorStr.substring(4, 8);
+        
+        int num = Integer.parseInt(mes);
+        switch (num) {
+            case 1:
+                meses = "janeiro";
+                break;
+            case 2:
+                meses = "fevereiro";
+                 break;
+            case 3:
+                meses = "marco";   
+                 break;
+            case 4:
+                meses = "abril";  
+                 break;
+            case 5:
+                meses = "maio"; 
+                 break;
+            case 6:
+                meses = "junho";  
+                 break;
+            case 7:
+                meses = "julho";
+                 break;
+            case 8:
+                meses = "agosto";
+                 break;
+            case 9:
+                meses = "setembro";
+                 break;
+            case 10:
+                meses = "outubro";
+                 break;
+            case 11:
+                meses = "novenbro";
+                 break;
+            case 12:
+                meses = "dezembro";  
+                 break;          
+        }        
+         System.out.println(dia+" de "+meses+" de "+ano);           
+        }
+
+    public static void main(String[] args){
+        DataExtenso dat = new DataExtenso();
+        Scanner scan = new Scanner(System.in);
+           // System.out.println("Digite numero1: " );
+        String data = scan.nextLine();
+        dat.formataTexto(data);
+    }
+}
+```
 Nota da questão 0.0 / 0.4
-```
-a
-```
 ### Q32 Cifra de César
 A criptografia tem por objetivo esconder o significado de uma mensagem para um possível interceptador. Para tanto, os caracteres do texto podem ser misturados de acordo com um protocolo (algoritmo) previamente estabelecido entre emissor e receptor. Assim, o receptor da mensagem pode reverter o protocolo misturador e tornar a mensagem compreensível.
 Uma maneira de se criptografar uma mensagem é substituir o "alfabeto original" por um "alfabeto cifrado", deslocado por um determinado número de letras (5, no exemplo abaixo), em relação ao alfabeto original. O registro mais antigo desse procedimento é atribuído ao general romano Júlio César (100-44 a.C.). Por isso, ele é conhecido como Cifra de César. Por convenção, escreve-se o alfabeto original em minúsculas e o alfabeto cifrado em maiúsculas.
