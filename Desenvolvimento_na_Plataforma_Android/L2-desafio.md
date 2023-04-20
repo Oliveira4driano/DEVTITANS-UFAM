@@ -1082,22 +1082,72 @@ Um tanque de combustível tem o formato esférico. Escreva um programa (classe T
 
 Figura: tanque de combustível
 A saída do programa deverá ser o volume conforme a opção selecionada, com quatro casas decimais de precisão. Não é necessário verificar situações inválidas (opções diferentes de 1 ou 2, ou valores de altura maiores que o raio da esfera).
-Fórmulas:
-Volume da esfera de raio : 
-Volume da calota esférica de raio  e altura : 
-Exemplos de entrada e saída esperada:
+### Fórmulas:
+* Volume da esfera de raio : 
+* Volume da calota esférica de raio  e altura : 
+### Exemplos de entrada e saída esperada:
+```
 Entrada: 30 27 1
 Saída: 48094.6419
 Entrada: 30 27 2
 Saída: 65002.6936
-Dica:
+```
+### Dica:
 O volume de ar corresponde à formula da calota esférica. Já o volume do combustível corresponde ao complemento do volume da calota esférica em relação ao volume total da esfera.
 Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "TanqueCombustivel.java"
+
+```
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.Scanner;
+
+public class TanqueCombustivel {
+
+    // public double raio, ar;
+    //double pi = ;
+    public TanqueCombustivel() {
+    }
+
+    //HALF_EVEN arredondamento sempre deve acontecer para o valor mais próximo
+    public double formata(double valor) {
+        BigDecimal big = new BigDecimal(valor).setScale(4, RoundingMode.HALF_EVEN);
+        return big.doubleValue();
+    }
+
+    public double getVolume(int raio) {
+        
+        double r = 4.0/3.0 * Math.PI * Math.pow(raio, 3);
+        return formata(r);
+
+    }
+
+    public double getCalota(int ar, int raio) {
+        double x = (Math.PI / 3 * Math.pow(ar, 2) * (3 * raio - ar));
+        return formata(x);
+
+    }
+
+    public void calculo(int ar, int raio, int tipo) {
+        if (tipo == 1) {
+            System.out.print(getCalota(raio, ar));
+        } else {
+            System.out.printf("%.4f", getVolume(raio));
+        }
+    }
+
+    public static void main(String[] args) {
+        TanqueCombustivel tam = new TanqueCombustivel();
+        Scanner scan = new Scanner(System.in);
+        int volume = scan.nextInt();
+        int ar = scan.nextInt();
+        int tipo = scan.nextInt();
+         tam.calculo(volume, ar, tipo);
+    }
+}
+
+```
 Nota da questão 0.0 / 0.2
-```
-a
-```
 ### Q19 Tipo do Triangulo
 Escreva um programa (classe TipoTriangulo) que leia as medidas dos três lados de um triângulo, fornecidas pelo usuário, em qualquer ordem, e imprima o nome do tipo de triângulo: "equilatero" (todos os três lados iguais), "isosceles" (apenas dois lados iguais), ou "escaleno" (nenhum par de lados iguais).
 Se pelo menos um dos lados for negativo ou os três lados não formarem um triângulo, o programa deverá imprimir a mensagem "invalido" na tela.
