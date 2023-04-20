@@ -1078,13 +1078,13 @@ public class Desconto {
 ```
 Nota da questão 0.0 / 0.2
 ### Q18 Tanque de Combustível
-Um tanque de combustível tem o formato esférico. Escreva um programa (classe TanqueCombustivel) que leia o valor do raio () do tanque, o valor da altura do ar () e a opção para saber se deseja calcular o volume de ar (opção 1) ou o volume de combustível no tanque (opção 2).
-
+Um tanque de combustível tem o formato esférico. Escreva um programa (classe TanqueCombustivel) que leia o valor do raio |r| do tanque, o valor da altura do ar |x| e a opção para saber se deseja calcular o volume de ar (opção 1) ou o volume de combustível no tanque (opção 2).
+![TanqueCombustivel](https://user-images.githubusercontent.com/33138839/233226239-5d3538c5-fced-4697-8475-8830716644f5.png)
 Figura: tanque de combustível
 A saída do programa deverá ser o volume conforme a opção selecionada, com quatro casas decimais de precisão. Não é necessário verificar situações inválidas (opções diferentes de 1 ou 2, ou valores de altura maiores que o raio da esfera).
 ### Fórmulas:
-* Volume da esfera de raio : 
-* Volume da calota esférica de raio  e altura : 
+* Volume da esfera de raio : ![tanqueVolume](https://user-images.githubusercontent.com/33138839/233226236-0602193c-c110-4229-b01c-ebe90b609b55.png)
+* Volume da calota esférica de raio  e altura :  ![tanqueCalote](https://user-images.githubusercontent.com/33138839/233226234-33dcec3e-69bd-4bea-8ba0-b4941a01a7aa.png)
 ### Exemplos de entrada e saída esperada:
 ```
 Entrada: 30 27 1
