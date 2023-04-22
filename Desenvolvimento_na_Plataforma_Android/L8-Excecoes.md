@@ -282,13 +282,67 @@ Dados do caminho:
     -> 30, 36
     -> 40, 36
     -> 33, 31
- ```
-Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
-Enviar "Caminho.java"
+```
+```
+package br.edu.ufam.icomp.lab_excecoes;
+
+public class Caminho {
+    
+
+    private Coordenada [] caminho = null;
+    private int tamanho = 0;
+
+    public Caminho(int maxTam){
+        this.caminho = new Coordenada[maxTam];
+    }
+
+    public int tamanho(){
+        return this.tamanho;
+    }
+
+    public void addCoordenada(Coordenada coordenada) throws TamanhoMaximoExcedidoException, DistanciaEntrePontosExcedidaException{
+
+        // Primeiro registro
+        if( tamanho == 0){
+            this.caminho[this.tamanho] = coordenada;           
+            this.tamanho++;
+            return;
+        }
+
+        int tamanhoAux = this.tamanho + 1;
+
+        if(tamanhoAux > this.caminho.length){
+            throw new TamanhoMaximoExcedidoException();
+
+        }else if(tamanho > 0 && coordenada.distancia(caminho[tamanho - 1]) > 15){
+            throw new DistanciaEntrePontosExcedidaException("A distancia entre pontos nao pode ser maior que 15m!");
+        }else{
+            this.caminho[tamanho] = coordenada;
+            this.tamanho++;
+
+        }
+
+    }
+
+    public void reset(){
+        this.caminho = new Coordenada[this.tamanho];
+    }
+    
+    @Override
+    public String toString() {
+        
+        StringBuffer saida = new StringBuffer("Dados do caminho:");
+        saida.append("  - Quantidade de pontos: "+this.tamanho+"\n");
+        saida.append("  - Pontos:\n");
+        
+        for(int i = 0; i < tamanho; i++){
+            saida.append("    -> "+this.caminho[i].toString()+"\n");
+        } 
+        return saida.toString();
+    }
+}
+```
 Nota da questão 0.0 / 0.5
-```
-a
-```
 ### Q4 Classe RoverMain
 Por fim, crie uma classe camada RoverMain que irá conter o método main e simular a recepção de um caminho vindo da central de comando na Terra para o Rover criando várias Coordenadas e adicionando-os a um objeto da classe Caminho. Por fim, imprima o caminho completo. Seu código deverá capturar qualquer exceção do rover (RoverException) e imprimir a mensagem de erro caso ocorra. Adicionalmente, em caso de qualquer exceção, o método reset do caminho deverá ser executado, para evitar que o rover use um caminho inválido (i.e., ele deverá ficar parado caso tenha algum problema com o caminho).
 Para imprimir a mensagem de erro da exceção, você pode executar o método getMessage() do objeto de exceção passado pelo catch ou pode simplesmente mandar imprimir o objeto, uma vez que a classe Throwable sobrepõe o método toString. Tente criar coordenadas e caminhos inválidos para ver as mensagens de exceção.
