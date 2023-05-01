@@ -1642,7 +1642,47 @@ Após resolver e testar a questão no Eclipse, submeta-o usando o botão abaixo:
 Enviar "AreaPoligono.java"
 Nota da questão 0.0 / 0.4
 ```
-a
+import java.util.Locale;
+import java.util.Scanner;
+
+public class AreaPoligono {
+    
+    public void calculaPoligono(Scanner scan){
+        // Lê as coordenadas x dos vértices do polígono
+        double[] x = new double[1000]; // vetor com tamanho máximo de 1000 elementos
+        int n = 0; // número de vértices lidos
+        double xi;
+        while ((xi = scan.nextDouble()) != -1) {
+            x[n] = xi;
+            n++;
+        }
+
+        // Lê as coordenadas y dos vértices do polígono
+        double[] y = new double[n]; // vetor com tamanho igual ao número de vértices
+        double yi;
+        for (int i = 0; i < n; i++) {
+            yi = scan.nextDouble();
+            y[i] = yi;
+        }
+        // Calcula a área do polígono
+        double area = 0;
+        for (int i = 0; i < n-1; i++) {
+            area += x[i]*y[i+1] - x[i+1]*y[i];
+        }
+        area += x[n-1]*y[0] - x[0]*y[n-1];
+        area /= 2;
+
+        System.out.printf("%.4f\n", Math.abs(area));
+        
+    }
+
+    public static void main(String[] args) {
+        //Locale.setDefault(Locale.US); utlizado para usar "." inves de "," nas frações.
+       Scanner scan = new Scanner(System.in);
+       AreaPoligono are = new AreaPoligono();
+       are.calculaPoligono(scan);
+    }
+}
 ```
 ### Q31 Data por Extenso
 Escreva um programa em Java (classe DataExtenso) que leia do teclado uma data no formato "ddmmaaaa" e imprima essa data por extenso (suponha valores sempre válidos).
