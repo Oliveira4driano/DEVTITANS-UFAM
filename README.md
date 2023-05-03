@@ -38,8 +38,9 @@ mkdir android_aosp_source_code
 cd android_aosp_source_code
 ```
 
-* Faça o repo init. O repo init consiste em baixar o manifest.xml em um diretório oculto .repo, além de preparar o terreno para baixar os repositórios (algo a ser feito no próximo passo).
+* Faça o repo init. O repo init consiste em baixar o manifest.xml em um diretório oculto .repo, além de preparar o terreno para baixar os repositórios (algo a ser feito no próximo passo). executar o comando na /home
 ```
+cd ~
 repo init -u https://android.googlesource.com/platform/manifest
 ```
 ### Problem scenario:
