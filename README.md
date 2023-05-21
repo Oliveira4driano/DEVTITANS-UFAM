@@ -35,7 +35,6 @@ Crie em seu home um diretório para baixar o código-fonte do AOSP e entre neste
 ```
 cd ~
 mkdir android_aosp_source_code
-cd android_aosp_source_code
 ```
 
 * Faça o repo init. O repo init consiste em baixar o manifest.xml em um diretório oculto .repo, além de preparar o terreno para baixar os repositórios (algo a ser feito no próximo passo). executar o comando na /home
@@ -62,6 +61,7 @@ whereis python3
 Then we create a symlink to it: sudo ln -s /usr/bin/python3 /usr/bin/python
 * Uma vez feito o repo init, tudo está preparado para baixar de fato os repositórios (listados no manifest). Para isso execute o comando repo sync e aguarde. O download demora bastante, uma vez que pode vir, facilmente, mais de 30 GB de conteúdo.
 ```
+cd android_aosp_source_code
 repo sync -j4
 ```
 ### Baixando o AOSP versão especifica
