@@ -1,4 +1,25 @@
 # AOSP-Android
+### requisitos
+git
+python3
+### Problem scenario:
+```
+/usr/bin/env: ‘python’: No such file or directory
+```
+Possible Solution #1
+
+If Python 3 is not installed, install it: 
+```
+apt-get install python3
+```
+Possible Solution #2
+
+If Python 3 has been installed, run these commands: 
+```
+whereis python3
+Then we create a symlink to it: sudo ln -s /usr/bin/python3 /usr/bin/python
+```
+
 #### Onde obter o AOSP? E como ele é composto?
 O código-fonte do AOSP pode ser obtido em: http://source.android.com/source/index.html. O AOSP é versionado através do git, mas, por ser formado por centenas ou milhares de repositórios distintos, o Google criou uma ferramenta chamada repo para gerenciar todos estes repositórios necessários para compor o AOSP. Para instalar tal ferramenta, siga os passos abaixo:
 
@@ -31,34 +52,17 @@ Nesta ferramenta, quem diz quais repositórios irão compor o AOSP é um arquivo
 #### Como obter o AOSP?
  Para obter o AOSP, siga os passos abaixo:
 
-Crie em seu home um diretório para baixar o código-fonte do AOSP e entre neste diretório. Supondo que tal diretório se chame android_aosp_source_code, execute o seguinte comando:
+* Crie em seu home um diretório para baixar o código-fonte do AOSP e entre neste diretório. Supondo que tal diretório se chame android_aosp_source_code, execute o seguinte comando:
 ```
 cd ~
 mkdir android_aosp_source_code
+cd android_aosp_source_code
 ```
 
 * Faça o repo init. O repo init consiste em baixar o manifest.xml em um diretório oculto .repo, além de preparar o terreno para baixar os repositórios (algo a ser feito no próximo passo). executar o comando na /home
 ```
-cd ~
 repo init -u https://android.googlesource.com/platform/manifest
 ```
-### Problem scenario:
-```
-/usr/bin/env: ‘python’: No such file or directory
-```
-Possible Solution #1
-
-If Python 3 is not installed, install it: 
-```
-apt-get install python3
-```
-Possible Solution #2
-
-If Python 3 has been installed, run these commands: 
-```
-whereis python3
-```
-Then we create a symlink to it: sudo ln -s /usr/bin/python3 /usr/bin/python
 * Uma vez feito o repo init, tudo está preparado para baixar de fato os repositórios (listados no manifest). Para isso execute o comando repo sync e aguarde. O download demora bastante, uma vez que pode vir, facilmente, mais de 30 GB de conteúdo.
 ```
 cd android_aosp_source_code
