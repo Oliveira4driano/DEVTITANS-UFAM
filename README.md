@@ -64,6 +64,17 @@ cd android_aosp_source_code
 repo init -u https://android.googlesource.com/platform/manifest
 ```
 * Uma vez feito o repo init, tudo está preparado para baixar de fato os repositórios (listados no manifest). Para isso execute o comando repo sync e aguarde. O download demora bastante, uma vez que pode vir, facilmente, mais de 30 GB de conteúdo.
+
+### BAIXANDO O AOSP COM O REPO (CONT.)
+Por padrão, o repo irá baixar a branch de desenvolvimento (master) do AOSP.
+Podemos baixar uma versão específica do Android indicando a branch ou tag com o
+parâmetro -b:
+A lista de branches e tags existentes está disponível no site do projeto:
+```
+$ repo init -u https://android.googlesource.com/platform/manifest \ -b android-11.0.0_r39
+```
+https://source.android.com/setup/start/build-numbers
+
 ```
 cd android_aosp_source_code
 repo sync -j4
