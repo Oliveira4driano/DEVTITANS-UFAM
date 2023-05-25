@@ -71,7 +71,8 @@ Podemos baixar uma versão específica do Android indicando a branch ou tag com 
 parâmetro -b:
 A lista de branches e tags existentes está disponível no site do projeto:
 ```
-$ repo init -u https://android.googlesource.com/platform/manifest \ -b android-11.0.0_r39
+$ repo init -u https://android.googlesource.com/platform/manifest \-b android-11.0.0_r39
+repo init -u https://android.googlesource.com/platform/manifest \-b android-13.0.0_r24
 ```
 https://source.android.com/setup/start/build-numbers
 
@@ -84,6 +85,7 @@ repo sync -j4
  podemos baixar uma versão especifica do Android indicando o branch com <string>-b</strong>
  ```
  repo init -u https://android.googlesource.com/platform/manifest\-b android-12.1.0_r26
+ repo init -u https://android.googlesource.com/platform/manifest \-b android-13.0.0_r24
  ```
  A lista de branches existentes está disponivél no site
  ```
