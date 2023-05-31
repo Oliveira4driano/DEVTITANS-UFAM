@@ -1,7 +1,7 @@
 # AOSP-Android
 ### requisitos
-git
-python3
+- git
+- python3
 ### Problem scenario:
 ```
 /usr/bin/env: ‘python’: No such file or directory
@@ -75,11 +75,17 @@ $ repo init -u https://android.googlesource.com/platform/manifest \-b android-11
 repo init -u https://android.googlesource.com/platform/manifest \-b android-13.0.0_r24
 ```
 https://source.android.com/setup/start/build-numbers
-
+```
+execute este comando para saber quantos nucleos seu computador suporta e definir no repo sync
+$ nproc --all
+```
+retorno: 8
+então seu comando ficaria repo sync -j8 para realizar o processamento com 8 nucleos que sua maquina suporta.
 ```
 cd android_aosp_source_code
-repo sync -j4
+repo sync -j8
 ```
+
 ### Baixando o AOSP versão especifica
  Por padrão, o <strong>repo</strong> irá baixar a branch de desenvolvimento (master) do AOSP
  podemos baixar uma versão especifica do Android indicando o branch com <string>-b</strong>
