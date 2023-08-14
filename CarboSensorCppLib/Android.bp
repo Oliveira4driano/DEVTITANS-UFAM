@@ -1,0 +1,6 @@
+cc_library {
+    name:   "carbosensor_cpp_lib",
+    srcs:   [ "*.cpp" ],
+    installable:       true,
+    vendor: true,
+}

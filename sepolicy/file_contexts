@@ -1,0 +1,2 @@
+# Define o rótulo do daemon HelloDaemonCpp
+/vendor/bin/carbosensor_daemon_cpp           u:object_r:carbosensordaemoncpp_exec:s0

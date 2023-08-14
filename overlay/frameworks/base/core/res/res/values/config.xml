@@ -1,0 +1,4 @@
+<resources>
+    <!-- Remove a rotação automática do dispositivo -->
+    <bool name="config_supportAutoRotation">false</bool>
+</resources>

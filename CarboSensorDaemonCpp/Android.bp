@@ -1,0 +1,7 @@
+cc_binary {
+    name:        "carbosensor_daemon_cpp",
+    srcs:        [ "carbosensor_daemon_cpp.cpp" ],
+    shared_libs: [ "liblog" ],
+    init_rc:     [ "carbosensor_daemon_cpp.rc" ],
+    vendor:      true,
+}
