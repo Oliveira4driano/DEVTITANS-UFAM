@@ -1,2 +1,4 @@
 # Define o rótulo do daemon HelloDaemonCpp
-/vendor/bin/carbosensor_daemon_cpp           u:object_r:carbosensordaemoncpp_exec:s0
+#/vendor/bin/carbosensor_daemon_cpp           u:object_r:carbosensordaemoncpp_exec:s0
+# Define o rotulo do daemon carbosensor
+/vendor/bin/hw/devtitans.carbosensor-service u:object_r:carbosensor_daemon_exec:s0

@@ -1,0 +1,2 @@
+# Define o rotulo do servico AIDL carbosensor
+devtitans.carbosensor.ICarbosensor/default u:object_r:carbosensor_service:s0

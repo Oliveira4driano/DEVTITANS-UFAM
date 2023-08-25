@@ -1,0 +1,2 @@
+# Define o rotulo da propriedade de sistema
+vendor.devtitans.carbosensor.allow_simulated u:object_r:vendor_carbosensor_prop:s0

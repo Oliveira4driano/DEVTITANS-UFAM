@@ -1,5 +1,0 @@
-service carbosensor_daemon_cpp /vendor/bin/carbosensor_daemon_cpp
-    class main
-    user system
-    group system
-    oneshot

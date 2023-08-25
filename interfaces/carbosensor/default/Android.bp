@@ -1,0 +1,21 @@
+cc_binary {
+    name:                  "devtitans.carbosensor-service",
+    relative_install_path: "hw",                           // HALs ficam armazenados dentro do subdiretório hw do bin
+    init_rc:               ["carbosensor-default.rc"],       // Usado pelo init para iniciar o serviço
+    vintf_fragments:       ["carbosensor-default.xml"],      // Este módulo "provê" o serviço Carbosensor
+    vendor:                true,
+
+    shared_libs: [
+        "libbase",                                         // Contém o logging e centenas de métodos convenientes (usamos só o logging) 
+        "libbinder_ndk",                                   // Biblioteca do binder usada na criação de HALs
+        "carbosensor_lib",                                   // Biblioteca do carbosensor criada anteriormente
+        "devtitans.carbosensor-V1-ndk",             // Biblioteca criada automaticamente pelo AIDL do carbosensor
+    ],
+
+    srcs: [
+        "carbosensor_service.cpp",
+        "main.cpp"
+    ],
+
+    required: [ "carbosensor_lib" ],
+}

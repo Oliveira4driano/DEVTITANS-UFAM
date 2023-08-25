@@ -1,5 +1,5 @@
 cc_library {
-    name:        "smartcarbosensor_lib",
+    name:        "carbosensor_lib",
     srcs:        [ "*.cpp" ],
     export_include_dirs: [ "." ],                       // Exporta o nosso include para os módulos dependem de nós
 

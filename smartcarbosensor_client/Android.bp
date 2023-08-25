@@ -1,9 +1,0 @@
-cc_binary {
-    name:         "smartcarbosensor_client",
-    srcs:         [ "smartcarbosensor_client.cpp" ],
-
-    shared_libs:  [ "smartcarbosensor_lib" ],
-    required:     [ "smartcarbosensor_lib" ],
-
-    vendor: true,
-}

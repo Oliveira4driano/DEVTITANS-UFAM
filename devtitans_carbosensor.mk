@@ -25,8 +25,18 @@ PRODUCT_VENDOR_PROPERTIES += \
 PRODUCT_PACKAGE_OVERLAYS = device/devtitans/carbosensor/overlay
 
 PRODUCT_PACKAGES += \
-    UniversalMediaPlayer \
-    carbosensor_daemon_cpp \
-    smartcarbosensor_client
+    UniversalMediaPlayer
+
+# Carbosensor AIDL Interface
+PRODUCT_PACKAGES += devtitans.carbosensor
+
+# Carbosensor Binder Service
+PRODUCT_PACKAGES += devtitans.carbosensor-service
+
+# Device Framework Matrix (Declara que o nosso produto Kraken precisa do serviço carbosensor)
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := device/devtitans/carbosensor/device_framework_matrix.xml
+
+# Manager
+PRODUCT_PACKAGES += devtitans.carbosensormanager
     
 BOARD_SEPOLICY_DIRS += device/devtitans/carbosensor/sepolicy
