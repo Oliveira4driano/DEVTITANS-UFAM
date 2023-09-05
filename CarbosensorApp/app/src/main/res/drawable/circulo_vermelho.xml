@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <!-- creates an oval shape -->
+        <shape android:shape="oval">
+
+            <!-- giving the color and width to the stroke -->
+            <stroke android:color="#DD0525" android:width="20dp"/>
+
+            <!-- giving the width and the height to the shape -->
+            <size android:width="290dp" android:height="290dp"/>
+        </shape>
+    </item>
+</selector>

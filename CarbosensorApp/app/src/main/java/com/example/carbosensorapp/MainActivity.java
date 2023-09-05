@@ -1,7 +1,12 @@
 package com.example.carbosensorapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.AlarmManager;
+import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -19,29 +24,34 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "DevTITANS.CarbosensorApp";
     private Button botaoIniciar;
     private boolean pararExecucao = false;
-    private TextView textStatus, textSensor;
+    private TextView textStatus, textSensor, textContador ;
     private CarbosensorManager manager;
-    private int numero;
+
+    private ImageView imgCirculo;
+    private Drawable drawableGreen, drawableRed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        textStatus =    findViewById(R.id.textStatus);                      // Acessa os componentes da tela
-        textSensor =    findViewById(R.id.textSensor);
+        textStatus   =  findViewById(R.id.textStatus);                      // Acessa os componentes da tela
+        textSensor   =  findViewById(R.id.textSensor);
         botaoIniciar =  findViewById(R.id.buttonIniciar);
-        manager = CarbosensorManager.getInstance();
-        textStatus.setText("Atualizando ...");
+        manager      =  CarbosensorManager.getInstance();
+        imgCirculo   =  (ImageView) findViewById(R.id.imgCirculo);
+        drawableGreen= getResources().getDrawable(R.drawable.circulo_vermelho);
+        drawableRed= getResources().getDrawable(R.drawable.circulo);
+
+        textStatus.setText("Aguardando ...");
         textStatus.setTextColor(Color.parseColor("#c47e00"));
 
     }
-    public void iniciaThead(View view){
+        public void iniciaThead(View view){
             pararExecucao = false;
-            //botaoIniciar.setText("Parar");
-            SensorThread runable = new SensorThread();
-            new Thread(runable).start();
-
+            SensorRunnable runnable = new SensorRunnable();
+            new Thread( runnable ).start();
+           // imgCirculo.setColorFilter(Color.RED, PorterDuff.Mode.LIGHTEN);
     }
     public void pararThread(View view){
         pararExecucao = true;
@@ -49,8 +59,6 @@ public class MainActivity extends AppCompatActivity {
     }
     public void updateAll(View view) {
         Log.d(TAG, "Atualizando dados do dispositivo ...");
-        textStatus.setText("Atualizando ...");
-        textStatus.setTextColor(Color.parseColor("#c47e00"));
 
         try {
 
@@ -60,12 +68,22 @@ public class MainActivity extends AppCompatActivity {
                 textStatus.setTextColor(Color.parseColor("#73312f"));
 
             }
-            else if (status == 1) {
 
+            else if (status == 1) {
+             //   int ppm = 400 / 1023;
                 int senMq7 = manager.getSensor();
                 textStatus.setText("Conectado");
                 textStatus.setTextColor(Color.parseColor("#6d790c"));
+               // int co = ppm * senMq7;
                 textSensor.setText(String.valueOf(senMq7));
+                if(senMq7<4095) {
+                    imgCirculo.setImageDrawable(drawableGreen);
+                }else{
+                    imgCirculo.setImageDrawable(drawableRed);
+                }
+//                if(senMq7 >=200){
+//                    Toast.makeText(this, "Gás Perigoso Detectado!", Toast.LENGTH_LONG).show();
+//                }
 
             }
 
@@ -76,51 +94,32 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
     //inner class
-    class SensorThread implements Runnable {
+    class SensorRunnable implements Runnable {
 
         @Override
         public void run() {
-        //    for (int i = 0; i < 15; i++) {
+
+            while (!pararExecucao){
+
                 if(pararExecucao)
                     return;
-          //      numero =i;
-          //      Log.d("Thread","contador"+i);
+             //   Log.d("Thread", "contador: " + i );
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                   //     textSensor.setText(String.valueOf(numero));
-                        int status = 0;
-                        try {
-                            status = manager.connect();
-                            int senMq7 = manager.getSensor();
-
-                      //  if(status == 1) {
-
-
-                            textStatus.setText("Conectado");
-                            textStatus.setTextColor(Color.parseColor("#6d790c"));
-                            textSensor.setText(String.valueOf(senMq7));
-
-                       // }
-                        } catch (RemoteException e) {
-                            throw new RuntimeException(e);
-                        }
-
-
-
-                        try {
-                            Thread.sleep(1000);
-                        } catch (InterruptedException e) {
-                            throw new RuntimeException(e);
-                        }
-
-
+                        updateAll(null);
                     }
                 });
 
-          //  }
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+            }
         }
     }
+
 }
